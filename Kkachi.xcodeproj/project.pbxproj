@@ -1,0 +1,657 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		010000000000000000000001 /* KkachiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000001 /* KkachiApp.swift */; };
+		010000000000000000000124 /* PruneNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000124 /* PruneNotifier.swift */; };
+		010000000000000000000002 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000002 /* MenuView.swift */; };
+		010000000000000000000003 /* PrunedTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000003 /* PrunedTab.swift */; };
+		010000000000000000000091 /* RestoreHistoryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000096 /* RestoreHistoryStore.swift */; };
+		010000000000000000000093 /* KkachiStore+Restore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000098 /* KkachiStore+Restore.swift */; };
+		010000000000000000000095 /* TabTracker+Polling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000100 /* TabTracker+Polling.swift */; };
+		010000000000000000000096 /* KkachiHomeAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000101 /* KkachiHomeAction.swift */; };
+			010000000000000000000097 /* FirstRunPrimingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000102 /* FirstRunPrimingView.swift */; };
+			010000000000000000000098 /* MenuButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000103 /* MenuButtonStyles.swift */; };
+			010000000000000000000300 /* SupportedBrowsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000300 /* SupportedBrowsers.swift */; };
+			010000000000000000000301 /* PruneEvaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000301 /* PruneEvaluator.swift */; };
+			010000000000000000000302 /* RestoreHistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000302 /* RestoreHistoryController.swift */; };
+			010000000000000000000303 /* PasteboardWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000303 /* PasteboardWriter.swift */; };
+			010000000000000000000304 /* SystemPasteboardWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000304 /* SystemPasteboardWriter.swift */; };
+			010000000000000000000305 /* WorkspaceApplicationOpener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000305 /* WorkspaceApplicationOpener.swift */; };
+			010000000000000000000306 /* SystemLoginItemService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000306 /* SystemLoginItemService.swift */; };
+			010000000000000000000307 /* WorkspaceNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000307 /* WorkspaceNotifications.swift */; };
+			010000000000000000000308 /* KkachiArchitectureGuardrailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000308 /* KkachiArchitectureGuardrailTests.swift */; };
+			010000000000000000000309 /* BrowserAdapterSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000309 /* BrowserAdapterSupport.swift */; };
+			010000000000000000000310 /* MenuRowText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000310 /* MenuRowText.swift */; };
+			010000000000000000000400 /* KkachiAppFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000400 /* KkachiAppFactory.swift */; };
+			010000000000000000000401 /* RestoreHistoryStoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000401 /* RestoreHistoryStoring.swift */; };
+			010000000000000000000402 /* WorkspaceNotificationSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000402 /* WorkspaceNotificationSource.swift */; };
+
+			010000000000000000000092 /* RestoreHistoryStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000097 /* RestoreHistoryStoreTests.swift */; };
+		010000000000000000000094 /* KkachiPaletteContrastTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000099 /* KkachiPaletteContrastTests.swift */; };
+		010000000000000000000004 /* TabTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000004 /* TabTracker.swift */; };
+		010000000000000000000005 /* TabTracker+Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000005 /* TabTracker+Notifications.swift */; };
+		010000000000000000000006 /* AppleScriptBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000006 /* AppleScriptBridge.swift */; };
+		010000000000000000000089 /* ChromiumAppleScriptBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000094 /* ChromiumAppleScriptBridge.swift */; };
+		010000000000000000000076 /* BrowserScriptingBridge+Probe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000081 /* BrowserScriptingBridge+Probe.swift */; };
+		010000000000000000000077 /* BrowserScriptingBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000082 /* BrowserScriptingBridge.swift */; };
+		010000000000000000000078 /* BrowserScriptingBridge+Commands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000083 /* BrowserScriptingBridge+Commands.swift */; };
+		010000000000000000000088 /* KkachiDebugLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000093 /* KkachiDebugLog.swift */; };
+		010000000000000000000200 /* KkachiSignpost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000200 /* KkachiSignpost.swift */; };
+		010000000000000000000007 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000007 /* Localizable.xcstrings */; };
+		010000000000000000000090 /* AppleScriptBridgeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000095 /* AppleScriptBridgeTests.swift */; };
+		010000000000000000000210 /* TabTrackerPruningTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000210 /* TabTrackerPruningTests.swift */; };
+		010000000000000000000211 /* TabTrackerPolicyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000211 /* TabTrackerPolicyTests.swift */; };
+		010000000000000000000212 /* TabTrackerSummaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000212 /* TabTrackerSummaryTests.swift */; };
+		010000000000000000000213 /* TabTrackerCadenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000213 /* TabTrackerCadenceTests.swift */; };
+		010000000000000000000214 /* TabTrackerDormancyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000214 /* TabTrackerDormancyTests.swift */; };
+		010000000000000000000215 /* TabTrackerRefreshTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000215 /* TabTrackerRefreshTests.swift */; };
+		010000000000000000000216 /* TabTrackerTestContexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000216 /* TabTrackerTestContexts.swift */; };
+		010000000000000000000009 /* TrackingModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000013 /* TrackingModels.swift */; };
+		010000000000000000000127 /* ThresholdPreset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000127 /* ThresholdPreset.swift */; };
+		010000000000000000000010 /* PreferencesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000014 /* PreferencesStore.swift */; };
+		010000000000000000000011 /* KkachiStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000015 /* KkachiStore.swift */; };
+		010000000000000000000012 /* TabTracker+Evaluation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000016 /* TabTracker+Evaluation.swift */; };
+		010000000000000000000201 /* TabTracker+Summary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000201 /* TabTracker+Summary.swift */; };
+		010000000000000000000013 /* MenuDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000017 /* MenuDashboardView.swift */; };
+		010000000000000000000015 /* PermissionCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000019 /* PermissionCardView.swift */; };
+		010000000000000000000016 /* AtRiskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000020 /* AtRiskListView.swift */; };
+		010000000000000000000017 /* PrunedHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000021 /* PrunedHistoryView.swift */; };
+		010000000000000000000125 /* PrunedHistoryView+Failure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000125 /* PrunedHistoryView+Failure.swift */; };
+		010000000000000000000126 /* AtRiskListView+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000126 /* AtRiskListView+Actions.swift */; };
+		010000000000000000000018 /* MenuFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000022 /* MenuFooterView.swift */; };
+		010000000000000000000019 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000023 /* SettingsView.swift */; };
+		010000000000000000000079 /* SettingsBrowserSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000084 /* SettingsBrowserSectionView.swift */; };
+		010000000000000000000087 /* SettingsDebugTimingSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000092 /* SettingsDebugTimingSectionView.swift */; };
+		010000000000000000000110 /* CustomThresholdField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000110 /* CustomThresholdField.swift */; };
+		010000000000000000000111 /* SettingsPruningSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000111 /* SettingsPruningSectionView.swift */; };
+		010000000000000000000120 /* SettingsExclusionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000120 /* SettingsExclusionRowView.swift */; };
+		010000000000000000000121 /* SettingsExclusionAddField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000121 /* SettingsExclusionAddField.swift */; };
+		010000000000000000000122 /* SettingsExclusionsSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000122 /* SettingsExclusionsSectionView.swift */; };
+		010000000000000000000123 /* KkachiStore+Exclusions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000123 /* KkachiStore+Exclusions.swift */; };
+		010000000000000000000020 /* KkachiStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000024 /* KkachiStoreTests.swift */; };
+		010000000000000000000217 /* FakeBrowserAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000217 /* FakeBrowserAdapter.swift */; };
+		010000000000000000000218 /* FakeLoginItemService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000218 /* FakeLoginItemService.swift */; };
+		010000000000000000000219 /* FakeApplicationOpener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000219 /* FakeApplicationOpener.swift */; };
+		010000000000000000000220 /* TestDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000220 /* TestDefaults.swift */; };
+		010000000000000000000221 /* BrowserDescriptor+Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000221 /* BrowserDescriptor+Fixtures.swift */; };
+		010000000000000000000222 /* BrowserTabSnapshot+Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000222 /* BrowserTabSnapshot+Fixtures.swift */; };
+		010000000000000000000223 /* PrunedTab+Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000223 /* PrunedTab+Fixtures.swift */; };
+		010000000000000000000224 /* StoreTestContexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000224 /* StoreTestContexts.swift */; };
+		010000000000000000000022 /* LoginItemService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000026 /* LoginItemService.swift */; };
+		010000000000000000000023 /* KkachiStore+State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000027 /* KkachiStore+State.swift */; };
+		010000000000000000000024 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000028 /* Assets.xcassets */; };
+		010000000000000000000025 /* BrowserModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000029 /* BrowserModels.swift */; };
+		010000000000000000000026 /* BrowserRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000030 /* BrowserRegistry.swift */; };
+		010000000000000000000027 /* ChromiumBrowserAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000031 /* ChromiumBrowserAdapter.swift */; };
+		010000000000000000000028 /* SafariBrowserAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000032 /* SafariBrowserAdapter.swift */; };
+		010000000000000000000029 /* TabTracker+Browsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000033 /* TabTracker+Browsers.swift */; };
+		010000000000000000000031 /* MultiBrowserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000035 /* MultiBrowserTests.swift */; };
+		010000000000000000000032 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000036 /* InfoPlist.xcstrings */; };
+		010000000000000000000033 /* BrowserAutomationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000037 /* BrowserAutomationModels.swift */; };
+		010000000000000000000034 /* PruningSafetyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000038 /* PruningSafetyTests.swift */; };
+		010000000000000000000035 /* SafariBrowserAdapter+Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000039 /* SafariBrowserAdapter+Parsing.swift */; };
+		010000000000000000000036 /* MenuPresentationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000040 /* MenuPresentationModels.swift */; };
+		010000000000000000000037 /* KkachiStore+Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000041 /* KkachiStore+Presentation.swift */; };
+		010000000000000000000038 /* MenuSurfaceStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000042 /* MenuSurfaceStyle.swift */; };
+		010000000000000000000039 /* MenuPresentationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000043 /* MenuPresentationTests.swift */; };
+		010000000000000000000040 /* TabTracker+Commands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000044 /* TabTracker+Commands.swift */; };
+		010000000000000000000042 /* TabTrackerCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000046 /* TabTrackerCommandTests.swift */; };
+		010000000000000000000044 /* ThresholdPreset+Availability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000048 /* ThresholdPreset+Availability.swift */; };
+		010000000000000000000047 /* TabTracker+History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000051 /* TabTracker+History.swift */; };
+		010000000000000000000051 /* ThresholdPresetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000055 /* ThresholdPresetTests.swift */; };
+		010000000000000000000053 /* KkachiMoodModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000057 /* KkachiMoodModels.swift */; };
+		010000000000000000000054 /* MenuBarStatusController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000058 /* MenuBarStatusController.swift */; };
+		010000000000000000000055 /* MascotFrameProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000059 /* MascotFrameProvider.swift */; };
+
+		010000000000000000000058 /* KkachiStoreCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000062 /* KkachiStoreCommandTests.swift */; };
+		010000000000000000000059 /* KkachiMenuHomeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000063 /* KkachiMenuHomeModels.swift */; };
+		010000000000000000000060 /* KkachiHeroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000064 /* KkachiHeroView.swift */; };
+		010000000000000000000061 /* KkachiQuickActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000065 /* KkachiQuickActionsView.swift */; };
+		010000000000000000000062 /* KkachiMenuHomeSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000066 /* KkachiMenuHomeSnapshotTests.swift */; };
+		010000000000000000000063 /* KkachiReleaseConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000067 /* KkachiReleaseConfigurationTests.swift */; };
+		010000000000000000000064 /* KkachiLocalizationCatalogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000068 /* KkachiLocalizationCatalogTests.swift */; };
+		010000000000000000000065 /* KkachiUITestHarness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000069 /* KkachiUITestHarness.swift */; };
+		010000000000000000000066 /* KkachiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000071 /* KkachiUITests.swift */; };
+		010000000000000000000067 /* KkachiUITestFixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000072 /* KkachiUITestFixtures.swift */; };
+		010000000000000000000068 /* ApplicationOpener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000073 /* ApplicationOpener.swift */; };
+		010000000000000000000069 /* KkachiUITestStateProbe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000074 /* KkachiUITestStateProbe.swift */; };
+		010000000000000000000070 /* KkachiUITestBrowserState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000075 /* KkachiUITestBrowserState.swift */; };
+		010000000000000000000071 /* KkachiUITestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000076 /* KkachiUITestCase.swift */; };
+		010000000000000000000072 /* KkachiUIMenuInteractionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000077 /* KkachiUIMenuInteractionTests.swift */; };
+		010000000000000000000073 /* KkachiUISettingsInteractionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000078 /* KkachiUISettingsInteractionTests.swift */; };
+		010000000000000000000074 /* KkachiUITabLifecycleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000079 /* KkachiUITabLifecycleTests.swift */; };
+		010000000000000000000075 /* SettingsSceneLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000080 /* SettingsSceneLink.swift */; };
+		010000000000000000000080 /* TabTracker+Scheduling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000085 /* TabTracker+Scheduling.swift */; };
+		010000000000000000000081 /* KkachiPerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000086 /* KkachiPerformanceTests.swift */; };
+		010000000000000000000082 /* TabStressFixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000087 /* TabStressFixture.swift */; };
+		010000000000000000000083 /* KkachiUITestStressFixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000088 /* KkachiUITestStressFixtures.swift */; };
+		010000000000000000000084 /* KkachiUIStressTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000089 /* KkachiUIStressTests.swift */; };
+		010000000000000000000086 /* KkachiRealBrowserPerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000091 /* KkachiRealBrowserPerformanceTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		030000000000000000000001 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 040000000000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 090000000000000000000001;
+			remoteInfo = Kkachi;
+		};
+		030000000000000000000002 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 040000000000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 090000000000000000000001;
+			remoteInfo = Kkachi;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		020000000000000000000001 /* KkachiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KkachiApp.swift; sourceTree = "<group>"; };
+		020000000000000000000124 /* PruneNotifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PruneNotifier.swift; sourceTree = "<group>"; };
+		020000000000000000000002 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		020000000000000000000003 /* PrunedTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrunedTab.swift; sourceTree = "<group>"; };
+		020000000000000000000096 /* RestoreHistoryStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestoreHistoryStore.swift; sourceTree = "<group>"; };
+		020000000000000000000098 /* KkachiStore+Restore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KkachiStore+Restore.swift"; sourceTree = "<group>"; };
+		020000000000000000000100 /* TabTracker+Polling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TabTracker+Polling.swift"; sourceTree = "<group>"; };
+		020000000000000000000101 /* KkachiHomeAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KkachiHomeAction.swift; sourceTree = "<group>"; };
+		020000000000000000000102 /* FirstRunPrimingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstRunPrimingView.swift; sourceTree = "<group>"; };
+			020000000000000000000103 /* MenuButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButtonStyles.swift; sourceTree = "<group>"; };
+
+		020000000000000000000097 /* RestoreHistoryStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestoreHistoryStoreTests.swift; sourceTree = "<group>"; };
+		020000000000000000000099 /* KkachiPaletteContrastTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KkachiPaletteContrastTests.swift; sourceTree = "<group>"; };
+		020000000000000000000004 /* TabTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabTracker.swift; sourceTree = "<group>"; };
+		020000000000000000000005 /* TabTracker+Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TabTracker+Notifications.swift"; sourceTree = "<group>"; };
+		020000000000000000000006 /* AppleScriptBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleScriptBridge.swift; sourceTree = "<group>"; };
+		020000000000000000000094 /* ChromiumAppleScriptBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChromiumAppleScriptBridge.swift; sourceTree = "<group>"; };
+		020000000000000000000081 /* BrowserScriptingBridge+Probe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrowserScriptingBridge+Probe.swift"; sourceTree = "<group>"; };
+		020000000000000000000082 /* BrowserScriptingBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserScriptingBridge.swift; sourceTree = "<group>"; };
+		020000000000000000000083 /* BrowserScriptingBridge+Commands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrowserScriptingBridge+Commands.swift"; sourceTree = "<group>"; };
+		020000000000000000000093 /* KkachiDebugLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KkachiDebugLog.swift; sourceTree = "<group>"; };
+		020000000000000000000200 /* KkachiSignpost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KkachiSignpost.swift; sourceTree = "<group>"; };
+		020000000000000000000007 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		020000000000000000000095 /* AppleScriptBridgeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleScriptBridgeTests.swift; sourceTree = "<group>"; };
+		020000000000000000000210 /* TabTrackerPruningTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabTrackerPruningTests.swift; sourceTree = "<group>"; };
+		020000000000000000000211 /* TabTrackerPolicyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabTrackerPolicyTests.swift; sourceTree = "<group>"; };
+		020000000000000000000212 /* TabTrackerSummaryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabTrackerSummaryTests.swift; sourceTree = "<group>"; };
+		020000000000000000000213 /* TabTrackerCadenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabTrackerCadenceTests.swift; sourceTree = "<group>"; };
+		020000000000000000000214 /* TabTrackerDormancyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabTrackerDormancyTests.swift; sourceTree = "<group>"; };
+		020000000000000000000215 /* TabTrackerRefreshTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabTrackerRefreshTests.swift; sourceTree = "<group>"; };
+		020000000000000000000216 /* TabTrackerTestContexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabTrackerTestContexts.swift; sourceTree = "<group>"; };
+		020000000000000000000009 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		020000000000000000000010 /* Kkachi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Kkachi.entitlements; sourceTree = "<group>"; };
+		020000000000000000000011 /* Kkachi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kkachi.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		020000000000000000000012 /* KkachiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KkachiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		020000000000000000000013 /* TrackingModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingModels.swift; sourceTree = "<group>"; };
+		020000000000000000000127 /* ThresholdPreset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThresholdPreset.swift; sourceTree = "<group>"; };
+		020000000000000000000014 /* PreferencesStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesStore.swift; sourceTree = "<group>"; };
+		020000000000000000000015 /* KkachiStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KkachiStore.swift; sourceTree = "<group>"; };
+		020000000000000000000016 /* TabTracker+Evaluation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TabTracker+Evaluation.swift"; sourceTree = "<group>"; };
+		020000000000000000000201 /* TabTracker+Summary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TabTracker+Summary.swift"; sourceTree = "<group>"; };
+		020000000000000000000017 /* MenuDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDashboardView.swift; sourceTree = "<group>"; };
+		020000000000000000000019 /* PermissionCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionCardView.swift; sourceTree = "<group>"; };
+		020000000000000000000020 /* AtRiskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtRiskListView.swift; sourceTree = "<group>"; };
+		020000000000000000000021 /* PrunedHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrunedHistoryView.swift; sourceTree = "<group>"; };
+		020000000000000000000125 /* PrunedHistoryView+Failure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PrunedHistoryView+Failure.swift"; sourceTree = "<group>"; };
+		020000000000000000000126 /* AtRiskListView+Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AtRiskListView+Actions.swift"; sourceTree = "<group>"; };
+		020000000000000000000022 /* MenuFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuFooterView.swift; sourceTree = "<group>"; };
+		020000000000000000000023 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		020000000000000000000084 /* SettingsBrowserSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBrowserSectionView.swift; sourceTree = "<group>"; };
+		020000000000000000000092 /* SettingsDebugTimingSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDebugTimingSectionView.swift; sourceTree = "<group>"; };
+		020000000000000000000110 /* CustomThresholdField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomThresholdField.swift; sourceTree = "<group>"; };
+		020000000000000000000111 /* SettingsPruningSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPruningSectionView.swift; sourceTree = "<group>"; };
+		020000000000000000000120 /* SettingsExclusionRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsExclusionRowView.swift; sourceTree = "<group>"; };
+		020000000000000000000121 /* SettingsExclusionAddField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsExclusionAddField.swift; sourceTree = "<group>"; };
+		020000000000000000000122 /* SettingsExclusionsSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsExclusionsSectionView.swift; sourceTree = "<group>"; };
+		020000000000000000000123 /* KkachiStore+Exclusions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KkachiStore+Exclusions.swift"; sourceTree = "<group>"; };
+		020000000000000000000024 /* KkachiStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KkachiStoreTests.swift; sourceTree = "<group>"; };
+		020000000000000000000217 /* FakeBrowserAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeBrowserAdapter.swift; sourceTree = "<group>"; };
+		020000000000000000000218 /* FakeLoginItemService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeLoginItemService.swift; sourceTree = "<group>"; };
+		020000000000000000000219 /* FakeApplicationOpener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeApplicationOpener.swift; sourceTree = "<group>"; };
+		020000000000000000000220 /* TestDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDefaults.swift; sourceTree = "<group>"; };
+		020000000000000000000221 /* BrowserDescriptor+Fixtures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrowserDescriptor+Fixtures.swift"; sourceTree = "<group>"; };
+		020000000000000000000222 /* BrowserTabSnapshot+Fixtures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrowserTabSnapshot+Fixtures.swift"; sourceTree = "<group>"; };
+		020000000000000000000223 /* PrunedTab+Fixtures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PrunedTab+Fixtures.swift"; sourceTree = "<group>"; };
+		020000000000000000000224 /* StoreTestContexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTestContexts.swift; sourceTree = "<group>"; };
+		020000000000000000000026 /* LoginItemService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginItemService.swift; sourceTree = "<group>"; };
+		020000000000000000000027 /* KkachiStore+State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KkachiStore+State.swift"; sourceTree = "<group>"; };
+		020000000000000000000028 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		020000000000000000000029 /* BrowserModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserModels.swift; sourceTree = "<group>"; };
+		020000000000000000000030 /* BrowserRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserRegistry.swift; sourceTree = "<group>"; };
+		020000000000000000000031 /* ChromiumBrowserAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChromiumBrowserAdapter.swift; sourceTree = "<group>"; };
+		020000000000000000000032 /* SafariBrowserAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariBrowserAdapter.swift; sourceTree = "<group>"; };
+		020000000000000000000033 /* TabTracker+Browsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TabTracker+Browsers.swift"; sourceTree = "<group>"; };
+		020000000000000000000035 /* MultiBrowserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiBrowserTests.swift; sourceTree = "<group>"; };
+		020000000000000000000036 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
+		020000000000000000000037 /* BrowserAutomationModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserAutomationModels.swift; sourceTree = "<group>"; };
+		020000000000000000000038 /* PruningSafetyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PruningSafetyTests.swift; sourceTree = "<group>"; };
+		020000000000000000000039 /* SafariBrowserAdapter+Parsing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SafariBrowserAdapter+Parsing.swift"; sourceTree = "<group>"; };
+		020000000000000000000040 /* MenuPresentationModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPresentationModels.swift; sourceTree = "<group>"; };
+		020000000000000000000041 /* KkachiStore+Presentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KkachiStore+Presentation.swift"; sourceTree = "<group>"; };
+		020000000000000000000042 /* MenuSurfaceStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSurfaceStyle.swift; sourceTree = "<group>"; };
+		020000000000000000000043 /* MenuPresentationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPresentationTests.swift; sourceTree = "<group>"; };
+		020000000000000000000044 /* TabTracker+Commands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TabTracker+Commands.swift"; sourceTree = "<group>"; };
+		020000000000000000000046 /* TabTrackerCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabTrackerCommandTests.swift; sourceTree = "<group>"; };
+		020000000000000000000048 /* ThresholdPreset+Availability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ThresholdPreset+Availability.swift"; sourceTree = "<group>"; };
+		020000000000000000000051 /* TabTracker+History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TabTracker+History.swift"; sourceTree = "<group>"; };
+		020000000000000000000055 /* ThresholdPresetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThresholdPresetTests.swift; sourceTree = "<group>"; };
+		020000000000000000000057 /* KkachiMoodModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KkachiMoodModels.swift; sourceTree = "<group>"; };
+		020000000000000000000058 /* MenuBarStatusController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarStatusController.swift; sourceTree = "<group>"; };
+			020000000000000000000059 /* MascotFrameProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MascotFrameProvider.swift; sourceTree = "<group>"; };
+
+		020000000000000000000062 /* KkachiStoreCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KkachiStoreCommandTests.swift; sourceTree = "<group>"; };
+		020000000000000000000063 /* KkachiMenuHomeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KkachiMenuHomeModels.swift; sourceTree = "<group>"; };
+		020000000000000000000064 /* KkachiHeroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KkachiHeroView.swift; sourceTree = "<group>"; };
+		020000000000000000000065 /* KkachiQuickActionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KkachiQuickActionsView.swift; sourceTree = "<group>"; };
+		020000000000000000000066 /* KkachiMenuHomeSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KkachiMenuHomeSnapshotTests.swift; sourceTree = "<group>"; };
+		020000000000000000000067 /* KkachiReleaseConfigurationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KkachiReleaseConfigurationTests.swift; sourceTree = "<group>"; };
+		020000000000000000000068 /* KkachiLocalizationCatalogTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KkachiLocalizationCatalogTests.swift; sourceTree = "<group>"; };
+		020000000000000000000069 /* KkachiUITestHarness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KkachiUITestHarness.swift; sourceTree = "<group>"; };
+		020000000000000000000070 /* KkachiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KkachiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		020000000000000000000071 /* KkachiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KkachiUITests.swift; sourceTree = "<group>"; };
+		020000000000000000000072 /* KkachiUITestFixtures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KkachiUITestFixtures.swift; sourceTree = "<group>"; };
+		020000000000000000000073 /* ApplicationOpener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationOpener.swift; sourceTree = "<group>"; };
+		020000000000000000000074 /* KkachiUITestStateProbe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KkachiUITestStateProbe.swift; sourceTree = "<group>"; };
+		020000000000000000000075 /* KkachiUITestBrowserState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KkachiUITestBrowserState.swift; sourceTree = "<group>"; };
+		020000000000000000000076 /* KkachiUITestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KkachiUITestCase.swift; sourceTree = "<group>"; };
+		020000000000000000000077 /* KkachiUIMenuInteractionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KkachiUIMenuInteractionTests.swift; sourceTree = "<group>"; };
+		020000000000000000000078 /* KkachiUISettingsInteractionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KkachiUISettingsInteractionTests.swift; sourceTree = "<group>"; };
+		020000000000000000000079 /* KkachiUITabLifecycleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KkachiUITabLifecycleTests.swift; sourceTree = "<group>"; };
+		020000000000000000000080 /* SettingsSceneLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSceneLink.swift; sourceTree = "<group>"; };
+		020000000000000000000085 /* TabTracker+Scheduling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TabTracker+Scheduling.swift"; sourceTree = "<group>"; };
+		020000000000000000000086 /* KkachiPerformanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KkachiPerformanceTests.swift; sourceTree = "<group>"; };
+		020000000000000000000087 /* TabStressFixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabStressFixture.swift; sourceTree = "<group>"; };
+		020000000000000000000088 /* KkachiUITestStressFixtures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KkachiUITestStressFixtures.swift; sourceTree = "<group>"; };
+		020000000000000000000089 /* KkachiUIStressTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KkachiUIStressTests.swift; sourceTree = "<group>"; };
+			020000000000000000000091 /* KkachiRealBrowserPerformanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KkachiRealBrowserPerformanceTests.swift; sourceTree = "<group>"; };
+			020000000000000000000300 /* SupportedBrowsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportedBrowsers.swift; sourceTree = "<group>"; };
+			020000000000000000000301 /* PruneEvaluator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PruneEvaluator.swift; sourceTree = "<group>"; };
+			020000000000000000000302 /* RestoreHistoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestoreHistoryController.swift; sourceTree = "<group>"; };
+			020000000000000000000303 /* PasteboardWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteboardWriter.swift; sourceTree = "<group>"; };
+			020000000000000000000304 /* SystemPasteboardWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemPasteboardWriter.swift; sourceTree = "<group>"; };
+			020000000000000000000305 /* WorkspaceApplicationOpener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceApplicationOpener.swift; sourceTree = "<group>"; };
+			020000000000000000000306 /* SystemLoginItemService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemLoginItemService.swift; sourceTree = "<group>"; };
+			020000000000000000000307 /* WorkspaceNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceNotifications.swift; sourceTree = "<group>"; };
+			020000000000000000000308 /* KkachiArchitectureGuardrailTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KkachiArchitectureGuardrailTests.swift; sourceTree = "<group>"; };
+			020000000000000000000309 /* BrowserAdapterSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserAdapterSupport.swift; sourceTree = "<group>"; };
+			020000000000000000000310 /* MenuRowText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRowText.swift; sourceTree = "<group>"; };
+			020000000000000000000400 /* KkachiAppFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KkachiAppFactory.swift; sourceTree = "<group>"; };
+			020000000000000000000401 /* RestoreHistoryStoring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestoreHistoryStoring.swift; sourceTree = "<group>"; };
+			020000000000000000000402 /* WorkspaceNotificationSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceNotificationSource.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		050000000000000000000001 /* Frameworks */ = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+		050000000000000000000002 /* Frameworks */ = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+		050000000000000000000003 /* Frameworks */ = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		060000000000000000000001 = {
+			isa = PBXGroup;
+			children = (
+				060000000000000000000002 /* Kkachi */,
+				060000000000000000000007 /* KkachiTests */,
+				060000000000000000000010 /* KkachiUITests */,
+				060000000000000000000008 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		060000000000000000000002 /* Kkachi */ = {
+			isa = PBXGroup;
+			children = (
+				060000000000000000000003 /* App */,
+				060000000000000000000004 /* UI */,
+				060000000000000000000005 /* Domain */,
+				060000000000000000000006 /* Infrastructure */,
+				060000000000000000000009 /* Resources */,
+			);
+			path = Kkachi;
+			sourceTree = "<group>";
+		};
+		060000000000000000000003 /* App */ = {isa = PBXGroup; children = (060000000000000000000023 /* Runtime */, 060000000000000000000024 /* MenuBar */, 060000000000000000000025 /* Notifications */, 060000000000000000000026 /* UITesting */); path = App; sourceTree = "<group>"; };
+		060000000000000000000004 /* UI */ = {isa = PBXGroup; children = (060000000000000000000013 /* Menu */, 060000000000000000000014 /* Settings */, 060000000000000000000015 /* FirstRun */); path = UI; sourceTree = "<group>"; };
+		060000000000000000000005 /* Domain */ = {isa = PBXGroup; children = (060000000000000000000016 /* Browser */, 060000000000000000000017 /* Tracking */, 060000000000000000000018 /* Store */, 060000000000000000000019 /* Presentation */, 060000000000000000000038 /* Ports */); path = Domain; sourceTree = "<group>"; };
+			060000000000000000000006 /* Infrastructure */ = {isa = PBXGroup; children = (060000000000000000000020 /* Diagnostics */, 060000000000000000000021 /* Scripting */, 060000000000000000000022 /* Adapters */, 060000000000000000000037 /* Platform */, 060000000000000000000039 /* Persistence */); path = Infrastructure; sourceTree = "<group>"; };
+		060000000000000000000007 /* KkachiTests */ = {isa = PBXGroup; children = (060000000000000000000031 /* Infrastructure */, 060000000000000000000012 /* Tracking */, 060000000000000000000027 /* Store */, 060000000000000000000028 /* Presentation */, 060000000000000000000029 /* Release */, 060000000000000000000030 /* Performance */, 060000000000000000000011 /* Support */); path = KkachiTests; sourceTree = "<group>"; };
+		060000000000000000000011 /* Support */ = {isa = PBXGroup; children = (020000000000000000000217 /* FakeBrowserAdapter.swift */, 020000000000000000000218 /* FakeLoginItemService.swift */, 020000000000000000000219 /* FakeApplicationOpener.swift */, 020000000000000000000220 /* TestDefaults.swift */, 020000000000000000000221 /* BrowserDescriptor+Fixtures.swift */, 020000000000000000000222 /* BrowserTabSnapshot+Fixtures.swift */, 020000000000000000000223 /* PrunedTab+Fixtures.swift */, 020000000000000000000224 /* StoreTestContexts.swift */); path = Support; sourceTree = "<group>"; };
+		060000000000000000000012 /* Tracking */ = {isa = PBXGroup; children = (020000000000000000000210 /* TabTrackerPruningTests.swift */, 020000000000000000000211 /* TabTrackerPolicyTests.swift */, 020000000000000000000212 /* TabTrackerSummaryTests.swift */, 020000000000000000000213 /* TabTrackerCadenceTests.swift */, 020000000000000000000214 /* TabTrackerDormancyTests.swift */, 020000000000000000000215 /* TabTrackerRefreshTests.swift */, 020000000000000000000216 /* TabTrackerTestContexts.swift */, 020000000000000000000046 /* TabTrackerCommandTests.swift */, 020000000000000000000035 /* MultiBrowserTests.swift */, 020000000000000000000038 /* PruningSafetyTests.swift */, 020000000000000000000055 /* ThresholdPresetTests.swift */); path = Tracking; sourceTree = "<group>"; };
+		060000000000000000000013 /* Menu */ = {isa = PBXGroup; children = (020000000000000000000002 /* MenuView.swift */, 020000000000000000000017 /* MenuDashboardView.swift */, 020000000000000000000064 /* KkachiHeroView.swift */, 020000000000000000000065 /* KkachiQuickActionsView.swift */, 020000000000000000000019 /* PermissionCardView.swift */, 020000000000000000000020 /* AtRiskListView.swift */, 020000000000000000000126 /* AtRiskListView+Actions.swift */, 020000000000000000000021 /* PrunedHistoryView.swift */, 020000000000000000000125 /* PrunedHistoryView+Failure.swift */, 020000000000000000000022 /* MenuFooterView.swift */, 020000000000000000000042 /* MenuSurfaceStyle.swift */, 020000000000000000000103 /* MenuButtonStyles.swift */, 020000000000000000000310 /* MenuRowText.swift */); path = Menu; sourceTree = "<group>"; };
+		060000000000000000000014 /* Settings */ = {isa = PBXGroup; children = (020000000000000000000080 /* SettingsSceneLink.swift */, 020000000000000000000023 /* SettingsView.swift */, 020000000000000000000084 /* SettingsBrowserSectionView.swift */, 020000000000000000000092 /* SettingsDebugTimingSectionView.swift */, 020000000000000000000110 /* CustomThresholdField.swift */, 020000000000000000000111 /* SettingsPruningSectionView.swift */, 020000000000000000000120 /* SettingsExclusionRowView.swift */, 020000000000000000000121 /* SettingsExclusionAddField.swift */, 020000000000000000000122 /* SettingsExclusionsSectionView.swift */); path = Settings; sourceTree = "<group>"; };
+		060000000000000000000015 /* FirstRun */ = {isa = PBXGroup; children = (020000000000000000000102 /* FirstRunPrimingView.swift */); path = FirstRun; sourceTree = "<group>"; };
+			060000000000000000000016 /* Browser */ = {isa = PBXGroup; children = (020000000000000000000029 /* BrowserModels.swift */, 020000000000000000000037 /* BrowserAutomationModels.swift */, 020000000000000000000300 /* SupportedBrowsers.swift */); path = Browser; sourceTree = "<group>"; };
+			060000000000000000000017 /* Tracking */ = {isa = PBXGroup; children = (020000000000000000000003 /* PrunedTab.swift */, 020000000000000000000013 /* TrackingModels.swift */, 020000000000000000000127 /* ThresholdPreset.swift */, 020000000000000000000048 /* ThresholdPreset+Availability.swift */, 020000000000000000000301 /* PruneEvaluator.swift */, 020000000000000000000302 /* RestoreHistoryController.swift */, 020000000000000000000004 /* TabTracker.swift */, 020000000000000000000085 /* TabTracker+Scheduling.swift */, 020000000000000000000033 /* TabTracker+Browsers.swift */, 020000000000000000000016 /* TabTracker+Evaluation.swift */, 020000000000000000000201 /* TabTracker+Summary.swift */, 020000000000000000000044 /* TabTracker+Commands.swift */, 020000000000000000000051 /* TabTracker+History.swift */, 020000000000000000000005 /* TabTracker+Notifications.swift */, 020000000000000000000100 /* TabTracker+Polling.swift */); path = Tracking; sourceTree = "<group>"; };
+			060000000000000000000018 /* Store */ = {isa = PBXGroup; children = (020000000000000000000014 /* PreferencesStore.swift */, 020000000000000000000015 /* KkachiStore.swift */, 020000000000000000000027 /* KkachiStore+State.swift */, 020000000000000000000041 /* KkachiStore+Presentation.swift */, 020000000000000000000098 /* KkachiStore+Restore.swift */, 020000000000000000000123 /* KkachiStore+Exclusions.swift */); path = Store; sourceTree = "<group>"; };
+		060000000000000000000019 /* Presentation */ = {isa = PBXGroup; children = (020000000000000000000040 /* MenuPresentationModels.swift */, 020000000000000000000057 /* KkachiMoodModels.swift */, 020000000000000000000063 /* KkachiMenuHomeModels.swift */, 020000000000000000000101 /* KkachiHomeAction.swift */); path = Presentation; sourceTree = "<group>"; };
+		060000000000000000000038 /* Ports */ = {isa = PBXGroup; children = (020000000000000000000073 /* ApplicationOpener.swift */, 020000000000000000000026 /* LoginItemService.swift */, 020000000000000000000303 /* PasteboardWriter.swift */, 020000000000000000000401 /* RestoreHistoryStoring.swift */, 020000000000000000000402 /* WorkspaceNotificationSource.swift */); path = Ports; sourceTree = "<group>"; };
+		060000000000000000000020 /* Diagnostics */ = {isa = PBXGroup; children = (020000000000000000000093 /* KkachiDebugLog.swift */, 020000000000000000000200 /* KkachiSignpost.swift */); path = Diagnostics; sourceTree = "<group>"; };
+			060000000000000000000021 /* Scripting */ = {isa = PBXGroup; children = (020000000000000000000006 /* AppleScriptBridge.swift */, 020000000000000000000094 /* ChromiumAppleScriptBridge.swift */, 020000000000000000000082 /* BrowserScriptingBridge.swift */, 020000000000000000000083 /* BrowserScriptingBridge+Commands.swift */, 020000000000000000000081 /* BrowserScriptingBridge+Probe.swift */); path = Scripting; sourceTree = "<group>"; };
+			060000000000000000000022 /* Adapters */ = {isa = PBXGroup; children = (020000000000000000000030 /* BrowserRegistry.swift */, 020000000000000000000309 /* BrowserAdapterSupport.swift */, 020000000000000000000031 /* ChromiumBrowserAdapter.swift */, 020000000000000000000032 /* SafariBrowserAdapter.swift */, 020000000000000000000039 /* SafariBrowserAdapter+Parsing.swift */); path = Adapters; sourceTree = "<group>"; };
+			060000000000000000000037 /* Platform */ = {isa = PBXGroup; children = (020000000000000000000304 /* SystemPasteboardWriter.swift */, 020000000000000000000305 /* WorkspaceApplicationOpener.swift */, 020000000000000000000306 /* SystemLoginItemService.swift */, 020000000000000000000307 /* WorkspaceNotifications.swift */); path = Platform; sourceTree = "<group>"; };
+			060000000000000000000039 /* Persistence */ = {isa = PBXGroup; children = (020000000000000000000096 /* RestoreHistoryStore.swift */); path = Persistence; sourceTree = "<group>"; };
+		060000000000000000000023 /* Runtime */ = {isa = PBXGroup; children = (020000000000000000000001 /* KkachiApp.swift */, 020000000000000000000400 /* KkachiAppFactory.swift */); path = Runtime; sourceTree = "<group>"; };
+		060000000000000000000024 /* MenuBar */ = {isa = PBXGroup; children = (020000000000000000000058 /* MenuBarStatusController.swift */, 020000000000000000000059 /* MascotFrameProvider.swift */); path = MenuBar; sourceTree = "<group>"; };
+		060000000000000000000025 /* Notifications */ = {isa = PBXGroup; children = (020000000000000000000124 /* PruneNotifier.swift */); path = Notifications; sourceTree = "<group>"; };
+		060000000000000000000026 /* UITesting */ = {isa = PBXGroup; children = (020000000000000000000069 /* KkachiUITestHarness.swift */, 020000000000000000000072 /* KkachiUITestFixtures.swift */, 020000000000000000000088 /* KkachiUITestStressFixtures.swift */, 020000000000000000000075 /* KkachiUITestBrowserState.swift */, 020000000000000000000074 /* KkachiUITestStateProbe.swift */); path = UITesting; sourceTree = "<group>"; };
+		060000000000000000000027 /* Store */ = {isa = PBXGroup; children = (020000000000000000000024 /* KkachiStoreTests.swift */, 020000000000000000000062 /* KkachiStoreCommandTests.swift */, 020000000000000000000097 /* RestoreHistoryStoreTests.swift */); path = Store; sourceTree = "<group>"; };
+		060000000000000000000028 /* Presentation */ = {isa = PBXGroup; children = (020000000000000000000043 /* MenuPresentationTests.swift */, 020000000000000000000066 /* KkachiMenuHomeSnapshotTests.swift */, 020000000000000000000099 /* KkachiPaletteContrastTests.swift */); path = Presentation; sourceTree = "<group>"; };
+			060000000000000000000029 /* Release */ = {isa = PBXGroup; children = (020000000000000000000067 /* KkachiReleaseConfigurationTests.swift */, 020000000000000000000068 /* KkachiLocalizationCatalogTests.swift */, 020000000000000000000308 /* KkachiArchitectureGuardrailTests.swift */); path = Release; sourceTree = "<group>"; };
+		060000000000000000000030 /* Performance */ = {isa = PBXGroup; children = (020000000000000000000086 /* KkachiPerformanceTests.swift */, 020000000000000000000091 /* KkachiRealBrowserPerformanceTests.swift */, 020000000000000000000087 /* TabStressFixture.swift */); path = Performance; sourceTree = "<group>"; };
+		060000000000000000000031 /* Infrastructure */ = {isa = PBXGroup; children = (020000000000000000000095 /* AppleScriptBridgeTests.swift */); path = Infrastructure; sourceTree = "<group>"; };
+		060000000000000000000008 /* Products */ = {isa = PBXGroup; children = (020000000000000000000011 /* Kkachi.app */, 020000000000000000000012 /* KkachiTests.xctest */, 020000000000000000000070 /* KkachiUITests.xctest */); name = Products; sourceTree = "<group>"; };
+		060000000000000000000009 /* Resources */ = {isa = PBXGroup; children = (020000000000000000000009 /* Info.plist */, 020000000000000000000010 /* Kkachi.entitlements */, 020000000000000000000007 /* Localizable.xcstrings */, 020000000000000000000036 /* InfoPlist.xcstrings */, 020000000000000000000028 /* Assets.xcassets */); path = Resources; sourceTree = "<group>"; };
+		060000000000000000000010 /* KkachiUITests */ = {isa = PBXGroup; children = (060000000000000000000032 /* Support */, 060000000000000000000033 /* Menu */, 060000000000000000000034 /* Settings */, 060000000000000000000035 /* Lifecycle */, 060000000000000000000036 /* Performance */); path = KkachiUITests; sourceTree = "<group>"; };
+		060000000000000000000032 /* Support */ = {isa = PBXGroup; children = (020000000000000000000076 /* KkachiUITestCase.swift */); path = Support; sourceTree = "<group>"; };
+		060000000000000000000033 /* Menu */ = {isa = PBXGroup; children = (020000000000000000000071 /* KkachiUITests.swift */, 020000000000000000000077 /* KkachiUIMenuInteractionTests.swift */); path = Menu; sourceTree = "<group>"; };
+		060000000000000000000034 /* Settings */ = {isa = PBXGroup; children = (020000000000000000000078 /* KkachiUISettingsInteractionTests.swift */); path = Settings; sourceTree = "<group>"; };
+		060000000000000000000035 /* Lifecycle */ = {isa = PBXGroup; children = (020000000000000000000079 /* KkachiUITabLifecycleTests.swift */); path = Lifecycle; sourceTree = "<group>"; };
+		060000000000000000000036 /* Performance */ = {isa = PBXGroup; children = (020000000000000000000089 /* KkachiUIStressTests.swift */); path = Performance; sourceTree = "<group>"; };
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		090000000000000000000001 /* Kkachi */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 120000000000000000000002 /* Build configuration list for PBXNativeTarget "Kkachi" */;
+			buildPhases = (100000000000000000000001 /* Sources */, 050000000000000000000001 /* Frameworks */, 110000000000000000000001 /* Resources */);
+			buildRules = ();
+			dependencies = ();
+			name = Kkachi;
+			productName = Kkachi;
+			productReference = 020000000000000000000011 /* Kkachi.app */;
+			productType = "com.apple.product-type.application";
+		};
+		090000000000000000000002 /* KkachiTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 120000000000000000000003 /* Build configuration list for PBXNativeTarget "KkachiTests" */;
+			buildPhases = (100000000000000000000002 /* Sources */, 050000000000000000000002 /* Frameworks */, 110000000000000000000002 /* Resources */);
+			buildRules = ();
+			dependencies = (130000000000000000000001 /* PBXTargetDependency */);
+			name = KkachiTests;
+			productName = KkachiTests;
+			productReference = 020000000000000000000012 /* KkachiTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		090000000000000000000003 /* KkachiUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 120000000000000000000004 /* Build configuration list for PBXNativeTarget "KkachiUITests" */;
+			buildPhases = (100000000000000000000003 /* Sources */, 050000000000000000000003 /* Frameworks */, 110000000000000000000003 /* Resources */);
+			buildRules = ();
+			dependencies = (130000000000000000000002 /* PBXTargetDependency */);
+			name = KkachiUITests;
+			productName = KkachiUITests;
+			productReference = 020000000000000000000070 /* KkachiUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		040000000000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2650;
+				LastUpgradeCheck = 2650;
+				TargetAttributes = {
+					090000000000000000000001 = {CreatedOnToolsVersion = 26.5; };
+					090000000000000000000002 = {CreatedOnToolsVersion = 26.5; TestTargetID = 090000000000000000000001; };
+					090000000000000000000003 = {CreatedOnToolsVersion = 26.5; TestTargetID = 090000000000000000000001; };
+				};
+			};
+			buildConfigurationList = 120000000000000000000001 /* Build configuration list for PBXProject "Kkachi" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (en, ko, ja, "zh-Hans", "zh-Hant", Base);
+			mainGroup = 060000000000000000000001;
+			productRefGroup = 060000000000000000000008 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (090000000000000000000001 /* Kkachi */, 090000000000000000000002 /* KkachiTests */, 090000000000000000000003 /* KkachiUITests */);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		110000000000000000000001 /* Resources */ = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (010000000000000000000007 /* Localizable.xcstrings in Resources */, 010000000000000000000032 /* InfoPlist.xcstrings in Resources */, 010000000000000000000024 /* Assets.xcassets in Resources */); runOnlyForDeploymentPostprocessing = 0; };
+		110000000000000000000002 /* Resources */ = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+		110000000000000000000003 /* Resources */ = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+			100000000000000000000001 /* Sources */ = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (010000000000000000000001 /* KkachiApp.swift in Sources */, 010000000000000000000400 /* KkachiAppFactory.swift in Sources */, 010000000000000000000124 /* PruneNotifier.swift in Sources */, 010000000000000000000054 /* MenuBarStatusController.swift in Sources */, 010000000000000000000055 /* MascotFrameProvider.swift in Sources */, 010000000000000000000065 /* KkachiUITestHarness.swift in Sources */, 010000000000000000000067 /* KkachiUITestFixtures.swift in Sources */, 010000000000000000000083 /* KkachiUITestStressFixtures.swift in Sources */, 010000000000000000000070 /* KkachiUITestBrowserState.swift in Sources */, 010000000000000000000069 /* KkachiUITestStateProbe.swift in Sources */, 010000000000000000000002 /* MenuView.swift in Sources */, 010000000000000000000003 /* PrunedTab.swift in Sources */, 010000000000000000000025 /* BrowserModels.swift in Sources */, 010000000000000000000033 /* BrowserAutomationModels.swift in Sources */, 010000000000000000000300 /* SupportedBrowsers.swift in Sources */, 010000000000000000000068 /* ApplicationOpener.swift in Sources */, 010000000000000000000401 /* RestoreHistoryStoring.swift in Sources */, 010000000000000000000402 /* WorkspaceNotificationSource.swift in Sources */, 010000000000000000000036 /* MenuPresentationModels.swift in Sources */, 010000000000000000000053 /* KkachiMoodModels.swift in Sources */, 010000000000000000000059 /* KkachiMenuHomeModels.swift in Sources */, 010000000000000000000009 /* TrackingModels.swift in Sources */, 010000000000000000000127 /* ThresholdPreset.swift in Sources */, 010000000000000000000044 /* ThresholdPreset+Availability.swift in Sources */, 010000000000000000000301 /* PruneEvaluator.swift in Sources */, 010000000000000000000302 /* RestoreHistoryController.swift in Sources */, 010000000000000000000010 /* PreferencesStore.swift in Sources */, 010000000000000000000022 /* LoginItemService.swift in Sources */, 010000000000000000000303 /* PasteboardWriter.swift in Sources */, 010000000000000000000011 /* KkachiStore.swift in Sources */, 010000000000000000000023 /* KkachiStore+State.swift in Sources */, 010000000000000000000037 /* KkachiStore+Presentation.swift in Sources */, 010000000000000000000004 /* TabTracker.swift in Sources */, 010000000000000000000080 /* TabTracker+Scheduling.swift in Sources */, 010000000000000000000029 /* TabTracker+Browsers.swift in Sources */, 010000000000000000000012 /* TabTracker+Evaluation.swift in Sources */, 010000000000000000000201 /* TabTracker+Summary.swift in Sources */, 010000000000000000000040 /* TabTracker+Commands.swift in Sources */, 010000000000000000000047 /* TabTracker+History.swift in Sources */, 010000000000000000000005 /* TabTracker+Notifications.swift in Sources */, 010000000000000000000088 /* KkachiDebugLog.swift in Sources */, 010000000000000000000200 /* KkachiSignpost.swift in Sources */, 010000000000000000000006 /* AppleScriptBridge.swift in Sources */, 010000000000000000000089 /* ChromiumAppleScriptBridge.swift in Sources */, 010000000000000000000076 /* BrowserScriptingBridge+Probe.swift in Sources */, 010000000000000000000077 /* BrowserScriptingBridge.swift in Sources */, 010000000000000000000078 /* BrowserScriptingBridge+Commands.swift in Sources */, 010000000000000000000026 /* BrowserRegistry.swift in Sources */, 010000000000000000000309 /* BrowserAdapterSupport.swift in Sources */, 010000000000000000000027 /* ChromiumBrowserAdapter.swift in Sources */, 010000000000000000000028 /* SafariBrowserAdapter.swift in Sources */, 010000000000000000000035 /* SafariBrowserAdapter+Parsing.swift in Sources */, 010000000000000000000304 /* SystemPasteboardWriter.swift in Sources */, 010000000000000000000305 /* WorkspaceApplicationOpener.swift in Sources */, 010000000000000000000306 /* SystemLoginItemService.swift in Sources */, 010000000000000000000307 /* WorkspaceNotifications.swift in Sources */, 010000000000000000000013 /* MenuDashboardView.swift in Sources */, 010000000000000000000060 /* KkachiHeroView.swift in Sources */, 010000000000000000000061 /* KkachiQuickActionsView.swift in Sources */, 010000000000000000000015 /* PermissionCardView.swift in Sources */, 010000000000000000000016 /* AtRiskListView.swift in Sources */, 010000000000000000000017 /* PrunedHistoryView.swift in Sources */, 010000000000000000000125 /* PrunedHistoryView+Failure.swift in Sources */, 010000000000000000000126 /* AtRiskListView+Actions.swift in Sources */, 010000000000000000000018 /* MenuFooterView.swift in Sources */, 010000000000000000000075 /* SettingsSceneLink.swift in Sources */, 010000000000000000000019 /* SettingsView.swift in Sources */, 010000000000000000000079 /* SettingsBrowserSectionView.swift in Sources */, 010000000000000000000087 /* SettingsDebugTimingSectionView.swift in Sources */, 010000000000000000000110 /* CustomThresholdField.swift in Sources */, 010000000000000000000111 /* SettingsPruningSectionView.swift in Sources */, 010000000000000000000120 /* SettingsExclusionRowView.swift in Sources */, 010000000000000000000121 /* SettingsExclusionAddField.swift in Sources */, 010000000000000000000122 /* SettingsExclusionsSectionView.swift in Sources */, 010000000000000000000123 /* KkachiStore+Exclusions.swift in Sources */, 010000000000000000000038 /* MenuSurfaceStyle.swift in Sources */, 010000000000000000000091 /* RestoreHistoryStore.swift in Sources */, 010000000000000000000093 /* KkachiStore+Restore.swift in Sources */, 010000000000000000000095 /* TabTracker+Polling.swift in Sources */, 010000000000000000000096 /* KkachiHomeAction.swift in Sources */, 010000000000000000000097 /* FirstRunPrimingView.swift in Sources */, 010000000000000000000098 /* MenuButtonStyles.swift in Sources */, 010000000000000000000310 /* MenuRowText.swift in Sources */); runOnlyForDeploymentPostprocessing = 0; };
+			100000000000000000000002 /* Sources */ = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (010000000000000000000210 /* TabTrackerPruningTests.swift in Sources */, 010000000000000000000211 /* TabTrackerPolicyTests.swift in Sources */, 010000000000000000000212 /* TabTrackerSummaryTests.swift in Sources */, 010000000000000000000213 /* TabTrackerCadenceTests.swift in Sources */, 010000000000000000000214 /* TabTrackerDormancyTests.swift in Sources */, 010000000000000000000215 /* TabTrackerRefreshTests.swift in Sources */, 010000000000000000000216 /* TabTrackerTestContexts.swift in Sources */, 010000000000000000000090 /* AppleScriptBridgeTests.swift in Sources */, 010000000000000000000042 /* TabTrackerCommandTests.swift in Sources */, 010000000000000000000031 /* MultiBrowserTests.swift in Sources */, 010000000000000000000034 /* PruningSafetyTests.swift in Sources */, 010000000000000000000039 /* MenuPresentationTests.swift in Sources */, 010000000000000000000062 /* KkachiMenuHomeSnapshotTests.swift in Sources */, 010000000000000000000063 /* KkachiReleaseConfigurationTests.swift in Sources */, 010000000000000000000064 /* KkachiLocalizationCatalogTests.swift in Sources */, 010000000000000000000308 /* KkachiArchitectureGuardrailTests.swift in Sources */, 010000000000000000000081 /* KkachiPerformanceTests.swift in Sources */, 010000000000000000000086 /* KkachiRealBrowserPerformanceTests.swift in Sources */, 010000000000000000000020 /* KkachiStoreTests.swift in Sources */, 010000000000000000000058 /* KkachiStoreCommandTests.swift in Sources */, 010000000000000000000051 /* ThresholdPresetTests.swift in Sources */, 010000000000000000000082 /* TabStressFixture.swift in Sources */, 010000000000000000000217 /* FakeBrowserAdapter.swift in Sources */, 010000000000000000000218 /* FakeLoginItemService.swift in Sources */, 010000000000000000000219 /* FakeApplicationOpener.swift in Sources */, 010000000000000000000220 /* TestDefaults.swift in Sources */, 010000000000000000000221 /* BrowserDescriptor+Fixtures.swift in Sources */, 010000000000000000000222 /* BrowserTabSnapshot+Fixtures.swift in Sources */, 010000000000000000000223 /* PrunedTab+Fixtures.swift in Sources */, 010000000000000000000224 /* StoreTestContexts.swift in Sources */, 010000000000000000000092 /* RestoreHistoryStoreTests.swift in Sources */, 010000000000000000000094 /* KkachiPaletteContrastTests.swift in Sources */); runOnlyForDeploymentPostprocessing = 0; };
+		100000000000000000000003 /* Sources */ = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (010000000000000000000071 /* KkachiUITestCase.swift in Sources */, 010000000000000000000066 /* KkachiUITests.swift in Sources */, 010000000000000000000072 /* KkachiUIMenuInteractionTests.swift in Sources */, 010000000000000000000073 /* KkachiUISettingsInteractionTests.swift in Sources */, 010000000000000000000074 /* KkachiUITabLifecycleTests.swift in Sources */, 010000000000000000000084 /* KkachiUIStressTests.swift in Sources */); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		130000000000000000000001 /* PBXTargetDependency */ = {isa = PBXTargetDependency; target = 090000000000000000000001 /* Kkachi */; targetProxy = 030000000000000000000001 /* PBXContainerItemProxy */; };
+		130000000000000000000002 /* PBXTargetDependency */ = {isa = PBXTargetDependency; target = 090000000000000000000001 /* Kkachi */; targetProxy = 030000000000000000000002 /* PBXContainerItemProxy */; };
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		140000000000000000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("DEBUG=1", "$(inherited)");
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		140000000000000000000002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		140000000000000000000003 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Kkachi/Resources/Kkachi.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_LANGUAGE = en;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Kkachi/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/../Frameworks");
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.pepsizerosugar.Kkachi;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		140000000000000000000004 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Kkachi/Resources/Kkachi.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_LANGUAGE = en;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Kkachi/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/../Frameworks");
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.pepsizerosugar.Kkachi;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		140000000000000000000005 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.pepsizerosugar.KkachiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Kkachi.app/Contents/MacOS/Kkachi";
+			};
+			name = Debug;
+		};
+		140000000000000000000006 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.pepsizerosugar.KkachiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Kkachi.app/Contents/MacOS/Kkachi";
+			};
+			name = Release;
+		};
+		140000000000000000000007 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.pepsizerosugar.KkachiUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = Kkachi;
+			};
+			name = Debug;
+		};
+		140000000000000000000008 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.pepsizerosugar.KkachiUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = Kkachi;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		120000000000000000000001 /* Build configuration list for PBXProject "Kkachi" */ = {isa = XCConfigurationList; buildConfigurations = (140000000000000000000001 /* Debug */, 140000000000000000000002 /* Release */); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		120000000000000000000002 /* Build configuration list for PBXNativeTarget "Kkachi" */ = {isa = XCConfigurationList; buildConfigurations = (140000000000000000000003 /* Debug */, 140000000000000000000004 /* Release */); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		120000000000000000000003 /* Build configuration list for PBXNativeTarget "KkachiTests" */ = {isa = XCConfigurationList; buildConfigurations = (140000000000000000000005 /* Debug */, 140000000000000000000006 /* Release */); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		120000000000000000000004 /* Build configuration list for PBXNativeTarget "KkachiUITests" */ = {isa = XCConfigurationList; buildConfigurations = (140000000000000000000007 /* Debug */, 140000000000000000000008 /* Release */); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+/* End XCConfigurationList section */
+	};
+	rootObject = 040000000000000000000001 /* Project object */;
+}
