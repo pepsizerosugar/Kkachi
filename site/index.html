@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kkachi - reversible tab pruning for macOS</title>
+    <meta
+      name="description"
+      content="Kkachi is a native macOS menu-bar utility that closes idle browser tabs and keeps a local restore history."
+    >
+    <link rel="canonical" href="https://pepsizerosugar.github.io/Kkachi/">
+    <meta name="robots" content="index,follow">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Kkachi">
+    <meta property="og:title" content="Kkachi - reversible tab pruning for macOS">
+    <meta
+      property="og:description"
+      content="A small Mac menu-bar utility that closes idle browser tabs without making closing feel final."
+    >
+    <meta property="og:url" content="https://pepsizerosugar.github.io/Kkachi/">
+    <meta property="og:image" content="https://pepsizerosugar.github.io/Kkachi/assets/kkachi-icon.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Kkachi - reversible tab pruning for macOS">
+    <meta
+      name="twitter:description"
+      content="Local, reversible tab pruning from the macOS menu bar."
+    >
+    <meta name="twitter:image" content="https://pepsizerosugar.github.io/Kkachi/assets/kkachi-icon.png">
+    <meta name="theme-color" content="#101216">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="apple-touch-icon" href="assets/kkachi-icon.png">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#content">Skip to content</a>
+    <header class="site-nav" aria-label="Primary navigation">
+      <a class="brand" href="#top" aria-label="Kkachi home">
+        <img src="assets/menubar-icon.png" alt="" width="27" height="27">
+        <span>Kkachi</span>
+      </a>
+      <nav>
+        <a href="#privacy">Privacy</a>
+        <a href="#release">Release</a>
+        <a href="https://github.com/pepsizerosugar/Kkachi">GitHub</a>
+      </nav>
+    </header>
+
+    <main id="content">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="tab-scene" aria-hidden="true">
+          <div class="mac-bar">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="tab-cloud">
+            <span class="tab tab-a">docs.apple.com</span>
+            <span class="tab tab-b">Release notes</span>
+            <span class="tab tab-c">Design reference</span>
+            <span class="tab tab-d">Search results</span>
+            <span class="tab tab-e">Later reading</span>
+          </div>
+          <div class="restore-rail">
+            <img src="assets/mascot-restore.png" alt="">
+            <span>3 tabs tucked away</span>
+          </div>
+        </div>
+        <div class="hero-copy">
+          <p class="eyebrow">Native macOS menu-bar utility</p>
+          <h1 id="hero-title">Close idle tabs without making closing feel final.</h1>
+          <p>
+            Kkachi watches supported browsers locally, closes tabs that have gone quiet, and keeps a
+            small restore history so each tab can come back.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="https://github.com/pepsizerosugar/Kkachi">View source</a>
+            <a class="button secondary" href="#release">Release status</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="claim-strip" aria-label="Core promises">
+        <p><strong>Local only</strong><span>No analytics. No remote tab data.</span></p>
+        <p><strong>Reversible</strong><span>URL, title, browser, and time are kept for restore.</span></p>
+        <p><strong>Small by design</strong><span>Not a tab manager, dashboard, or extension.</span></p>
+      </section>
+
+      <section class="workflow-section" aria-labelledby="workflow-title">
+        <div class="section-heading">
+          <p class="eyebrow">What happens</p>
+          <h2 id="workflow-title">A quiet loop for tabs you are not using.</h2>
+        </div>
+        <div class="workflow-grid">
+          <article>
+            <span class="step-mark">Watch</span>
+            <h3>Read only the tab address and title.</h3>
+            <p>Kkachi uses macOS Apple Events and avoids page content, form state, cookies, and scripts.</p>
+          </article>
+          <article>
+            <span class="step-mark">Prune</span>
+            <h3>Close only tabs that pass the policy.</h3>
+            <p>Active, protected, ambiguous, or unavailable tabs are skipped instead of guessed.</p>
+          </article>
+          <article>
+            <span class="step-mark">Restore</span>
+            <h3>Keep the path back short.</h3>
+            <p>The menu keeps a capped local history for recent pruned tabs and routes restore to the browser.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="privacy-section" id="privacy" aria-labelledby="privacy-title">
+        <div class="privacy-copy">
+          <p class="eyebrow">Privacy model</p>
+          <h2 id="privacy-title">The promise is deliberately narrow.</h2>
+          <p>
+            Kkachi is built around a smaller claim that can be checked in source: it stores only the
+            minimum restorable context and keeps it on your Mac.
+          </p>
+          <a class="text-link" href="https://github.com/pepsizerosugar/Kkachi/blob/main/PRIVACY.md">Read the privacy details</a>
+        </div>
+        <dl class="privacy-list">
+          <div><dt>Reads</dt><dd>Tab URL and title</dd></div>
+          <div><dt>Stores</dt><dd>Recent restore history on disk</dd></div>
+          <div><dt>Does not read</dt><dd>Page content, cookies, forms, JavaScript state, scroll position</dd></div>
+          <div><dt>Does not send</dt><dd>Anything about your tabs off your Mac</dd></div>
+        </dl>
+      </section>
+
+      <section class="release-section" id="release" aria-labelledby="release-title">
+        <div class="release-panel">
+          <img src="assets/kkachi-icon.png" alt="" width="96" height="96">
+          <div>
+            <p class="eyebrow">Pre-release</p>
+            <h2 id="release-title">Public source first, notarized build next.</h2>
+            <p>
+              Kkachi is being prepared for its first signed Developer ID release. Until then, the app can
+              be built from source with Xcode.
+            </p>
+          </div>
+          <div class="release-actions">
+            <a class="button primary" href="https://github.com/pepsizerosugar/Kkachi">Open GitHub</a>
+            <a class="button secondary" href="https://github.com/pepsizerosugar/Kkachi/blob/main/RELEASE.md">Release notes</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Kkachi is free and open source under the MIT License.</p>
+      <a href="https://github.com/sponsors/pepsizerosugar">Sponsor maintenance</a>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

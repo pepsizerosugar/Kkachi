@@ -92,6 +92,11 @@ dashboard are out of scope.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md).
 
+## Website
+
+The GitHub Pages site lives in [`site/`](site/) and is deployed by
+[`.github/workflows/pages.yml`](.github/workflows/pages.yml).
+
 ## Security
 
 Please report security or privacy issues privately first. See [SECURITY.md](SECURITY.md).
