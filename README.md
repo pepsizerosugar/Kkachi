@@ -9,7 +9,8 @@ data on your Mac.
 ## Status
 
 Kkachi is preparing for its first public release. Until a signed and notarized build is attached to
-GitHub Releases, build from source with Xcode.
+GitHub Releases, build from source with Xcode. The planned release path is documented in
+[RELEASE.md](RELEASE.md).
 
 ```sh
 xcodebuild test -project Kkachi.xcodeproj -scheme Kkachi -destination 'platform=macOS'
