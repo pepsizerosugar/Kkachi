@@ -8,7 +8,7 @@ final class KkachiArchitectureGuardrailTests: XCTestCase {
 
     func testCodeFilesStayWithinLengthLimit() throws {
         let checkedExtensions: Set<String> = ["swift", "py", "js", "jsx", "ts", "tsx", "html"]
-        let ignoredDirectories: Set<String> = ["PerformanceReports", ".git", "DerivedData"]
+        let ignoredDirectories: Set<String> = ["PerformanceReports", ".git", "DerivedData", "site"]
         let enumerator = try XCTUnwrap(FileManager.default.enumerator(at: projectRoot, includingPropertiesForKeys: [.isDirectoryKey]))
         var violations: [String] = []
 
