@@ -126,7 +126,7 @@ final class KkachiUISettingsInteractionTests: KkachiUITestCase {
         let hostSuffix = "docs.example.com"
         let input = element("settings.exclusions.input", in: app)
         let addButton = element("settings.exclusions.add", in: app)
-        let removeButton = element("settings.exclusions.remove", in: app)
+        let removeButton = app.buttons["settings.exclusions.remove"]
 
         XCTAssertTrue(window("settings", in: app).waitForExistence(timeout: timeout))
         XCTAssertTrue(waitForState("uiTest.state.exclusionCount", "0", in: app))
@@ -137,7 +137,7 @@ final class KkachiUISettingsInteractionTests: KkachiUITestCase {
 
         XCTAssertTrue(element("settings.exclusions.row", in: app).waitForExistence(timeout: timeout))
         XCTAssertTrue(waitForState("uiTest.state.exclusionCount", "1", in: app))
-        XCTAssertTrue(removeButton.exists)
+        XCTAssertTrue(removeButton.waitForExistence(timeout: timeout))
         removeButton.click()
         XCTAssertTrue(waitForState("uiTest.state.exclusionCount", "0", in: app))
     }
