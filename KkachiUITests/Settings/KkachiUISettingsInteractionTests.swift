@@ -120,13 +120,13 @@ final class KkachiUISettingsInteractionTests: KkachiUITestCase {
         XCTAssertFalse(element("settings.debug.applyTiming", in: app).exists)
     }
 
-    /// Verifies the only text input creates and removes domain exclusion rules.
-    func testSettingsExclusionInputAddsAndRemovesRuleWithState() {
+    /// Verifies the only text input creates and clears domain exclusion rules.
+    func testSettingsExclusionInputAddsAndClearsRuleWithState() {
         let app = launch(surface: "settings", scenario: "ready")
         let hostSuffix = "docs.example.com"
         let input = element("settings.exclusions.input", in: app)
         let addButton = element("settings.exclusions.add", in: app)
-        let removeButton = app.buttons["settings.exclusions.remove"]
+        let clearAllButton = element("settings.exclusions.clearAll", in: app)
 
         XCTAssertTrue(window("settings", in: app).waitForExistence(timeout: timeout))
         XCTAssertTrue(waitForState("uiTest.state.exclusionCount", "0", in: app))
@@ -137,8 +137,13 @@ final class KkachiUISettingsInteractionTests: KkachiUITestCase {
 
         XCTAssertTrue(element("settings.exclusions.row", in: app).waitForExistence(timeout: timeout))
         XCTAssertTrue(waitForState("uiTest.state.exclusionCount", "1", in: app))
-        XCTAssertTrue(removeButton.waitForExistence(timeout: timeout))
-        removeButton.click()
+        XCTAssertTrue(clearAllButton.waitForExistence(timeout: timeout))
+        clearAllButton.click()
+
+        let confirmButton = element("settings.exclusions.clearAll.confirm", in: app)
+        XCTAssertTrue(confirmButton.waitForExistence(timeout: timeout))
+        confirmButton.click()
+
         XCTAssertTrue(waitForState("uiTest.state.exclusionCount", "0", in: app))
     }
 
