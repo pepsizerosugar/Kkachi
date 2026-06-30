@@ -24,9 +24,10 @@ produce a trusted user-installable app.
 
 `.github/workflows/release.yml` runs when a `v*` tag is pushed. It archives the app, exports it with a
 Developer ID Application certificate, creates a DMG, submits it to Apple notarization, staples the ticket,
-and uploads the DMG plus its SHA-256 file to GitHub Releases.
+uploads the DMG plus its SHA-256 file to GitHub Releases, and updates the Homebrew tap cask when
+`HOMEBREW_TAP_TOKEN` is configured.
 
-Required repository secrets:
+Required repository secrets for the notarized GitHub Release:
 
 - `APPLE_APP_SPECIFIC_PASSWORD`
 - `APPLE_ID`
@@ -37,6 +38,14 @@ Required repository secrets:
 
 `MACOS_CERTIFICATE_BASE64` is a base64-encoded `.p12` export of the Developer ID Application certificate
 and private key.
+
+Required repository secret for automatic Homebrew tap publishing:
+
+- `HOMEBREW_TAP_TOKEN`
+
+`HOMEBREW_TAP_TOKEN` is a GitHub token with contents write access to `pepsizerosugar/homebrew-tap`. If it
+is not set, the release still publishes the GitHub Release and skips only the Homebrew cask update. Edit
+`HOMEBREW_TAP_REPOSITORY` in `.github/workflows/release.yml` if the tap repository name changes.
 
 ## Cut A Release
 
@@ -58,12 +67,20 @@ and private key.
    ```
 
 5. Confirm the release workflow uploaded `Kkachi-1.0.dmg` and `Kkachi-1.0.dmg.sha256`.
+6. Confirm the Homebrew tap was updated, then test:
+
+   ```sh
+   brew install --cask pepsizerosugar/tap/kkachi
+   ```
 
 The workflow rejects a tag whose version does not match the built app's `CFBundleShortVersionString`.
 
 ## Homebrew Cask
 
-After the GitHub Release is published, create or update a cask using the uploaded DMG and SHA-256:
+Create `pepsizerosugar/homebrew-tap` before the first release. The release workflow checks out that tap and
+writes `Casks/kkachi.rb` with `scripts/homebrew/write-cask.sh` using the notarized DMG SHA-256.
+
+The generated cask has this shape:
 
 ```ruby
 cask "kkachi" do
@@ -72,8 +89,13 @@ cask "kkachi" do
 
   url "https://github.com/pepsizerosugar/Kkachi/releases/download/v#{version}/Kkachi-#{version}.dmg"
   name "Kkachi"
-  desc "Menu-bar utility that closes idle browser tabs and keeps a restorable history"
+  desc "Tucks away idle browser tabs you keep meaning to close"
   homepage "https://github.com/pepsizerosugar/Kkachi"
+
+  livecheck do
+    url "https://github.com/pepsizerosugar/Kkachi"
+    strategy :github_latest
+  end
 
   depends_on macos: ">= :ventura"
   app "Kkachi.app"
@@ -85,8 +107,9 @@ cask "kkachi" do
 end
 ```
 
-Use a personal tap first if upstream `homebrew/homebrew-cask` acceptance or review timing would slow down
-the first public release.
+Use the personal tap first if upstream `homebrew/homebrew-cask` acceptance or review timing would slow down
+the first public release. Once the cask is accepted upstream, update the website and README install command
+from `brew install --cask pepsizerosugar/tap/kkachi` to `brew install --cask kkachi`.
 
 ## Sparkle
 

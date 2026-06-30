@@ -17,12 +17,14 @@ jobs:
     name: Build, notarize, and publish DMG
     runs-on: macos-latest
     timeout-minutes: 60
+    environment: release
 
     env:
       APP_NAME: Kkachi
       PROJECT: Kkachi.xcodeproj
       SCHEME: Kkachi
       CONFIGURATION: Release
+      HOMEBREW_TAP_REPOSITORY: pepsizerosugar/homebrew-tap
 
     steps:
       - name: Check out source
@@ -158,7 +160,9 @@ jobs:
           set -euo pipefail
 
           SHA_PATH="$DMG_PATH.sha256"
-          shasum -a 256 "$DMG_PATH" | tee "$SHA_PATH"
+          DMG_SHA256="$(shasum -a 256 "$DMG_PATH" | awk '{print $1}')"
+          echo "$DMG_SHA256  $(basename "$DMG_PATH")" | tee "$SHA_PATH"
+          echo "DMG_SHA256=$DMG_SHA256" >> "$GITHUB_ENV"
 
           if gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1; then
             gh release upload "$GITHUB_REF_NAME" "$DMG_PATH" "$SHA_PATH" --clobber
@@ -167,3 +171,48 @@ jobs:
               --title "Kkachi ${GITHUB_REF_NAME#v}" \
               --notes "Notarized Developer ID build for macOS."
           fi
+
+      - name: Check Homebrew tap publishing
+        id: homebrew
+        env:
+          HOMEBREW_TAP_TOKEN: ${{ secrets.HOMEBREW_TAP_TOKEN }}
+        run: |
+          set -euo pipefail
+
+          if [[ -n "$HOMEBREW_TAP_TOKEN" ]]; then
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+            echo "HOMEBREW_TAP_TOKEN is not set; skipping Homebrew tap update."
+          fi
+
+      - name: Check out Homebrew tap
+        if: steps.homebrew.outputs.enabled == 'true'
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ env.HOMEBREW_TAP_REPOSITORY }}
+          token: ${{ secrets.HOMEBREW_TAP_TOKEN }}
+          path: homebrew-tap
+
+      - name: Update Homebrew cask
+        if: steps.homebrew.outputs.enabled == 'true'
+        run: |
+          set -euo pipefail
+
+          VERSION="${GITHUB_REF_NAME#v}"
+          CASK_PATH="homebrew-tap/Casks/kkachi.rb"
+
+          scripts/homebrew/write-cask.sh "$VERSION" "$DMG_SHA256" "$CASK_PATH"
+          ruby -c "$CASK_PATH"
+
+          cd homebrew-tap
+          if [[ -z "$(git status --porcelain -- Casks/kkachi.rb)" ]]; then
+            echo "Homebrew cask is already up to date."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add Casks/kkachi.rb
+          git commit -m "Update kkachi cask to $VERSION"
+          git push

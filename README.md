@@ -16,6 +16,12 @@ GitHub Releases, build from source with Xcode. The planned release path is docum
 xcodebuild test -project Kkachi.xcodeproj -scheme Kkachi -destination 'platform=macOS'
 ```
 
+After the first notarized release is published, install with Homebrew:
+
+```sh
+brew install --cask pepsizerosugar/tap/kkachi
+```
+
 ## What It Does
 
 - Watches supported browsers through macOS Apple Events.
