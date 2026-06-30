@@ -57,7 +57,7 @@ enum PruneEvaluator {
     }
 
     static func atRiskWindow(for policy: PrunePolicy) -> TimeInterval {
-        max(60, min(policy.inactivityThreshold * 0.2, 5 * 60))
+        max(60, min(policy.inactivityThreshold * 0.2, 60 * 60))
     }
 
     private static func trackedTab(

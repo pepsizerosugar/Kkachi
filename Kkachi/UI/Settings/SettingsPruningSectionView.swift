@@ -11,16 +11,9 @@ struct SettingsPruningSectionView: View {
     /// allowed to land a runloop later without affecting which segment looks selected.
     @State private var selectedMode: ThresholdMode
 
-    /// In-progress custom delay in minutes; seeded from the persisted threshold and edited live while the
-    /// custom segment is active.
-    @State private var customMinutes: Int
-
-    /// Inclusive custom range: a five-minute floor protects an actively-read tab from premature cleanup;
-    /// a one-day ceiling covers long-lived reference tabs without offering an effectively-never value.
-    private static let customRange = 5...1440
-
-    /// Stepper increment chosen so arrow taps move in human-friendly five-minute jumps.
-    private static let customStep = 5
+    /// In-progress custom delay as a human-scale amount plus unit; seeded from the persisted threshold
+    /// and edited live while the custom segment is active.
+    @State private var customDraft: CustomThresholdDraft
 
     /// Seeds editing state from the persisted threshold so reopening Settings restores the user's choice.
     init(store: KkachiStore) {
@@ -28,7 +21,7 @@ struct SettingsPruningSectionView: View {
         let threshold = store.preferences.policy.inactivityThreshold
         let matchedPreset = ThresholdPreset.availablePresets.first { $0.duration == threshold }
         _selectedMode = State(initialValue: matchedPreset.map { ThresholdMode.preset($0.duration) } ?? .custom)
-        _customMinutes = State(initialValue: Self.minutes(from: threshold))
+        _customDraft = State(initialValue: CustomThresholdDraft(duration: threshold))
     }
 
     /// Lays out the threshold control, the conditional custom field, and the pause/login toggles.
@@ -37,12 +30,10 @@ struct SettingsPruningSectionView: View {
             thresholdPicker
             if selectedMode == .custom {
                 CustomThresholdField(
-                    minutes: $customMinutes,
-                    range: Self.customRange,
-                    step: Self.customStep,
+                    draft: $customDraft,
                     language: store.preferences.appLanguage
                 )
-                    .onChange(of: customMinutes, perform: persistCustomMinutes)
+                    .onChange(of: customDraft, perform: persistCustomDraft)
             }
             SettingsPollingIntervalField(store: store)
             Toggle("settings.pause.toggle", isOn: pausedBinding)
@@ -86,23 +77,16 @@ struct SettingsPruningSectionView: View {
                 case .preset(let duration):
                     applyThreshold(duration)
                 case .custom:
-                    customMinutes = Self.minutes(from: store.preferences.policy.inactivityThreshold)
-                    persistCustomMinutes(customMinutes)
+                    customDraft = CustomThresholdDraft(duration: store.preferences.policy.inactivityThreshold)
+                    persistCustomDraft(customDraft)
                 }
             }
         )
     }
 
-    /// Persists an edited custom value: clamps the low end for safety, snaps an over-max entry live, and
-    /// otherwise writes the chosen delay. Low-end values stay as typed until the field commits so
-    /// multi-digit entry (for example typing "15") is not rewritten to the minimum after one keystroke.
-    private func persistCustomMinutes(_ newValue: Int) {
-        if newValue > Self.customRange.upperBound {
-            customMinutes = Self.customRange.upperBound
-            return
-        }
-        let safe = max(Self.customRange.lowerBound, newValue)
-        applyThreshold(TimeInterval(safe * 60))
+    /// Persists an edited custom value after the draft applies its unit-aware bounds.
+    private func persistCustomDraft(_ draft: CustomThresholdDraft) {
+        applyThreshold(draft.duration)
     }
 
     /// Binds pause state to persisted policy and tracker behavior.
@@ -130,12 +114,6 @@ struct SettingsPruningSectionView: View {
         }
     }
 
-    /// Converts a persisted threshold into a clamped whole-minute value for the custom field.
-    private static func minutes(from threshold: TimeInterval) -> Int {
-        let raw = Int((threshold / 60).rounded())
-        return min(customRange.upperBound, max(customRange.lowerBound, raw))
-    }
-
     /// Provides stable automation identifiers for threshold segments.
     private func thresholdIdentifier(for preset: ThresholdPreset) -> String {
         switch preset {
@@ -143,6 +121,7 @@ struct SettingsPruningSectionView: View {
         case .fifteenMinutes: return "fifteen"
         case .thirtyMinutes: return "thirty"
         case .oneHour: return "hour"
+        case .oneDay: return "day"
         }
     }
 }

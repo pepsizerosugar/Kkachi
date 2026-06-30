@@ -1,8 +1,6 @@
 import XCTest
 
-/// Verifies Settings interactions mutate policy, storage, and fake integrations.
 final class KkachiUISettingsInteractionTests: KkachiUITestCase {
-    /// Verifies policy toggles update paused, login-item, and browser-enabled state.
     func testSettingsPolicyTogglesMutateState() {
         let app = launch(surface: "settings", scenario: "ready")
 
@@ -23,7 +21,6 @@ final class KkachiUISettingsInteractionTests: KkachiUITestCase {
         XCTAssertTrue(waitForState("uiTest.state.browser.chrome.enabled", "true", in: app))
     }
 
-    /// Verifies uninstalled browser rows are hidden while policy remains off.
     func testSettingsHidesUninstalledBrowserRows() {
         let app = launch(surface: "settings", scenario: "uninstalled")
         let browserToggle = element("settings.browser.chrome", in: app)
@@ -35,7 +32,6 @@ final class KkachiUISettingsInteractionTests: KkachiUITestCase {
         XCTAssertTrue(waitForState("uiTest.state.browser.chrome.enabled", "false", in: app))
     }
 
-    /// Verifies Settings does not expose non-actionable identity or motion rows.
     func testSettingsOmitsStaticIdentityMotionRows() {
         let app = launch(surface: "settings", scenario: "ready")
 
@@ -44,7 +40,6 @@ final class KkachiUISettingsInteractionTests: KkachiUITestCase {
         XCTAssertFalse(element("settings.identity.motion", in: app).exists)
     }
 
-    /// Verifies the threshold segmented picker writes the selected policy duration.
     func testSettingsThresholdPickerMutatesPolicy() {
         let app = launch(surface: "settings", scenario: "ready")
 
@@ -54,10 +49,10 @@ final class KkachiUISettingsInteractionTests: KkachiUITestCase {
         XCTAssertTrue(waitForState("uiTest.state.threshold", "300", in: app))
         element("settings.threshold.hour", in: app).click()
         XCTAssertTrue(waitForState("uiTest.state.threshold", "3600", in: app))
+        element("settings.threshold.day", in: app).click()
+        XCTAssertTrue(waitForState("uiTest.state.threshold", "86400", in: app))
     }
 
-    /// Verifies the custom segment reveals a minute field, preserves the active threshold on entry, and
-    /// writes an arbitrary (non-preset) duration the user types.
     func testSettingsCustomThresholdWritesArbitraryDuration() {
         let app = launch(surface: "settings", scenario: "ready")
 
@@ -70,12 +65,33 @@ final class KkachiUISettingsInteractionTests: KkachiUITestCase {
         XCTAssertTrue(valueField.waitForExistence(timeout: timeout))
         XCTAssertTrue(waitForState("uiTest.state.threshold", "3600", in: app))
 
-        replaceText(in: valueField, with: "45")
-        valueField.typeText("\n")
+        element("settings.threshold.thirty", in: app).click()
+        XCTAssertTrue(waitForState("uiTest.state.threshold", "1800", in: app))
+        element("settings.threshold.custom", in: app).click()
+        let refreshedValueField = element("settings.threshold.custom.value", in: app)
+        XCTAssertTrue(refreshedValueField.waitForExistence(timeout: timeout))
+        replaceText(in: refreshedValueField, with: "45")
+        refreshedValueField.typeText("\n")
         XCTAssertTrue(waitForState("uiTest.state.threshold", "2700", in: app))
     }
 
-    /// Verifies the public polling interval input updates and clamps policy values.
+    func testSettingsCustomThresholdWritesDayDuration() {
+        let app = launch(surface: "settings", scenario: "ready")
+
+        XCTAssertTrue(window("settings", in: app).waitForExistence(timeout: timeout))
+        element("settings.threshold.custom", in: app).click()
+        XCTAssertTrue(element("settings.threshold.custom.value", in: app).waitForExistence(timeout: timeout))
+
+        element("settings.threshold.custom.unit", in: app).click()
+        element("settings.threshold.custom.unit.days", in: app).click()
+        XCTAssertTrue(waitForState("uiTest.state.threshold", "86400", in: app))
+
+        let refreshedValueField = element("settings.threshold.custom.value", in: app)
+        replaceText(in: refreshedValueField, with: "2")
+        refreshedValueField.typeText("\n")
+        XCTAssertTrue(waitForState("uiTest.state.threshold", "172800", in: app))
+    }
+
     func testSettingsPollingIntervalInputMutatesPolicy() {
         let app = launch(surface: "settings", scenario: "ready")
         let pollingInput = element("settings.polling.minutes", in: app)
@@ -90,7 +106,6 @@ final class KkachiUISettingsInteractionTests: KkachiUITestCase {
         XCTAssertTrue(waitForState("uiTest.state.pollingInterval", "3600", in: app))
     }
 
-    /// Verifies the app language picker persists a manual language override and redraws localized copy.
     func testSettingsLanguagePickerMutatesAppLanguage() {
         let englishApp = launch(surface: "settings", scenario: "ready")
 
@@ -110,7 +125,6 @@ final class KkachiUISettingsInteractionTests: KkachiUITestCase {
         XCTAssertTrue(waitForState("uiTest.state.localizedPruningSection", "정리", in: koreanApp))
     }
 
-    /// Verifies developer timing controls are no longer part of Settings.
     func testSettingsOmitsDeveloperTimingControls() {
         let app = launch(surface: "settings", scenario: "ready")
 
@@ -120,7 +134,6 @@ final class KkachiUISettingsInteractionTests: KkachiUITestCase {
         XCTAssertFalse(element("settings.debug.applyTiming", in: app).exists)
     }
 
-    /// Verifies the only text input creates and clears domain exclusion rules.
     func testSettingsExclusionInputAddsAndClearsRuleWithState() {
         let app = launch(surface: "settings", scenario: "ready")
         let hostSuffix = "docs.example.com"
@@ -147,7 +160,6 @@ final class KkachiUISettingsInteractionTests: KkachiUITestCase {
         XCTAssertTrue(waitForState("uiTest.state.exclusionCount", "0", in: app))
     }
 
-    /// Verifies clear history mutates restore state and disables the command.
     func testSettingsClearHistoryClearsStateAndDisablesAction() {
         let app = launch(surface: "settings", scenario: "restore")
         let clearButton = element("settings.privacy.clearHistory", in: app)
@@ -166,7 +178,6 @@ final class KkachiUISettingsInteractionTests: KkachiUITestCase {
         XCTAssertTrue(waitForDisabled(clearButton))
     }
 
-    /// Replaces existing text in a focused field with deterministic UI-test input.
     private func replaceText(in input: XCUIElement, with value: String) {
         input.click()
         input.typeKey(.rightArrow, modifierFlags: .command)
@@ -174,7 +185,6 @@ final class KkachiUISettingsInteractionTests: KkachiUITestCase {
         input.typeText(value)
     }
 
-    /// Selects one language option after resolving fresh accessibility nodes.
     private func selectLanguage(_ suffix: String, in app: XCUIApplication) {
         let picker = element("settings.language", in: app)
         XCTAssertTrue(picker.waitForExistence(timeout: timeout))

@@ -5,9 +5,9 @@ extension ThresholdPreset {
     /// Lists presets that should be visible in Settings for the active build.
     static var availablePresets: [ThresholdPreset] {
         #if DEBUG
-        return [.testing, .fifteenMinutes, .thirtyMinutes, .oneHour]
+        return [.testing, .fifteenMinutes, .thirtyMinutes, .oneHour, .oneDay]
         #else
-        return [.fifteenMinutes, .thirtyMinutes, .oneHour]
+        return [.fifteenMinutes, .thirtyMinutes, .oneHour, .oneDay]
         #endif
     }
 }

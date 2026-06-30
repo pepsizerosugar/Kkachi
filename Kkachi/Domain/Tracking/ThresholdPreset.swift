@@ -16,6 +16,9 @@ enum ThresholdPreset: CaseIterable, Identifiable {
     /// Gives long reading sessions more room before pruning.
     case oneHour
 
+    /// Lets users leave intentionally parked tabs alone for a full day.
+    case oneDay
+
     /// Uses duration as stable identity because presets are unique by time.
     var id: TimeInterval { duration }
 
@@ -30,6 +33,8 @@ enum ThresholdPreset: CaseIterable, Identifiable {
             return 30 * 60
         case .oneHour:
             return 60 * 60
+        case .oneDay:
+            return 24 * 60 * 60
         }
     }
 
@@ -44,6 +49,8 @@ enum ThresholdPreset: CaseIterable, Identifiable {
             return "settings.threshold.thirty"
         case .oneHour:
             return "settings.threshold.hour"
+        case .oneDay:
+            return "settings.threshold.day"
         }
     }
 }
