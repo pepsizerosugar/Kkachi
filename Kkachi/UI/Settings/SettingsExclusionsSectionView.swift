@@ -43,7 +43,7 @@ struct SettingsExclusionsSectionView: View {
             Text("settings.exclusions.section")
             Spacer()
             if !exclusions.isEmpty {
-                Text(String(format: NSLocalizedString("settings.exclusions.count", comment: ""), exclusions.count))
+                Text(AppLocalization.format("settings.exclusions.count", language: store.preferences.appLanguage, exclusions.count))
                     .foregroundStyle(.secondary)
             }
         }

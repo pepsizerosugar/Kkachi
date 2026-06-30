@@ -33,7 +33,7 @@ struct PrunedHistoryView: View {
                     row(for: tab)
                 }
                 if historyOverflow > 0 {
-                    Text(KkachiMenuRowText.moreCount(historyOverflow))
+                    Text(KkachiMenuRowText.moreCount(historyOverflow, language: store.preferences.appLanguage))
                         .font(.caption)
                         .foregroundStyle(.tertiary)
                         .padding(.horizontal, KkachiMenuMetrics.rowPadding)
@@ -97,14 +97,14 @@ struct PrunedHistoryView: View {
     /// Chooses reopen-all vs reopen-last copy for the primary undo affordance.
     private var undoTitle: String {
         isBatch
-            ? String(format: NSLocalizedString("menu.history.reopenBatch", comment: ""), store.recentBatchCount)
-            : NSLocalizedString("menu.history.undoLast", comment: "")
+            ? AppLocalization.format("menu.history.reopenBatch", language: store.preferences.appLanguage, store.recentBatchCount)
+            : AppLocalization.string("menu.history.undoLast", language: store.preferences.appLanguage)
     }
 
     /// Describes what undo will reopen: the batch count, or the single tab's title.
     private var undoSubtitle: String {
         if isBatch {
-            return String(format: NSLocalizedString("menu.history.batchClosed", comment: ""), store.recentBatchCount)
+            return AppLocalization.format("menu.history.batchClosed", language: store.preferences.appLanguage, store.recentBatchCount)
         }
         return store.prunedTabs.first.map { KkachiMenuRowText.title(title: $0.title, url: $0.url) } ?? ""
     }

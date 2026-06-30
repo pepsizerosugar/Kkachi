@@ -23,7 +23,7 @@
 	<key>LSUIElement</key>
 	<true/>
 	<key>NSAppleEventsUsageDescription</key>
-	<string>Kkachi reads only your browser tabs' addresses and titles to find ones left idle, then closes them and keeps a local list so you can bring them back. It never reads page content, and nothing about your tabs leaves your Mac.</string>
+	<string>Kkachi reads browser tab addresses, titles, and audio/video playback state to find idle tabs safely. It does not collect page content, and nothing about your tabs leaves your Mac.</string>
 	<key>NSSupportsAutomaticGraphicsSwitching</key>
 	<true/>
 </dict>

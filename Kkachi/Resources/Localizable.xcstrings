@@ -592,31 +592,31 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachi couldn’t close this tab automatically. Close or protect it yourself."
+            "value" : "Kkachi couldn’t confirm this tab was safe to close. Close or protect it yourself."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "このタブは自動で閉じられませんでした。手動で閉じるか、保護してください。"
+            "value" : "このタブを安全に閉じられるか確認できませんでした。手動で閉じるか、保護してください。"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "이 탭은 자동으로 닫지 못했어요. 직접 닫거나 보호해 주세요."
+            "value" : "이 탭을 안전하게 닫아도 되는지 확인하지 못했어요. 직접 닫거나 보호해 주세요."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachi 无法自动关闭此标签页。请手动关闭，或将其保护。"
+            "value" : "Kkachi 无法确认此标签页可安全关闭。请手动关闭，或将其保护。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachi 無法自動關閉此分頁。請手動關閉，或將其保護。"
+            "value" : "Kkachi 無法確認此分頁可安全關閉。請手動關閉，或將其保護。"
           }
         }
       }
@@ -1176,31 +1176,31 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Never reads page content, forms, or cookies"
+            "value" : "Does not collect page content, forms, or cookies"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ページの内容・フォーム・Cookie は読み取りません"
+            "value" : "ページ内容・フォーム・Cookie は収集しません"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "페이지 내용, 양식, 쿠키는 읽지 않아요"
+            "value" : "페이지 내용, 양식, 쿠키는 수집하지 않아요"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "从不读取页面内容、表单或 Cookie"
+            "value" : "不会收集页面内容、表单或 Cookie"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "從不讀取頁面內容、表單或 Cookie"
+            "value" : "不會收集頁面內容、表單或 Cookie"
           }
         }
       }
@@ -3809,48 +3809,352 @@
         }
       }
     },
-    "settings.debugTiming.apply" : {
-      "extractionState" : "stale",
+    "settings.language.option.en" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Apply Timing"
+            "value" : "English"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "時間を適用"
+            "value" : "英語"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "시간 적용"
+            "value" : "영어"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "应用时间"
+            "value" : "英语"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "套用時間"
+            "value" : "英文"
           }
         }
       }
     },
-    "settings.debugTiming.polling" : {
-      "extractionState" : "stale",
+    "settings.language.option.ja" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Poll every"
+            "value" : "Japanese"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "日本語"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "일본어"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "日语"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "日文"
+          }
+        }
+      }
+    },
+    "settings.language.option.ko" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Korean"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "韓国語"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "한국어"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "韩语"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "韓文"
+          }
+        }
+      }
+    },
+    "settings.language.option.system" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "System setting"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "システム設定"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "시스템 설정"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "跟随系统"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "系統設定"
+          }
+        }
+      }
+    },
+    "settings.language.option.zhHans" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Simplified Chinese"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "簡体字中国語"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "중국어(간체)"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "简体中文"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "簡體中文"
+          }
+        }
+      }
+    },
+    "settings.language.option.zhHant" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Traditional Chinese"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "繁体字中国語"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "중국어(번체)"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "繁体中文"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "繁體中文"
+          }
+        }
+      }
+    },
+    "settings.language.section" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Language"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "言語"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "언어"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "语言"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "語言"
+          }
+        }
+      }
+    },
+    "settings.language.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App language"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アプリの言語"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "앱 언어"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "应用语言"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App 語言"
+          }
+        }
+      }
+    },
+    "settings.polling.caption" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Shorter intervals react faster but wake browsers more often."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "短いほど早く反応しますが、ブラウザをより頻繁に確認します。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "짧을수록 더 빨리 반응하지만 브라우저를 더 자주 확인해요."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "间隔越短响应越快，但会更频繁地检查浏览器。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "間隔越短反應越快，但會更頻繁地檢查瀏覽器。"
+          }
+        }
+      }
+    },
+    "settings.polling.minutes" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "min"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "分"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "분"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "分钟"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "分鐘"
+          }
+        }
+      }
+    },
+    "settings.polling.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Check every"
           }
         },
         "ja" : {
@@ -3875,111 +4179,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "檢查間隔"
-          }
-        }
-      }
-    },
-    "settings.debugTiming.seconds" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "sec"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "秒"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "초"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "秒"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "秒"
-          }
-        }
-      }
-    },
-    "settings.debugTiming.section" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Developer Timing"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "開発用タイミング"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "개발용 시간"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "开发时间"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "開發時間"
-          }
-        }
-      }
-    },
-    "settings.debugTiming.threshold" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Prune after"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "整理まで"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "정리 기준"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "整理等待"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "整理等待"
           }
         }
       }
@@ -4911,31 +5110,31 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachi keeps restore history in memory with each tab's URL and title, stores settings locally, and never reads cookies, local storage, or session storage."
+            "value" : "Kkachi stores restore history locally with each tab's URL and title, checks media playback only for close safety, and does not collect cookies or browser storage."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachiは各タブのURLとタイトルを含む復元履歴をメモリ内に保持し、設定をローカルに保存し、Cookie、ローカルストレージ、セッションストレージを読みません。"
+            "value" : "Kkachi は各タブの URL とタイトルを含む復元履歴をローカルに保存し、閉じる安全確認のためだけにメディア再生状態を確認し、Cookie やブラウザストレージは収集しません。"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachi는 각 탭의 URL과 제목이 포함된 복원 기록을 메모리에만 보관하고 설정을 로컬에 저장하며 쿠키, 로컬 저장소, 세션 저장소를 읽지 않습니다."
+            "value" : "Kkachi는 각 탭의 URL과 제목이 포함된 복원 기록을 로컬에 저장하고, 닫아도 안전한지 확인할 때만 미디어 재생 상태를 확인하며, 쿠키나 브라우저 저장소는 수집하지 않습니다."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachi 将包含每个标签页 URL 和标题的恢复历史保存在内存中，将设置存储在本地，并且绝不读取 Cookie、本地存储或会话存储。"
+            "value" : "Kkachi 会在本地保存包含标签页 URL 和标题的恢复历史，仅为安全关闭而检查媒体播放状态，并且不会收集 Cookie 或浏览器存储。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachi 將包含每個分頁 URL 和標題的還原記錄保存在記憶體中，將設定儲存在本機，且絕不讀取 Cookie、本機儲存空間或工作階段儲存空間。"
+            "value" : "Kkachi 會在本機保存包含分頁 URL 和標題的還原記錄，僅為安全關閉而檢查媒體播放狀態，且不會收集 Cookie 或瀏覽器儲存空間。"
           }
         }
       }

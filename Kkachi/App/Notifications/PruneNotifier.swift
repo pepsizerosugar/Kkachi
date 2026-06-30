@@ -31,9 +31,17 @@ final class PruneNotifier: NSObject, PruneNotifying {
     /// The system notification center, injectable so the type stays unit-test friendly.
     private let center: UNUserNotificationCenter
 
+    /// Supplies the current app-language preference at the moment a notification is posted.
+    private let languageProvider: () -> AppLanguage
+
     /// Wires the reopen handler, registers the action category, and requests authorization once.
-    init(center: UNUserNotificationCenter = .current(), onReopen: @escaping (String) -> Void) {
+    init(
+        center: UNUserNotificationCenter = .current(),
+        languageProvider: @escaping () -> AppLanguage = { .system },
+        onReopen: @escaping (String) -> Void
+    ) {
         self.center = center
+        self.languageProvider = languageProvider
         self.onReopen = onReopen
         super.init()
         configure()
@@ -42,23 +50,30 @@ final class PruneNotifier: NSObject, PruneNotifying {
     /// Registers the reopen-all category, becomes the delegate, and asks for alert permission a single
     /// time — repeat calls return the existing decision silently, so this is safe on every launch.
     private func configure() {
+        registerCategory()
+        center.delegate = self
+        center.requestAuthorization(options: [.alert, .sound]) { _, _ in }
+    }
+
+    /// Registers the notification action copy using the current app language.
+    private func registerCategory() {
         let reopen = UNNotificationAction(
             identifier: Self.reopenActionID,
-            title: NSLocalizedString("notification.pruned.reopenAll", comment: ""),
+            title: AppLocalization.string("notification.pruned.reopenAll", language: languageProvider()),
             options: [.foreground]
         )
         let category = UNNotificationCategory(identifier: Self.categoryID, actions: [reopen], intentIdentifiers: [], options: [])
         center.setNotificationCategories([category])
-        center.delegate = self
-        center.requestAuthorization(options: [.alert, .sound]) { _, _ in }
     }
 
     /// Posts one passive notification summarizing the batch. The request id is the batch id so a single
     /// cycle can never enqueue duplicate banners, and `.passive` keeps the cleanup quiet, not alarming.
     func notifyPruned(_ batch: PruneBatch) {
+        registerCategory()
+        let language = languageProvider()
         let content = UNMutableNotificationContent()
-        content.title = NSLocalizedString("notification.pruned.title", comment: "")
-        content.body = Self.body(for: batch.count)
+        content.title = AppLocalization.string("notification.pruned.title", language: language)
+        content.body = Self.body(for: batch.count, language: language)
         content.categoryIdentifier = Self.categoryID
         content.interruptionLevel = .passive
         let request = UNNotificationRequest(identifier: batch.id.uuidString, content: content, trigger: nil)
@@ -67,9 +82,9 @@ final class PruneNotifier: NSObject, PruneNotifying {
 
     /// Builds count-correct body copy, choosing singular vs plural so "Closed 1 idle tab" never reads
     /// as "1 tabs". Format strings live in the catalog and substitute the count positionally.
-    private static func body(for count: Int) -> String {
+    private static func body(for count: Int, language: AppLanguage) -> String {
         let key = count == 1 ? "notification.pruned.body.one" : "notification.pruned.body.other"
-        return String(format: NSLocalizedString(key, comment: ""), count)
+        return AppLocalization.format(key, language: language, count)
     }
 }
 

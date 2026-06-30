@@ -52,6 +52,9 @@ final class FakeBrowserAdapter: BrowserAdapter {
     /// Forces closeTab to throw so tests can verify per-browser close-failure handling.
     var closeError: Error?
 
+    /// Overrides close-time media rechecks for race-condition tests.
+    var mediaStateOverride: BrowserMediaState?
+
     /// Creates fake browser automation with an initial live tab list.
     init(tabs: [BrowserTabSnapshot], descriptor: BrowserDescriptor = .testChrome) {
         self.tabs = tabs
@@ -83,6 +86,11 @@ final class FakeBrowserAdapter: BrowserAdapter {
             throw pendingFetchError
         }
         return tabs
+    }
+
+    /// Returns the configured close-time media state for the tab.
+    func mediaState(for tab: BrowserTabSnapshot) throws -> BrowserMediaState {
+        mediaStateOverride ?? tab.mediaState
     }
 
     /// Records the closed tab while leaving fake tab mutation to each test.

@@ -75,23 +75,49 @@ final class KkachiUISettingsInteractionTests: KkachiUITestCase {
         XCTAssertTrue(waitForState("uiTest.state.threshold", "2700", in: app))
     }
 
-    /// Verifies debug-only timing inputs update pruning and polling policy values.
-    func testSettingsDebugTimingInputsMutatePolicy() {
-        #if DEBUG
+    /// Verifies the public polling interval input updates and clamps policy values.
+    func testSettingsPollingIntervalInputMutatesPolicy() {
         let app = launch(surface: "settings", scenario: "ready")
-        let thresholdInput = element("settings.debug.thresholdSeconds", in: app)
-        let pollingInput = element("settings.debug.pollingSeconds", in: app)
+        let pollingInput = element("settings.polling.minutes", in: app)
 
         XCTAssertTrue(window("settings", in: app).waitForExistence(timeout: timeout))
-        XCTAssertTrue(waitForState("uiTest.state.threshold", "1800", in: app))
         XCTAssertTrue(waitForState("uiTest.state.pollingInterval", "60", in: app))
-        replaceText(in: thresholdInput, with: "2")
-        replaceText(in: pollingInput, with: "1")
-        element("settings.debug.applyTiming", in: app).click()
+        replaceText(in: pollingInput, with: "5")
+        XCTAssertTrue(waitForState("uiTest.state.pollingInterval", "300", in: app))
+        replaceText(in: pollingInput, with: "0")
+        XCTAssertTrue(waitForState("uiTest.state.pollingInterval", "60", in: app))
+        replaceText(in: pollingInput, with: "90")
+        XCTAssertTrue(waitForState("uiTest.state.pollingInterval", "3600", in: app))
+    }
 
-        XCTAssertTrue(waitForState("uiTest.state.threshold", "2", in: app))
-        XCTAssertTrue(waitForState("uiTest.state.pollingInterval", "1", in: app))
-        #endif
+    /// Verifies the app language picker persists a manual language override and redraws localized copy.
+    func testSettingsLanguagePickerMutatesAppLanguage() {
+        let app = launch(surface: "settings", scenario: "ready")
+        let languagePicker = element("settings.language", in: app)
+
+        XCTAssertTrue(window("settings", in: app).waitForExistence(timeout: timeout))
+        XCTAssertTrue(languagePicker.waitForExistence(timeout: timeout))
+        XCTAssertTrue(waitForState("uiTest.state.appLanguage", "system", in: app))
+
+        languagePicker.click()
+        element("settings.language.en", in: app).click()
+        XCTAssertTrue(waitForState("uiTest.state.appLanguage", "en", in: app))
+        XCTAssertTrue(waitForState("uiTest.state.localizedPruningSection", "Pruning", in: app))
+
+        languagePicker.click()
+        element("settings.language.ko", in: app).click()
+        XCTAssertTrue(waitForState("uiTest.state.appLanguage", "ko", in: app))
+        XCTAssertTrue(waitForState("uiTest.state.localizedPruningSection", "정리", in: app))
+    }
+
+    /// Verifies developer timing controls are no longer part of Settings.
+    func testSettingsOmitsDeveloperTimingControls() {
+        let app = launch(surface: "settings", scenario: "ready")
+
+        XCTAssertTrue(window("settings", in: app).waitForExistence(timeout: timeout))
+        XCTAssertFalse(element("settings.debug.thresholdSeconds", in: app).exists)
+        XCTAssertFalse(element("settings.debug.pollingSeconds", in: app).exists)
+        XCTAssertFalse(element("settings.debug.applyTiming", in: app).exists)
     }
 
     /// Verifies the only text input creates and removes domain exclusion rules.

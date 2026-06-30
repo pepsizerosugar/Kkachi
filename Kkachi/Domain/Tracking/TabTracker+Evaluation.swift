@@ -73,6 +73,11 @@ extension TabTracker {
             guard let adapter = adapterByID[tab.identity.browserID] else {
                 throw BrowserAutomationError.executionFailed(operation: "closeTab", details: "unsupportedBrowser")
             }
+            let currentMediaState = try adapter.mediaState(for: tab)
+            guard currentMediaState == .notPlaying else {
+                KkachiDebugLog.pruning("prune skipped reason=mediaState \(KkachiDebugLog.tabContext(tab)) state=\(currentMediaState)")
+                return .skipped
+            }
             KkachiDebugLog.pruning("prune attempt \(KkachiDebugLog.tabContext(tab))")
             let closeResult = try adapter.closeTab(tab)
             KkachiDebugLog.pruning("prune closeResult=\(closeResult) \(KkachiDebugLog.tabContext(tab))")

@@ -14,12 +14,12 @@ enum KkachiMenuRowText {
     }
 
     /// Formats the shared overflow row count used by menu preview lists.
-    static func moreCount(_ count: Int) -> String {
-        String(format: NSLocalizedString("menu.more.count", comment: ""), count)
+    static func moreCount(_ count: Int, language: AppLanguage) -> String {
+        AppLocalization.format("menu.more.count", language: language, count)
     }
 
     /// Builds an accessibility label that names the host acted on by a repeated icon button.
-    static func hostScopedLabel(_ key: String, host: String) -> String {
-        String(format: NSLocalizedString(key, comment: ""), host)
+    static func hostScopedLabel(_ key: String, host: String, language: AppLanguage) -> String {
+        AppLocalization.format(key, language: language, host)
     }
 }

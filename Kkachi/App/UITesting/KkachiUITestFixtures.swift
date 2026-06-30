@@ -71,8 +71,8 @@ enum KkachiUITestFixtures {
         tracker.prunedTabs = scenario == .restore ? [prunedTab(index: 0), prunedTab(index: 1), prunedTab(index: 2)] : []
         tracker.summary = summary(for: scenario)
         store.permissionState = permissionState(for: scenario)
-        if scenario == .expired {
-            pruneExpiredTab(tracker: tracker, browserState: browserState)
+        if scenario == .expired || scenario == .mediaPlaying || scenario == .mediaUnavailable {
+            evaluateExpiredTab(tracker: tracker, browserState: browserState)
         }
     }
 
@@ -89,7 +89,16 @@ enum KkachiUITestFixtures {
         browserState.isInstalled = scenario != .uninstalled
         browserState.isRunning = scenario != .browserMissing && scenario != .uninstalled
         browserState.automationState = scenario == .permission ? .denied : .ready
-        browserState.openTabs = scenario == .expired ? [snapshot(windowID: "1", tabID: "expired", title: "Expired Article", path: "expired", isActive: false)] : []
+        switch scenario {
+        case .expired:
+            browserState.openTabs = [snapshot(windowID: "1", tabID: "expired", title: "Expired Article", path: "expired", isActive: false)]
+        case .mediaPlaying:
+            browserState.openTabs = [snapshot(windowID: "1", tabID: "media", title: "Playing Video", path: "watch", isActive: false, mediaState: .playing)]
+        case .mediaUnavailable:
+            browserState.openTabs = [snapshot(windowID: "1", tabID: "media-unavailable", title: "Unknown Media", path: "unknown-media", isActive: false, mediaState: .unavailable)]
+        case .ready, .atRisk, .restore, .permission, .browserMissing, .disabled, .uninstalled:
+            browserState.openTabs = []
+        }
     }
 
     /// Replaces the tiny at-risk fixture with a large UI stress dataset when requested.
@@ -126,14 +135,14 @@ enum KkachiUITestFixtures {
             return .disabled
         case .uninstalled:
             return .notInstalled
-        case .ready, .atRisk, .restore, .expired:
+        case .ready, .atRisk, .restore, .expired, .mediaPlaying, .mediaUnavailable:
             return .ready
         }
     }
 
-    /// Runs a real tracker polling pass so the fake browser tab is actually closed.
+    /// Runs a real tracker polling pass so media and close rules are exercised.
     @MainActor
-    private static func pruneExpiredTab(tracker: TabTracker, browserState: KkachiUITestBrowserState) {
+    private static func evaluateExpiredTab(tracker: TabTracker, browserState: KkachiUITestBrowserState) {
         let now = Date()
         guard let tab = browserState.openTabs.first else { return }
         tracker.lastActiveDates[tab.stableID] = now.addingTimeInterval(-PrunePolicy.default.inactivityThreshold - 10)
@@ -143,7 +152,7 @@ enum KkachiUITestFixtures {
     /// Creates one at-risk tab that looks like real browser data.
     private static func trackedTab() -> TrackedTab {
         let tab = snapshot(windowID: "1", tabID: "2", title: "Example Article", path: "reading", isActive: false)
-        return TrackedTab(id: tab.stableID, browserID: browserDescriptor.id, identity: tab.identity, browserNameKey: browserDescriptor.displayNameKey, title: tab.title, url: tab.url, lastActiveAt: Date().addingTimeInterval(-1_500), isActive: false, isExcluded: false, pruneAt: Date().addingTimeInterval(120), isAtRisk: true, isIdentityAmbiguous: false, isAutoCloseBlocked: false)
+        return TrackedTab(id: tab.stableID, browserID: browserDescriptor.id, identity: tab.identity, browserNameKey: browserDescriptor.displayNameKey, title: tab.title, url: tab.url, lastActiveAt: Date().addingTimeInterval(-1_500), isActive: false, mediaState: .notPlaying, isExcluded: false, pruneAt: Date().addingTimeInterval(120), isAtRisk: true, isIdentityAmbiguous: false, isAutoCloseBlocked: false)
     }
 
     /// Creates one restore history row that looks like real browser data.
@@ -152,10 +161,10 @@ enum KkachiUITestFixtures {
     }
 
     /// Creates one browser snapshot with stable identity metadata.
-    private static func snapshot(windowID: String, tabID: String, title: String, path: String, isActive: Bool) -> BrowserTabSnapshot {
+    private static func snapshot(windowID: String, tabID: String, title: String, path: String, isActive: Bool, mediaState: BrowserMediaState = .notPlaying) -> BrowserTabSnapshot {
         let url = URL(string: "https://example.com/\(path)")!
         let identity = BrowserTabIdentity(browserID: browserDescriptor.id, windowID: windowID, tabID: tabID, windowIndex: nil, tabIndex: nil, fingerprint: BrowserTabFingerprint(url: url, title: title))
-        return BrowserTabSnapshot(identity: identity, url: url, title: title, isActive: isActive, browserNameKey: browserDescriptor.displayNameKey)
+        return BrowserTabSnapshot(identity: identity, url: url, title: title, isActive: isActive, mediaState: mediaState, browserNameKey: browserDescriptor.displayNameKey)
     }
 }
 #endif

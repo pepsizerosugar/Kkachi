@@ -19,31 +19,31 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachi reads only your browser tabs' addresses and titles to find ones left idle, then closes them and keeps a local list so you can bring them back. It never reads page content, and nothing about your tabs leaves your Mac."
+            "value" : "Kkachi reads browser tab addresses, titles, and audio/video playback state to find idle tabs safely. It does not collect page content, and nothing about your tabs leaves your Mac."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachi はタブのアドレスとタイトルだけを読み取り、長く使われていないタブを見つけて閉じ、後で戻せるようローカルに一覧を保存します。ページの内容は読み取らず、タブに関する情報が Mac の外に出ることはありません。"
+            "value" : "Kkachi はタブのアドレス、タイトル、音声や動画の再生状態を読み取り、アイドル状態のタブを安全に見つけます。ページ内容は収集せず、タブに関する情報が Mac の外に出ることはありません。"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachi는 탭의 주소와 제목만 읽어 오래 방치된 탭을 찾아 닫고, 나중에 되돌릴 수 있도록 로컬 목록을 보관합니다. 페이지 내용은 읽지 않으며, 탭에 관한 정보는 Mac을 벗어나지 않습니다."
+            "value" : "Kkachi는 탭의 주소, 제목, 오디오/비디오 재생 상태를 읽어 유휴 탭을 안전하게 찾습니다. 페이지 내용은 수집하지 않으며, 탭에 관한 정보는 Mac을 벗어나지 않습니다."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachi 仅读取标签页的地址和标题，以找出长期闲置的标签页并将其关闭，同时在本地保留列表以便随时恢复。它从不读取页面内容，且有关标签页的信息不会离开你的 Mac。"
+            "value" : "Kkachi 会读取标签页地址、标题以及音频/视频播放状态，以安全识别闲置标签页。它不会收集页面内容，且有关标签页的信息不会离开你的 Mac。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachi 僅讀取分頁的位址與標題，以找出長期閒置的分頁並將其關閉，同時在本機保留清單以便隨時復原。它從不讀取頁面內容，且有關分頁的資訊不會離開你的 Mac。"
+            "value" : "Kkachi 會讀取分頁位址、標題以及音訊/影片播放狀態，以安全識別閒置分頁。它不會收集頁面內容，且有關分頁的資訊不會離開你的 Mac。"
           }
         }
       }

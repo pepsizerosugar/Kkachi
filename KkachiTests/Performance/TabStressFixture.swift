@@ -48,6 +48,7 @@ enum TabStressFixture {
             url: url,
             title: title,
             isActive: index.isMultiple(of: 31),
+            mediaState: .notPlaying,
             browserNameKey: descriptor.displayNameKey,
             isIdentityAmbiguous: index.isMultiple(of: 37)
         )

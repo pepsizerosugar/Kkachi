@@ -100,6 +100,9 @@ protocol BrowserAdapter {
     /// Fetches all open tabs with enough metadata to track inactivity.
     func fetchTabs() throws -> [BrowserTabSnapshot]
 
+    /// Rechecks playback state immediately before a destructive close.
+    func mediaState(for tab: BrowserTabSnapshot) throws -> BrowserMediaState
+
     /// Closes a tab after any adapter-specific safety validation.
     func closeTab(_ tab: BrowserTabSnapshot) throws -> BrowserTabCloseResult
 

@@ -14,6 +14,9 @@ struct CustomThresholdField: View {
     /// Increment applied by the stepper's plus and minus controls.
     let step: Int
 
+    /// Language used for summary strings that require manual formatting.
+    let language: AppLanguage
+
     /// Tracks text-field focus so an out-of-range entry is clamped the moment editing ends, not only on
     /// Return — macOS does not deliver onSubmit for click-away or Tab.
     @FocusState private var isEditing: Bool
@@ -53,8 +56,8 @@ struct CustomThresholdField: View {
     /// system so "90" minutes reads as "1h 30m" / "1시간 30분" instead of a bare minute count.
     private var summary: String {
         let humanized = Duration.seconds(clamped(minutes) * 60)
-            .formatted(.units(allowed: [.hours, .minutes], width: .abbreviated))
-        return String(format: NSLocalizedString("settings.threshold.custom.summary", comment: ""), humanized)
+            .formatted(.units(allowed: [.hours, .minutes], width: .abbreviated).locale(language.formattingLocale))
+        return AppLocalization.format("settings.threshold.custom.summary", language: language, humanized)
     }
 
     /// Constrains a minute value to the allowed range so commits never persist an unsafe delay.

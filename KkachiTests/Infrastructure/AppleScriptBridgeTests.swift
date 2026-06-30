@@ -56,6 +56,13 @@ final class AppleScriptBridgeTests: XCTestCase {
         XCTAssertEqual(escaped, "\"a \\\"quote\\\" \\\\ path\\nnext\"")
     }
 
+    /// Ensures media-state AppleScript results map without exposing page content.
+    func testMediaStateResultParsing() throws {
+        XCTAssertEqual(try AppleScriptBridge.mediaState(from: NSAppleEventDescriptor(string: "playing"), operation: "test"), .playing)
+        XCTAssertEqual(try AppleScriptBridge.mediaState(from: NSAppleEventDescriptor(string: "notPlaying"), operation: "test"), .notPlaying)
+        XCTAssertThrowsError(try AppleScriptBridge.mediaState(from: NSAppleEventDescriptor(string: "missingTab"), operation: "test"))
+    }
+
     /// Creates one AppleEvent row matching {windowID, tabID, activeTabID, URL, title}.
     private static func row(
         windowID: String,

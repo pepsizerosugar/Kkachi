@@ -1,4 +1,5 @@
 import AppKit
+import Combine
 import SwiftUI
 
 /// Coordinates app lifecycle events that need AppKit hooks unavailable on `App`.
@@ -15,6 +16,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
 
     /// Retains the AppKit-hosted Settings window used by the menu-bar activation path.
     private var settingsWindow: NSWindow?
+
+    /// Retains store subscriptions owned by AppKit runtime bridges.
+    private var cancellables: Set<AnyCancellable> = []
 
 #if DEBUG
     /// Owns the deterministic window used only by XCUITest launches.
@@ -58,7 +62,10 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
             let statusController = MenuBarStatusController(store: store)
             statusController.start()
             menuBarStatusController = statusController
-            store.tracker.pruneNotifier = PruneNotifier(onReopen: { [weak store] id in store?.restoreBatch(idString: id) })
+            store.tracker.pruneNotifier = PruneNotifier(
+                languageProvider: { [weak store] in store?.preferences.appLanguage ?? .system },
+                onReopen: { [weak store] id in store?.restoreBatch(idString: id) }
+            )
             store.start()
         }
     }
@@ -73,6 +80,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     func openSettingsWindow() {
         NSApp.setActivationPolicy(.regular)
         let window = ensureSettingsWindow()
+        window.title = settingsWindowTitle(for: settingsStore)
         window.deminiaturize(nil)
         window.makeKeyAndOrderFront(nil)
         NSApp.activate(ignoringOtherApps: true)
@@ -101,6 +109,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
 
         let store = KkachiAppFactory.makeStore()
         productionStore = store
+        observeLanguageChanges(for: store)
         return store
     }
 
@@ -110,7 +119,10 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
             return settingsWindow
         }
 
-        let hostingController = NSHostingController(rootView: SettingsView(store: settingsStore))
+        let store = settingsStore
+        let hostingController = NSHostingController(rootView: KkachiLocalizedRoot(store: store) {
+            SettingsView(store: store)
+        })
         let window = NSWindow(
             contentRect: NSRect(x: 0, y: 0, width: 600, height: 620),
             styleMask: [.titled, .closable, .miniaturizable, .resizable],
@@ -118,13 +130,30 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
             defer: false
         )
         window.identifier = NSUserInterfaceItemIdentifier("kkachi.settingsWindow")
-        window.title = NSLocalizedString("menu.footer.settings", comment: "")
+        window.title = settingsWindowTitle(for: store)
         window.contentViewController = hostingController
         window.isReleasedWhenClosed = false
         window.delegate = self
         window.center()
         settingsWindow = window
         return window
+    }
+
+    /// Keeps AppKit-owned Settings chrome aligned with the selected app language.
+    private func observeLanguageChanges(for store: KkachiStore) {
+        store.objectWillChange.sink { [weak self, weak store] _ in
+            Task { @MainActor in
+                await Task.yield()
+                guard let self, let store else { return }
+                self.settingsWindow?.title = self.settingsWindowTitle(for: store)
+            }
+        }
+        .store(in: &cancellables)
+    }
+
+    /// Resolves the Settings window title through the app-language preference.
+    private func settingsWindowTitle(for store: KkachiStore) -> String {
+        AppLocalization.string("menu.footer.settings", language: store.preferences.appLanguage)
     }
 
 #if DEBUG
@@ -150,7 +179,9 @@ struct KkachiApp: App {
     /// Provides the Settings scene while AppKit owns the static menu-bar item.
     var body: some Scene {
         Settings {
-            SettingsView(store: appDelegate.settingsStore)
+            KkachiLocalizedRoot(store: appDelegate.settingsStore) {
+                SettingsView(store: appDelegate.settingsStore)
+            }
         }
     }
 }

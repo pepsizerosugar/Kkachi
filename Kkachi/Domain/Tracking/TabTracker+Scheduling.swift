@@ -11,13 +11,13 @@ extension TabTracker {
         interval * 0.1
     }
 
-    /// Resolves the active polling interval. DEBUG honors the developer timing override verbatim so the
-    /// timing controls and their tests stay deterministic; Release widens the default cadence under power
-    /// pressure (Low Power Mode, serious/critical thermal state) so background work backs off exactly when
-    /// the machine most needs to conserve energy.
+    /// Resolves the active polling interval. DEBUG honors the user timing override verbatim so tests stay
+    /// deterministic; Release widens the chosen cadence under power pressure so background work backs off
+    /// exactly when the machine most needs to conserve energy.
     static func effectivePollingInterval(for policy: PrunePolicy) -> TimeInterval {
+        let pollingInterval = max(PrunePolicy.minimumPollingInterval, policy.pollingInterval)
         #if DEBUG
-        return max(PrunePolicy.minimumDebugTimingInterval, policy.pollingInterval)
+        return pollingInterval
         #else
         let info = ProcessInfo.processInfo
         return powerAdjustedInterval(pollingInterval, lowPowerMode: info.isLowPowerModeEnabled, thermalState: info.thermalState)

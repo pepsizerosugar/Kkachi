@@ -63,11 +63,7 @@ enum KkachiDebugLog {
 
     /// Formats policy timing in seconds for concise diagnostics.
     static func policyContext(_ policy: PrunePolicy) -> String {
-        #if DEBUG
-        let pollingSeconds = Int(max(PrunePolicy.minimumDebugTimingInterval, policy.pollingInterval))
+        let pollingSeconds = Int(max(PrunePolicy.minimumPollingInterval, policy.pollingInterval))
         return "thresholdSeconds=\(Int(policy.inactivityThreshold)) pollingSeconds=\(pollingSeconds) paused=\(policy.isPaused)"
-        #else
-        return "thresholdSeconds=\(Int(policy.inactivityThreshold)) paused=\(policy.isPaused)"
-        #endif
     }
 }

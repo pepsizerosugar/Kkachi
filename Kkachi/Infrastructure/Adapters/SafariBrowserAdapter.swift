@@ -9,9 +9,13 @@ final class SafariBrowserAdapter: BrowserAdapter {
     /// Runs dynamic browser automation without compiling AppleScript.
     private let scriptingBridge: BrowserScriptingBridge
 
+    /// Runs direct AppleScript for Safari's media-state JavaScript command.
+    private let appleScriptBridge: AppleScriptBridge
+
     /// Creates an adapter for Safari.
     init(descriptor: BrowserDescriptor, scriptBridge: AppleScriptBridge) {
         self.descriptor = descriptor
+        self.appleScriptBridge = scriptBridge
         self.scriptingBridge = BrowserScriptingBridge(descriptor: descriptor)
     }
 
@@ -36,7 +40,18 @@ final class SafariBrowserAdapter: BrowserAdapter {
         let parsedTabs = try scriptingBridge.fetchSafariTabs()
         let markedTabs = markAmbiguousIdentities(parsedTabs)
         KkachiDebugLog.browser("adapter fetch finish browser=\(descriptor.id.rawValue) tabCount=\(markedTabs.count)")
-        return markedTabs
+        return tabsWithMediaState(markedTabs)
+    }
+
+    /// Reads media state through AppleScript and fails closed when JavaScript access is unavailable.
+    func mediaState(for tab: BrowserTabSnapshot) throws -> BrowserMediaState {
+        do {
+            return try appleScriptBridge.safariMediaState(tab: tab, descriptor: descriptor)
+        } catch {
+            if Self.isMissingTarget(error) { throw error }
+            KkachiDebugLog.browser("adapter media unavailable \(KkachiDebugLog.tabContext(tab)) error=\(String(describing: error))")
+            return .unavailable
+        }
     }
 
     /// Closes a Safari tab only if its last-seen URL and title still match.
@@ -81,4 +96,16 @@ final class SafariBrowserAdapter: BrowserAdapter {
         try scriptingBridge.restoreTab(tab)
     }
 
+    /// Adds playback safety metadata to tab snapshots without failing the whole fetch.
+    private func tabsWithMediaState(_ tabs: [BrowserTabSnapshot]) -> [BrowserTabSnapshot] {
+        tabs.map { tab in
+            (try? mediaState(for: tab)).map(tab.withMediaState) ?? tab.withMediaState(.unavailable)
+        }
+    }
+
+    /// Distinguishes a vanished tab/window from unavailable media probing.
+    private static func isMissingTarget(_ error: Error) -> Bool {
+        guard case let BrowserAutomationError.executionFailed(_, details) = error else { return false }
+        return details == "tabMissing" || details == "windowMissing" || details == "applicationNotRunning"
+    }
 }

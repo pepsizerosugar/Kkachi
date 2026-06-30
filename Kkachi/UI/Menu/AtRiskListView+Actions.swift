@@ -18,7 +18,7 @@ extension AtRiskListView {
         .help(Text("menu.atRisk.reveal.help"))
         // Names the tab so each repeated icon button is self-describing under VoiceOver (WCAG 2.4.6),
         // instead of a wall of identical "Show in browser" stops with no way to tell rows apart.
-        .accessibilityLabel(Text(KkachiMenuRowText.hostScopedLabel("menu.atRisk.reveal.a11yLabel", host: tab.hostLabel)))
+        .accessibilityLabel(Text(KkachiMenuRowText.hostScopedLabel("menu.atRisk.reveal.a11yLabel", host: tab.hostLabel, language: store.preferences.appLanguage)))
         .accessibilityHint(Text("menu.atRisk.reveal.help"))
         .accessibilityIdentifier("menu.atRisk.reveal")
     }

@@ -68,6 +68,6 @@ struct SettingsExclusionRowView: View {
 
     /// Builds the host-named remove label so VoiceOver and the tooltip say exactly which site is removed.
     private var removeHelp: Text {
-        Text(String(format: NSLocalizedString("settings.exclusions.remove.help", comment: ""), rule.hostSuffix))
+        Text(AppLocalization.format("settings.exclusions.remove.help", language: store.preferences.appLanguage, rule.hostSuffix))
     }
 }

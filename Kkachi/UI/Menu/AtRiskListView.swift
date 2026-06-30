@@ -65,7 +65,7 @@ struct AtRiskListView: View {
 
     /// Shows a quiet "+N more" line so the true queue size is honest at a glance.
     private func moreRow(_ count: Int) -> some View {
-        Text(KkachiMenuRowText.moreCount(count))
+        Text(KkachiMenuRowText.moreCount(count, language: store.preferences.appLanguage))
             .font(.caption)
             .foregroundStyle(.tertiary)
             .padding(.horizontal, KkachiMenuMetrics.rowPadding)
@@ -93,6 +93,7 @@ struct AtRiskListView: View {
                         Text("menu.atRisk.blocked")
                             .layoutPriority(1)
                             .help(Text("menu.atRisk.blocked.help"))
+                            .accessibilityIdentifier("menu.atRisk.blocked")
                     } else if let pruneAt = tab.pruneAt {
                         if pruneAt <= Date() {
                             Text("menu.atRisk.prunesNow")
@@ -137,7 +138,7 @@ struct AtRiskListView: View {
         .frame(width: 32, height: 32)
         .contentShape(Rectangle())
         .help(Text("menu.atRisk.protect.help"))
-        .accessibilityLabel(Text(KkachiMenuRowText.hostScopedLabel("menu.atRisk.protect.a11yLabel", host: tab.hostLabel)))
+        .accessibilityLabel(Text(KkachiMenuRowText.hostScopedLabel("menu.atRisk.protect.a11yLabel", host: tab.hostLabel, language: store.preferences.appLanguage)))
         .accessibilityHint(Text("menu.atRisk.protect.help"))
         .accessibilityIdentifier("menu.atRisk.protect")
     }

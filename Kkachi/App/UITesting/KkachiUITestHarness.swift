@@ -51,7 +51,7 @@ final class KkachiUITestHarness {
         let hostingView = NSHostingView(rootView: rootView(for: surface))
         let testWindow = NSWindow(contentRect: surface.frame, styleMask: [.titled, .closable, .resizable], backing: .buffered, defer: false)
         testWindow.identifier = NSUserInterfaceItemIdentifier(surface.windowIdentifier)
-        testWindow.title = NSLocalizedString("app.menuBar.title", comment: "")
+        testWindow.title = AppLocalization.string("app.menuBar.title", language: store.preferences.appLanguage)
         testWindow.contentView = hostingView
         testWindow.setFrameOrigin(origin(for: surface))
         testWindow.makeKeyAndOrderFront(nil)
@@ -80,7 +80,9 @@ final class KkachiUITestHarness {
 
     /// Adds the invisible state probe without changing the tested surface itself.
     private func wrapped<Content: View>(_ content: Content) -> AnyView {
-        AnyView(content.overlay(alignment: .bottomTrailing) {
+        AnyView(KkachiLocalizedRoot(store: store) {
+            content
+        }.overlay(alignment: .bottomTrailing) {
             KkachiUITestStateProbe(store: store, browserState: context.browserState)
         })
     }
@@ -146,5 +148,11 @@ enum KkachiUITestScenario: String {
 
     /// Starts with an expired tab that should be pruned through tracker polling.
     case expired
+
+    /// Starts with expired audible media that must remain open.
+    case mediaPlaying
+
+    /// Starts with expired media state that cannot be verified and must not close.
+    case mediaUnavailable
 }
 #endif

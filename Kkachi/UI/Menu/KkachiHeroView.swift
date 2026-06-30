@@ -46,7 +46,7 @@ struct KkachiHeroView: View {
     /// headline value must contain a %lld, so String(format:) substitutes the count.
     private var headlineText: Text {
         if let count = snapshot.headlineCount {
-            return Text(String(format: NSLocalizedString(snapshot.headlineKey, comment: ""), count))
+            return Text(AppLocalization.format(snapshot.headlineKey, language: store.preferences.appLanguage, count))
         }
         return Text(LocalizedStringKey(snapshot.headlineKey))
     }

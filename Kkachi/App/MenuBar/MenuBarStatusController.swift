@@ -57,13 +57,15 @@ final class MenuBarStatusController: NSObject {
         button.target = self
         button.action = #selector(togglePopover(_:))
         button.imagePosition = .imageOnly
-        button.toolTip = NSLocalizedString("app.menuBar.title", comment: "")
+        button.toolTip = AppLocalization.string("app.menuBar.title", language: store.preferences.appLanguage)
     }
 
     /// Configures the SwiftUI popover shown from the menu-bar item.
     private func configurePopover() {
         popover.behavior = .transient
-        popover.contentViewController = NSHostingController(rootView: MenuView(store: store))
+        popover.contentViewController = NSHostingController(rootView: KkachiLocalizedRoot(store: store) {
+            MenuView(store: store)
+        })
     }
 
     /// Observes app state changes that affect the mood and its static menu-bar mark.
@@ -98,17 +100,18 @@ final class MenuBarStatusController: NSObject {
         // Sleep collapses to the paused mood for the mark, but should not announce "paused": say
         // "sleeping" so the always-visible label matches the popover's sleep state and the real system
         // status, not a user pause the user never made.
+        let language = store.preferences.appLanguage
         if store.status == .pausedForSleep {
-            return NSLocalizedString("menu.mood.sleeping", comment: "")
+            return AppLocalization.string("menu.mood.sleeping", language: language)
         }
         if presentation.mood == .alert {
             let count = store.summary.atRiskCount
             if count > 0 {
                 let key = count == 1 ? "menu.status.atRiskCount.one" : "menu.status.atRiskCount.other"
-                return String(format: NSLocalizedString(key, comment: ""), count)
+                return AppLocalization.format(key, language: language, count)
             }
         }
-        return NSLocalizedString(presentation.accessibilityKey, comment: "")
+        return AppLocalization.string(presentation.accessibilityKey, language: language)
     }
 
     /// Refreshes the accessibility copy every update, then swaps the static menu-bar still only when the

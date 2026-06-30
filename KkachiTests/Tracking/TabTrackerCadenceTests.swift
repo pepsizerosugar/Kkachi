@@ -46,20 +46,18 @@ final class TabTrackerCadenceTests: XCTestCase {
         context.tracker.stop()
     }
 
-    /// Ensures debug polling interval changes recreate the active timer.
-    func testDebugPollingIntervalChangeRestartsActiveTimer() throws {
-        #if DEBUG
+    /// Ensures polling interval changes recreate the active timer.
+    func testPollingIntervalChangeRestartsActiveTimer() throws {
         let context = TabTrackerTestContexts.enabled()
         context.tracker.start()
         let initialTimer = try XCTUnwrap(context.tracker.timer)
 
-        context.preferences.setPollingInterval(2)
+        context.preferences.setPollingInterval(120)
         context.tracker.applyPolicy(context.preferences.policy)
 
         let restartedTimer = try XCTUnwrap(context.tracker.timer)
         XCTAssertFalse(initialTimer === restartedTimer)
         context.tracker.stop()
-        #endif
     }
 
     /// Ensures timer tolerance meets the energy-efficiency requirement.

@@ -96,6 +96,46 @@ final class KkachiStoreTests: XCTestCase {
         XCTAssertTrue(preferences.policy.exclusions.isEmpty)
     }
 
+    /// Ensures app language follows macOS until the user chooses an override.
+    func testDefaultAppLanguageFollowsSystem() {
+        let preferences = PreferencesStore(defaults: TestDefaults.make())
+
+        XCTAssertEqual(preferences.appLanguage, .system)
+    }
+
+    /// Ensures app language overrides persist through preferences reloads.
+    func testAppLanguagePersistsInPreferences() {
+        let defaults = TestDefaults.make()
+        let preferences = PreferencesStore(defaults: defaults)
+
+        preferences.setAppLanguage(.english)
+
+        let reloadedPreferences = PreferencesStore(defaults: defaults)
+        XCTAssertEqual(reloadedPreferences.appLanguage, .english)
+    }
+
+    /// Ensures corrupt language defaults cannot trap Settings in an unsupported locale.
+    func testInvalidAppLanguageFallsBackToSystem() {
+        let defaults = TestDefaults.make()
+        defaults.set("xx-invalid", forKey: "preferences.appLanguage")
+
+        let preferences = PreferencesStore(defaults: defaults)
+
+        XCTAssertEqual(preferences.appLanguage, .system)
+    }
+
+    /// Ensures manual language lookup uses Kkachi's selected bundle rather than process locale.
+    func testAppLocalizationUsesManualLanguageBundle() {
+        XCTAssertEqual(AppLocalization.string("settings.pruning.section", language: .english), "Pruning")
+        XCTAssertEqual(AppLocalization.string("settings.pruning.section", language: .korean), "정리")
+    }
+
+    /// Ensures format strings come from the selected manual language bundle.
+    func testAppLocalizationFormatsManualLanguageBundle() {
+        XCTAssertEqual(AppLocalization.format("menu.more.count", language: .english, 3), "+3 more")
+        XCTAssertEqual(AppLocalization.format("menu.more.count", language: .korean, 3), "+3개 더")
+    }
+
     /// Ensures clearing history does not reset live tracking context.
     func testClearHistoryPreservesTrackedTabs() {
         let context = StoreTestContexts.make(tabs: [.sample(isActive: false)])

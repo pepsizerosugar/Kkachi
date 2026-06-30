@@ -7,6 +7,7 @@ extension BrowserTabSnapshot {
     static func sample(
         tabID: String = "2",
         isActive: Bool,
+        mediaState: BrowserMediaState = .notPlaying,
         descriptor: BrowserDescriptor = .testChrome
     ) -> BrowserTabSnapshot {
         let url = URL(string: "https://example.com")!
@@ -19,6 +20,6 @@ extension BrowserTabSnapshot {
             tabIndex: nil,
             fingerprint: BrowserTabFingerprint(url: url, title: title)
         )
-        return BrowserTabSnapshot(identity: identity, url: url, title: title, isActive: isActive, browserNameKey: descriptor.displayNameKey)
+        return BrowserTabSnapshot(identity: identity, url: url, title: title, isActive: isActive, mediaState: mediaState, browserNameKey: descriptor.displayNameKey)
     }
 }

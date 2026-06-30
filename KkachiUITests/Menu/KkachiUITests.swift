@@ -55,6 +55,8 @@ final class KkachiUISurfaceTests: KkachiUITestCase {
         XCTAssertTrue(window("settings", in: app).waitForExistence(timeout: timeout))
         XCTAssertTrue(element("settings.form", in: app).exists)
         XCTAssertTrue(element("settings.threshold", in: app).exists)
+        XCTAssertTrue(element("settings.language", in: app).exists)
+        XCTAssertTrue(element("settings.polling.minutes", in: app).exists)
         XCTAssertTrue(element("settings.pause", in: app).exists)
         XCTAssertTrue(element("settings.launchAtLogin", in: app).exists)
         XCTAssertTrue(element("settings.browser.chrome", in: app).exists)

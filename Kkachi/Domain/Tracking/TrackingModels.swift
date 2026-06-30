@@ -18,13 +18,14 @@ struct PrunePolicy: Equatable {
     /// Stores browser IDs that are allowed to participate in automatic pruning.
     var enabledBrowserIDs: Set<BrowserID>
 
-    #if DEBUG
-    /// Controls how often development builds inspect browser state.
+    /// Controls how often Kkachi inspects browser state.
     var pollingInterval: TimeInterval = 60
 
-    /// Prevents debug timing controls from creating a hot loop.
-    static let minimumDebugTimingInterval: TimeInterval = 1
-    #endif
+    /// Prevents user-configured polling from creating a hot loop.
+    static let minimumPollingInterval: TimeInterval = 60
+
+    /// Caps polling at a value that still makes automatic pruning feel alive.
+    static let maximumPollingInterval: TimeInterval = 60 * 60
 
     /// Provides conservative defaults for first launch and tests.
     static let `default` = PrunePolicy(
@@ -92,6 +93,9 @@ struct TrackedTab: Identifiable, Equatable {
 
     /// Marks active tabs because they are never eligible for pruning.
     let isActive: Bool
+
+    /// Marks tabs whose media playback state changes automatic close safety.
+    let mediaState: BrowserMediaState
 
     /// Marks tabs protected by a user exclusion rule.
     let isExcluded: Bool

@@ -28,6 +28,7 @@ enum KkachiUITestStressFixtures {
                 url: snapshot.url,
                 lastActiveAt: lastActive,
                 isActive: false,
+                mediaState: snapshot.mediaState,
                 isExcluded: false,
                 pruneAt: pruneAt,
                 isAtRisk: true,
@@ -56,7 +57,7 @@ enum KkachiUITestStressFixtures {
             tabIndex: nil,
             fingerprint: BrowserTabFingerprint(url: url, title: title)
         )
-        return BrowserTabSnapshot(identity: identity, url: url, title: title, isActive: false, browserNameKey: descriptor.displayNameKey)
+        return BrowserTabSnapshot(identity: identity, url: url, title: title, isActive: false, mediaState: .notPlaying, browserNameKey: descriptor.displayNameKey)
     }
 
     /// Provides varied fixture titles without adding production localization keys.

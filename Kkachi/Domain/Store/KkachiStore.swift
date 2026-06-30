@@ -111,12 +111,15 @@ final class KkachiStore: ObservableObject {
         tracker.applyPolicy(preferences.policy)
     }
 
-    #if DEBUG
     func setPollingInterval(_ pollingInterval: TimeInterval) {
         preferences.setPollingInterval(pollingInterval)
         tracker.applyPolicy(preferences.policy)
     }
-    #endif
+
+    /// Updates the app-level display language; pruning policy and browser state are unaffected.
+    func setAppLanguage(_ language: AppLanguage) {
+        preferences.setAppLanguage(language)
+    }
 
     func setPaused(_ isPaused: Bool) {
         preferences.setPaused(isPaused)

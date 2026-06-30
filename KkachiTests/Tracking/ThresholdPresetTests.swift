@@ -12,16 +12,26 @@ final class ThresholdPresetTests: XCTestCase {
         #endif
     }
 
-    /// Ensures debug polling overrides persist only through the preferences store.
+    /// Ensures polling overrides persist through the preferences store.
     @MainActor
-    func testDebugPollingIntervalPersistsInPreferences() {
-        #if DEBUG
+    func testPollingIntervalPersistsInPreferences() {
         let defaults = TestDefaults.make()
         let preferences = PreferencesStore(defaults: defaults)
-        preferences.setPollingInterval(2)
+        preferences.setPollingInterval(120)
 
         let reloadedPreferences = PreferencesStore(defaults: defaults)
-        XCTAssertEqual(reloadedPreferences.policy.pollingInterval, 2)
-        #endif
+        XCTAssertEqual(reloadedPreferences.policy.pollingInterval, 120)
+    }
+
+    /// Ensures public polling controls cannot create too-fast or effectively dormant timers.
+    @MainActor
+    func testPollingIntervalClampsToPublicRange() {
+        let preferences = PreferencesStore(defaults: TestDefaults.make())
+
+        preferences.setPollingInterval(1)
+        XCTAssertEqual(preferences.policy.pollingInterval, PrunePolicy.minimumPollingInterval)
+
+        preferences.setPollingInterval(7_200)
+        XCTAssertEqual(preferences.policy.pollingInterval, PrunePolicy.maximumPollingInterval)
     }
 }

@@ -36,9 +36,15 @@ struct SettingsPruningSectionView: View {
         Section("settings.pruning.section") {
             thresholdPicker
             if selectedMode == .custom {
-                CustomThresholdField(minutes: $customMinutes, range: Self.customRange, step: Self.customStep)
+                CustomThresholdField(
+                    minutes: $customMinutes,
+                    range: Self.customRange,
+                    step: Self.customStep,
+                    language: store.preferences.appLanguage
+                )
                     .onChange(of: customMinutes, perform: persistCustomMinutes)
             }
+            SettingsPollingIntervalField(store: store)
             Toggle("settings.pause.toggle", isOn: pausedBinding)
                 .accessibilityIdentifier("settings.pause")
             Toggle("settings.notifications.toggle", isOn: notifyOnPruneBinding)

@@ -45,7 +45,7 @@ struct SettingsExclusionAddField: View {
             if let host = previewHost {
                 captionText(format("settings.exclusions.hint.add", host), .secondary)
             } else {
-                captionText(NSLocalizedString("settings.exclusions.hint", comment: ""), .secondary)
+                captionText(AppLocalization.string("settings.exclusions.hint", language: store.preferences.appLanguage), .secondary)
             }
         }
     }
@@ -99,12 +99,12 @@ struct SettingsExclusionAddField: View {
 
     /// Formats a single-substitution localized string for the caption.
     private func format(_ key: String, _ argument: String) -> String {
-        String(format: NSLocalizedString(key, comment: ""), argument)
+        AppLocalization.format(key, language: store.preferences.appLanguage, argument)
     }
 
     /// Formats the two-count batch summary so the caller stays readable.
     private func summaryText(added: Int, skipped: Int) -> String {
-        String(format: NSLocalizedString("settings.exclusions.feedback.summary", comment: ""), added, skipped)
+        AppLocalization.format("settings.exclusions.feedback.summary", language: store.preferences.appLanguage, added, skipped)
     }
 
     /// Splits raw input into trimmed, non-empty tokens on commas, semicolons, and whitespace so a pasted

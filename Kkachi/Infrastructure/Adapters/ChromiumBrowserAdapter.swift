@@ -42,10 +42,21 @@ final class ChromiumBrowserAdapter: BrowserAdapter {
             KkachiDebugLog.browser("adapter fetch fallback reason=emptyScriptingBridgeResult browser=\(descriptor.id.rawValue)")
             let fallbackTabs = try appleScriptBridge.fetchChromiumTabs(descriptor: descriptor)
             KkachiDebugLog.browser("adapter fetch fallback finish browser=\(descriptor.id.rawValue) tabCount=\(fallbackTabs.count)")
-            return fallbackTabs
+            return tabsWithMediaState(fallbackTabs)
         }
         KkachiDebugLog.browser("adapter fetch finish browser=\(descriptor.id.rawValue) tabCount=\(tabs.count)")
-        return tabs
+        return tabsWithMediaState(tabs)
+    }
+
+    /// Reads media state through AppleScript and fails closed when JavaScript access is unavailable.
+    func mediaState(for tab: BrowserTabSnapshot) throws -> BrowserMediaState {
+        do {
+            return try appleScriptBridge.chromiumMediaState(tab: tab, descriptor: descriptor)
+        } catch {
+            if Self.isMissingTarget(error) { throw error }
+            KkachiDebugLog.browser("adapter media unavailable \(KkachiDebugLog.tabContext(tab)) error=\(String(describing: error))")
+            return .unavailable
+        }
     }
 
     /// Closes a Chromium tab by stable scripting IDs.
@@ -75,5 +86,18 @@ final class ChromiumBrowserAdapter: BrowserAdapter {
     /// Restores the URL in the original browser without requiring page scripting.
     func restore(_ tab: PrunedTab) throws {
         try scriptingBridge.restoreTab(tab)
+    }
+
+    /// Adds playback safety metadata to tab snapshots without failing the whole fetch.
+    private func tabsWithMediaState(_ tabs: [BrowserTabSnapshot]) -> [BrowserTabSnapshot] {
+        tabs.map { tab in
+            (try? mediaState(for: tab)).map(tab.withMediaState) ?? tab.withMediaState(.unavailable)
+        }
+    }
+
+    /// Distinguishes a vanished tab/window from unavailable media probing.
+    private static func isMissingTarget(_ error: Error) -> Bool {
+        guard case let BrowserAutomationError.executionFailed(_, details) = error else { return false }
+        return details == "tabMissing" || details == "windowMissing" || details == "applicationNotRunning"
     }
 }

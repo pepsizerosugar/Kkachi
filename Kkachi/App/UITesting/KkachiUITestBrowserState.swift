@@ -56,7 +56,7 @@ final class KkachiUITestBrowserState: ObservableObject {
     func restore(_ tab: PrunedTab) {
         restoredCount += 1
         let identity = BrowserTabIdentity(browserID: tab.browserID, windowID: "restored", tabID: "\(restoredCount)", windowIndex: nil, tabIndex: nil, fingerprint: BrowserTabFingerprint(url: tab.url, title: tab.title))
-        let snapshot = BrowserTabSnapshot(identity: identity, url: tab.url, title: tab.title, isActive: true, browserNameKey: tab.browserNameKey)
+        let snapshot = BrowserTabSnapshot(identity: identity, url: tab.url, title: tab.title, isActive: true, mediaState: .notPlaying, browserNameKey: tab.browserNameKey)
         openTabs.append(snapshot)
     }
 
@@ -98,6 +98,11 @@ final class KkachiUITestBrowserAdapter: BrowserAdapter {
 
     /// Returns fake live browser tabs for real tracker polling.
     func fetchTabs() throws -> [BrowserTabSnapshot] { state.openTabs }
+
+    /// Returns media state from fake snapshot metadata.
+    func mediaState(for tab: BrowserTabSnapshot) throws -> BrowserMediaState {
+        tab.mediaState
+    }
 
     /// Closes one fake tab so UI tests can prove pruning removed it.
     func closeTab(_ tab: BrowserTabSnapshot) throws -> BrowserTabCloseResult {

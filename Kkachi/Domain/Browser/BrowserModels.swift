@@ -102,6 +102,18 @@ struct BrowserTabFingerprint: Hashable {
     }
 }
 
+/// Summarizes whether a tab is currently producing user-audible media.
+enum BrowserMediaState: Equatable {
+    /// No audible audio/video element is playing, so normal pruning rules may apply.
+    case notPlaying
+
+    /// Audible audio/video is playing and the tab must remain open.
+    case playing
+
+    /// Kkachi could not verify playback state, so pruning must fail closed.
+    case unavailable
+}
+
 /// Describes a live browser tab returned by an adapter.
 struct BrowserTabSnapshot: Equatable {
     /// Stores the browser-specific identity for later automation calls.
@@ -115,6 +127,9 @@ struct BrowserTabSnapshot: Equatable {
 
     /// Marks whether this tab is selected in its window and must not be pruned.
     let isActive: Bool
+
+    /// Tracks audible media playback so active audio/video is never closed automatically.
+    let mediaState: BrowserMediaState
 
     /// Points to a localized browser name for UI grouping.
     let browserNameKey: String
@@ -131,6 +146,7 @@ struct BrowserTabSnapshot: Equatable {
         url: URL,
         title: String,
         isActive: Bool,
+        mediaState: BrowserMediaState = .notPlaying,
         browserNameKey: String,
         isIdentityAmbiguous: Bool = false
     ) {
@@ -138,6 +154,7 @@ struct BrowserTabSnapshot: Equatable {
         self.url = url
         self.title = title
         self.isActive = isActive
+        self.mediaState = mediaState
         self.browserNameKey = browserNameKey
         self.isIdentityAmbiguous = isIdentityAmbiguous
     }
@@ -149,8 +166,22 @@ struct BrowserTabSnapshot: Equatable {
             url: url,
             title: title,
             isActive: isActive,
+            mediaState: mediaState,
             browserNameKey: browserNameKey,
             isIdentityAmbiguous: isAmbiguous
+        )
+    }
+
+    /// Creates a copy with the latest media playback safety result.
+    func withMediaState(_ mediaState: BrowserMediaState) -> BrowserTabSnapshot {
+        BrowserTabSnapshot(
+            identity: identity,
+            url: url,
+            title: title,
+            isActive: isActive,
+            mediaState: mediaState,
+            browserNameKey: browserNameKey,
+            isIdentityAmbiguous: isIdentityAmbiguous
         )
     }
 }

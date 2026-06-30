@@ -10,6 +10,9 @@ final class PreferencesStore: ObservableObject {
     /// Publishes whether the user has completed first-run setup (tapped Connect at least once).
     @Published private(set) var hasCompletedFirstRun: Bool
 
+    /// Publishes the app-level language override used by SwiftUI and AppKit copy.
+    @Published private(set) var appLanguage: AppLanguage
+
     /// Stores preferences in the provided defaults container for test isolation.
     private let defaults: UserDefaults
 
@@ -27,9 +30,11 @@ final class PreferencesStore: ObservableObject {
 
         static let firstRunCompleted = "preferences.firstRunCompleted"
 
-        #if DEBUG
+        /// Keeps the old debug key so pre-release users do not lose their chosen cadence.
         static let pollingInterval = "preferences.debug.pollingInterval"
-        #endif
+
+        /// Stores the app-level language override; absent means follow macOS.
+        static let appLanguage = "preferences.appLanguage"
     }
 
     /// Loads policy from persistent defaults or uses safe first-run defaults.
@@ -51,14 +56,13 @@ final class PreferencesStore: ObservableObject {
             exclusions: exclusionRules,
             enabledBrowserIDs: enabledBrowsers
         )
-        #if DEBUG
         let savedPollingInterval = defaults.object(forKey: Key.pollingInterval) as? Double
-        loadedPolicy.pollingInterval = Self.validatedDebugTiming(
+        loadedPolicy.pollingInterval = Self.validatedPollingInterval(
             savedPollingInterval ?? PrunePolicy.default.pollingInterval
         )
-        #endif
         self.policy = loadedPolicy
         self.hasCompletedFirstRun = defaults.bool(forKey: Key.firstRunCompleted)
+        self.appLanguage = AppLanguage.storedValue(defaults.string(forKey: Key.appLanguage))
     }
 
     /// Updates the threshold and persists it immediately for next launch.
@@ -74,13 +78,17 @@ final class PreferencesStore: ObservableObject {
         defaults.set(true, forKey: Key.firstRunCompleted)
     }
 
-    #if DEBUG
-    /// Updates the development-only polling interval and persists it locally.
+    /// Updates the browser polling interval and persists it locally.
     func setPollingInterval(_ pollingInterval: TimeInterval) {
-        policy.pollingInterval = Self.validatedDebugTiming(pollingInterval)
+        policy.pollingInterval = Self.validatedPollingInterval(pollingInterval)
         save()
     }
-    #endif
+
+    /// Updates the display language override without changing pruning policy.
+    func setAppLanguage(_ language: AppLanguage) {
+        appLanguage = language
+        defaults.set(language.rawValue, forKey: Key.appLanguage)
+    }
 
     /// Updates user pause state without mutating the current restore history.
     func setPaused(_ isPaused: Bool) {
@@ -137,15 +145,11 @@ final class PreferencesStore: ObservableObject {
         defaults.set(policy.notifyOnPrune, forKey: Key.notifyOnPrune)
         defaults.set(policy.exclusions.map(\.hostSuffix), forKey: Key.exclusions)
         defaults.set(policy.enabledBrowserIDs.map(\.rawValue).sorted(), forKey: Key.enabledBrowsers)
-        #if DEBUG
         defaults.set(policy.pollingInterval, forKey: Key.pollingInterval)
-        #endif
     }
 
-    #if DEBUG
-    /// Clamps debug timing overrides to avoid accidental zero-second timers.
-    private static func validatedDebugTiming(_ interval: TimeInterval) -> TimeInterval {
-        max(PrunePolicy.minimumDebugTimingInterval, interval)
+    /// Clamps polling overrides to the public Settings range.
+    private static func validatedPollingInterval(_ interval: TimeInterval) -> TimeInterval {
+        min(PrunePolicy.maximumPollingInterval, max(PrunePolicy.minimumPollingInterval, interval))
     }
-    #endif
 }

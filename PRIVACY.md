@@ -11,23 +11,26 @@ analytics. Everything it keeps stays in a local file you can read.
 ## What Kkachi reads
 
 To find tabs that have been left idle, Kkachi reads — through macOS Apple Events, only from browsers you
-connect — the two things it needs:
+connect — the tab metadata it needs:
 
 - the tab's **address (URL)**
 - the tab's **title**
+- whether an **audio or video element is audibly playing**
 
-That's all. It uses these to decide which inactive tabs are safe to close.
+It uses these to decide which inactive tabs are safe to close. The media check returns only `playing`,
+`not playing`, or `unavailable`.
 
-## What Kkachi never reads
+## What Kkachi does not collect
 
 - Page content, text, or the DOM
 - Form fields or anything you've typed
 - Cookies, local storage, or session storage
-- JavaScript state, scroll position, or history beyond open tabs
+- Scroll position or history beyond open tabs
 - Anything from browsers you have not connected
 
-It never injects scripts into pages. The "Safely less" principle is deliberate: a smaller promise that
-works reliably beats a larger one that depends on fragile page access.
+For media safety, Kkachi runs a minimal browser JavaScript command that asks only whether `audio` or
+`video` elements are audibly playing. It does not return page text, element contents, cookies, forms, local
+storage, or arbitrary JavaScript state. If that check is unavailable, Kkachi keeps the tab open.
 
 ## What Kkachi stores, and where
 

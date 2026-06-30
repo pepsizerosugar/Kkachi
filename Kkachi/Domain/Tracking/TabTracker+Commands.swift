@@ -23,6 +23,7 @@ extension TabTracker {
             url: tab.url,
             title: tab.title,
             isActive: tab.isActive,
+            mediaState: tab.mediaState,
             browserNameKey: tab.browserNameKey,
             isIdentityAmbiguous: tab.isIdentityAmbiguous
         )

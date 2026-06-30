@@ -30,14 +30,15 @@ enum PruneEvaluator {
         var pruneCandidates: [PruneCandidate] = []
 
         for tab in tabs {
-            if tab.isActive || lastActiveDates[tab.stableID] == nil {
+            let isMediaProtected = tab.mediaState == .playing
+            if tab.isActive || isMediaProtected || lastActiveDates[tab.stableID] == nil {
                 lastActiveDates[tab.stableID] = now
             }
 
             let lastActive = lastActiveDates[tab.stableID] ?? now
             let isExcluded = policy.exclusions.contains { $0.matches(tab.url) }
-            let pruneAt = tab.isActive || isExcluded ? nil : lastActive.addingTimeInterval(policy.inactivityThreshold)
-            let isAtRisk = pruneAt.map { $0.timeIntervalSince(now) <= atRiskWindow(for: policy) } ?? false
+            let pruneAt = tab.isActive || isExcluded || isMediaProtected ? nil : lastActive.addingTimeInterval(policy.inactivityThreshold)
+            let isAtRisk = pruneAt.map { $0.timeIntervalSince(now) <= atRiskWindow(for: policy) && tab.mediaState != .unavailable } ?? false
 
             guard let pruneAt, now >= pruneAt else {
                 trackedTabs.append(trackedTab(from: tab, lastActive: lastActive, isExcluded: isExcluded, pruneAt: pruneAt, isAtRisk: isAtRisk))
@@ -45,7 +46,7 @@ enum PruneEvaluator {
             }
 
             let blockedRow = trackedTab(from: tab, lastActive: lastActive, isExcluded: isExcluded, pruneAt: pruneAt, isAtRisk: true, isAutoCloseBlocked: true)
-            if closeFailedBrowsers.contains(tab.identity.browserID) || eligibility[tab.identity.browserID] != true || tab.isIdentityAmbiguous {
+            if closeFailedBrowsers.contains(tab.identity.browserID) || eligibility[tab.identity.browserID] != true || tab.isIdentityAmbiguous || tab.mediaState == .unavailable {
                 trackedTabs.append(blockedRow)
             } else {
                 pruneCandidates.append(PruneCandidate(tab: tab, blockedRow: blockedRow))
@@ -76,6 +77,7 @@ enum PruneEvaluator {
             url: tab.url,
             lastActiveAt: lastActive,
             isActive: tab.isActive,
+            mediaState: tab.mediaState,
             isExcluded: isExcluded,
             pruneAt: pruneAt,
             isAtRisk: isAtRisk,

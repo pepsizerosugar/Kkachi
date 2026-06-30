@@ -14,12 +14,10 @@ struct SettingsView: View {
             settingsHeader
             Form {
                 SettingsBrowserSectionView(store: store)
+                SettingsLanguageSectionView(store: store)
                 SettingsPruningSectionView(store: store)
                 SettingsExclusionsSectionView(store: store)
                 privacySection
-                #if DEBUG
-                SettingsDebugTimingSectionView(store: store)
-                #endif
             }
             .formStyle(.grouped)
             .accessibilityIdentifier("settings.form")
