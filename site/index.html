@@ -3,27 +3,27 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Kkachi - reversible tab pruning for macOS</title>
+    <title>Kkachi - a small Mac utility for tabs you never quite close</title>
     <meta
       name="description"
-      content="Kkachi is a native macOS menu-bar utility that closes idle browser tabs and keeps a local restore history."
+      content="Kkachi is a native macOS menu-bar utility for tabs you keep open just in case, even when you probably will not return to them."
     >
     <link rel="canonical" href="https://pepsizerosugar.github.io/Kkachi/">
     <meta name="robots" content="index,follow">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Kkachi">
-    <meta property="og:title" content="Kkachi - reversible tab pruning for macOS">
+    <meta property="og:title" content="Kkachi - a small Mac utility for tabs you never quite close">
     <meta
       property="og:description"
-      content="A small Mac menu-bar utility that closes idle browser tabs without making closing feel final."
+      content="For tabs you keep around because closing still feels a little final."
     >
     <meta property="og:url" content="https://pepsizerosugar.github.io/Kkachi/">
     <meta property="og:image" content="https://pepsizerosugar.github.io/Kkachi/assets/kkachi-icon.png">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Kkachi - reversible tab pruning for macOS">
+    <meta name="twitter:title" content="Kkachi - a small Mac utility for tabs you never quite close">
     <meta
       name="twitter:description"
-      content="Local, reversible tab pruning from the macOS menu bar."
+      content="Local, reversible tab pruning for tabs you probably will not reopen."
     >
     <meta name="twitter:image" content="https://pepsizerosugar.github.io/Kkachi/assets/kkachi-icon.png">
     <meta name="theme-color" content="#101216">
@@ -39,6 +39,7 @@
         <span>Kkachi</span>
       </a>
       <nav>
+        <a href="#why">Why</a>
         <a href="#privacy">Privacy</a>
         <a href="#release">Release</a>
         <a href="https://github.com/pepsizerosugar/Kkachi">GitHub</a>
@@ -65,10 +66,10 @@
         </div>
         <div class="hero-copy">
           <p class="eyebrow">Native macOS menu-bar utility</p>
-          <h1 id="hero-title">Close idle tabs without making closing feel final.</h1>
+          <h1 id="hero-title">For the tabs you know how to close, but still do not.</h1>
           <p>
-            Kkachi watches supported browsers locally, closes tabs that have gone quiet, and keeps a
-            small restore history so each tab can come back.
+            Browser shortcuts are easy. The hard part is the small doubt that says this page might matter
+            later. Kkachi handles the tabs that keep surviving that doubt.
           </p>
           <div class="hero-actions">
             <a class="button primary" href="https://github.com/pepsizerosugar/Kkachi">View source</a>
@@ -78,15 +79,42 @@
       </section>
 
       <section class="claim-strip" aria-label="Core promises">
-        <p><strong>Local only</strong><span>No analytics. No remote tab data.</span></p>
-        <p><strong>Reversible</strong><span>URL, title, browser, and time are kept for restore.</span></p>
-        <p><strong>Small by design</strong><span>Not a tab manager, dashboard, or extension.</span></p>
+        <p><strong>Less drag</strong><span>Fewer stale tabs sitting around as unfinished decisions.</span></p>
+        <p><strong>Safe return</strong><span>Closed tabs keep a local path back, so pruning is not a cliff.</span></p>
+        <p><strong>No judgment</strong><span>No productivity score, dashboard, or guilt loop.</span></p>
+      </section>
+
+      <section class="why-section" id="why" aria-labelledby="why-title">
+        <div class="section-heading">
+          <p class="eyebrow">Why Kkachi</p>
+          <h2 id="why-title">A magpie for things that should come back.</h2>
+        </div>
+        <div class="why-grid">
+          <article class="identity-card">
+            <img src="assets/kkachi-icon.png" alt="" width="96" height="96">
+            <h3>Kkachi means 까치, the Korean magpie.</h3>
+            <p>
+              In Korean memory, the magpie is tied to good news, cleverness, and return. That is the
+              shape of the product: it quietly moves what is idle, then makes return feel obvious.
+            </p>
+          </article>
+          <article class="problem-card">
+            <p class="quote-line">
+              You are not leaving every tab open because it is useful. You are leaving it open because
+              deciding is mildly annoying, and because it might be useful later.
+            </p>
+            <p>
+              Most of those pages will not be revisited. Kkachi accepts that human pattern instead of
+              pretending another tab manager will fix it.
+            </p>
+          </article>
+        </div>
       </section>
 
       <section class="workflow-section" aria-labelledby="workflow-title">
         <div class="section-heading">
-          <p class="eyebrow">What happens</p>
-          <h2 id="workflow-title">A quiet loop for tabs you are not using.</h2>
+          <p class="eyebrow">What Kkachi does</p>
+          <h2 id="workflow-title">It tucks away the tabs that have stopped earning space.</h2>
         </div>
         <div class="workflow-grid">
           <article>
