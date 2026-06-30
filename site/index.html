@@ -1,29 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Kkachi - for Mac tabs you were totally about to close</title>
+    <title
+      data-meta-en="Kkachi - for Mac tabs you were totally about to close"
+      data-meta-ko="Kkachi - 분명 닫으려고 했던 Mac 탭들을 위해"
+    >Kkachi - for Mac tabs you were totally about to close</title>
     <meta
       name="description"
       content="Kkachi is a native macOS menu-bar app for tabs you keep open just in case, yes, that one too."
+      data-meta-en="Kkachi is a native macOS menu-bar app for tabs you keep open just in case, yes, that one too."
+      data-meta-ko="Kkachi는 혹시 몰라 남겨둔 브라우저 탭을 Mac 안에서 조용히 정리하고, 다시 열 길은 남겨두는 macOS 메뉴 막대 앱입니다."
     >
     <link rel="canonical" href="https://pepsizerosugar.github.io/Kkachi/">
     <meta name="robots" content="index,follow">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Kkachi">
-    <meta property="og:title" content="Kkachi - for Mac tabs you were totally about to close">
+    <meta
+      property="og:title"
+      content="Kkachi - for Mac tabs you were totally about to close"
+      data-meta-en="Kkachi - for Mac tabs you were totally about to close"
+      data-meta-ko="Kkachi - 분명 닫으려고 했던 Mac 탭들을 위해"
+    >
     <meta
       property="og:description"
       content="For tabs you keep around just in case, then never quite close."
+      data-meta-en="For tabs you keep around just in case, then never quite close."
+      data-meta-ko="나중에 볼 거라며 남겨둔 탭들을, Mac 안에서 조용히 정리합니다."
     >
     <meta property="og:url" content="https://pepsizerosugar.github.io/Kkachi/">
     <meta property="og:image" content="https://pepsizerosugar.github.io/Kkachi/assets/kkachi-icon.png">
+    <meta
+      property="og:locale"
+      content="en_US"
+      data-meta-en="en_US"
+      data-meta-ko="ko_KR"
+    >
+    <meta property="og:locale:alternate" content="ko_KR">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Kkachi - for Mac tabs you were totally about to close">
+    <meta
+      name="twitter:title"
+      content="Kkachi - for Mac tabs you were totally about to close"
+      data-meta-en="Kkachi - for Mac tabs you were totally about to close"
+      data-meta-ko="Kkachi - 분명 닫으려고 했던 Mac 탭들을 위해"
+    >
     <meta
       name="twitter:description"
       content="Local tab pruning for pages you probably will not reopen."
+      data-meta-en="Local tab pruning for pages you probably will not reopen."
+      data-meta-ko="아마 다시 열지 않을 탭을 로컬에서 정리하고, 혹시 몰라 복원 기록은 남깁니다."
     >
     <meta name="twitter:image" content="https://pepsizerosugar.github.io/Kkachi/assets/kkachi-icon.png">
     <meta name="theme-color" content="#101216">
@@ -32,17 +58,45 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <a class="skip-link" href="#content">Skip to content</a>
+    <a class="skip-link" href="#content">
+      <span class="i18n-copy" lang="en" data-i18n-lang="en">Skip to content</span>
+      <span class="i18n-copy" lang="ko" data-i18n-lang="ko" hidden>본문으로 바로가기</span>
+    </a>
     <header class="site-nav" aria-label="Primary navigation">
-      <a class="brand" href="#top" aria-label="Kkachi home">
+      <a
+        class="brand"
+        href="#top"
+        aria-label="Kkachi home"
+        data-aria-en="Kkachi home"
+        data-aria-ko="Kkachi 홈"
+      >
         <img src="assets/menubar-icon.png" alt="" width="27" height="27">
         <span>Kkachi</span>
       </a>
       <nav>
-        <a href="#why">Why</a>
-        <a href="#privacy">Privacy</a>
-        <a href="#release">Install</a>
+        <a href="#why">
+          <span class="i18n-copy" lang="en" data-i18n-lang="en">Why</span>
+          <span class="i18n-copy" lang="ko" data-i18n-lang="ko" hidden>왜</span>
+        </a>
+        <a href="#privacy">
+          <span class="i18n-copy" lang="en" data-i18n-lang="en">Privacy</span>
+          <span class="i18n-copy" lang="ko" data-i18n-lang="ko" hidden>개인정보</span>
+        </a>
+        <a href="#release">
+          <span class="i18n-copy" lang="en" data-i18n-lang="en">Install</span>
+          <span class="i18n-copy" lang="ko" data-i18n-lang="ko" hidden>설치</span>
+        </a>
         <a href="https://github.com/pepsizerosugar/Kkachi">GitHub</a>
+        <span
+          class="language-toggle"
+          role="group"
+          aria-label="Language"
+          data-aria-en="Language"
+          data-aria-ko="언어"
+        >
+          <button type="button" class="language-option" data-language-option="en" aria-pressed="true">EN</button>
+          <button type="button" class="language-option" data-language-option="ko" aria-pressed="false">한국어</button>
+        </span>
       </nav>
     </header>
 
@@ -50,58 +104,147 @@
       <section class="hero" id="top" aria-labelledby="hero-title">
         <div class="tab-scene" aria-hidden="true">
           <div class="tab-cloud">
-            <span class="tab tab-a">docs.apple.com</span>
-            <span class="tab tab-b">Read later</span>
-            <span class="tab tab-c">Design reference</span>
-            <span class="tab tab-d">Search results</span>
-            <span class="tab tab-e">Later reading</span>
+            <span class="tab tab-a">
+              <span class="i18n-copy" lang="en" data-i18n-lang="en">docs.apple.com</span>
+              <span class="i18n-copy" lang="ko" data-i18n-lang="ko" hidden>docs.apple.com</span>
+            </span>
+            <span class="tab tab-b">
+              <span class="i18n-copy" lang="en" data-i18n-lang="en">Read later</span>
+              <span class="i18n-copy" lang="ko" data-i18n-lang="ko" hidden>나중에 읽기</span>
+            </span>
+            <span class="tab tab-c">
+              <span class="i18n-copy" lang="en" data-i18n-lang="en">Design reference</span>
+              <span class="i18n-copy" lang="ko" data-i18n-lang="ko" hidden>디자인 참고</span>
+            </span>
+            <span class="tab tab-d">
+              <span class="i18n-copy" lang="en" data-i18n-lang="en">Search results</span>
+              <span class="i18n-copy" lang="ko" data-i18n-lang="ko" hidden>검색 결과</span>
+            </span>
+            <span class="tab tab-e">
+              <span class="i18n-copy" lang="en" data-i18n-lang="en">Later reading</span>
+              <span class="i18n-copy" lang="ko" data-i18n-lang="ko" hidden>언젠가 읽을 글</span>
+            </span>
           </div>
           <div class="restore-rail">
             <img src="assets/mascot-restore.png" alt="">
-            <span>3 tabs tucked away</span>
+            <span>
+              <span class="i18n-copy" lang="en" data-i18n-lang="en">3 tabs tucked away</span>
+              <span class="i18n-copy" lang="ko" data-i18n-lang="ko" hidden>탭 3개 조용히 보관</span>
+            </span>
           </div>
         </div>
         <div class="hero-copy">
-          <p class="eyebrow">Mac menu-bar app</p>
-          <h1 id="hero-title">For tabs you were definitely going to close.</h1>
+          <p class="eyebrow">
+            <span class="i18n-copy" lang="en" data-i18n-lang="en">Mac menu-bar app</span>
+            <span class="i18n-copy" lang="ko" data-i18n-lang="ko" hidden>맥 메뉴 막대 앱</span>
+          </p>
+          <h1 id="hero-title">
+            <span class="i18n-copy" lang="en" data-i18n-lang="en">For tabs you were definitely going to close.</span>
+            <span class="i18n-copy" lang="ko" data-i18n-lang="ko" hidden>분명 닫으려고 했던 탭들을 위해.</span>
+          </h1>
           <p>
-            You know the shortcut. The tab is still there. Maybe useful later, probably not.
-            Kkachi tucks stale tabs away and keeps a way back.
+            <span class="i18n-copy" lang="en" data-i18n-lang="en">
+              You know the shortcut. The tab is still there. Maybe useful later, probably not.
+              Kkachi tucks stale tabs away and keeps a way back.
+            </span>
+            <span class="i18n-copy" lang="ko" data-i18n-lang="ko" hidden>
+              단축키는 알고 있습니다. 탭은 아직 거기 있고요. 언젠가 쓸 것 같지만 대개는 그냥 자리만 차지하죠.
+              Kkachi는 오래 쉰 탭을 조용히 치우고, 다시 열 길은 남겨둡니다.
+            </span>
           </p>
           <div class="hero-actions">
-            <a class="button primary" href="https://github.com/pepsizerosugar/Kkachi/releases">Download release</a>
-            <a class="button secondary" href="#release">Install with Homebrew</a>
+            <a class="button primary" href="https://github.com/pepsizerosugar/Kkachi/releases">
+              <span class="i18n-copy" lang="en" data-i18n-lang="en">Watch releases</span>
+              <span class="i18n-copy" lang="ko" data-i18n-lang="ko" hidden>릴리즈 보러가기</span>
+            </a>
+            <a class="button secondary" href="#release">
+              <span class="i18n-copy" lang="en" data-i18n-lang="en">Install with Homebrew</span>
+              <span class="i18n-copy" lang="ko" data-i18n-lang="ko" hidden>Homebrew 설치</span>
+            </a>
           </div>
         </div>
       </section>
 
       <section class="claim-strip" aria-label="Core promises">
-        <p><strong>Less clutter</strong><span>Stale tabs stop taking space.</span></p>
-        <p><strong>Easy undo</strong><span>Recently closed tabs stay local.</span></p>
-        <p><strong>No tab shame</strong><span>No ranking, no guilt loop.</span></p>
+        <p>
+          <strong>
+            <span class="i18n-copy" lang="en" data-i18n-lang="en">Less clutter</span>
+            <span class="i18n-copy" lang="ko" data-i18n-lang="ko" hidden>덜 어수선하게</span>
+          </strong>
+          <span>
+            <span class="i18n-copy" lang="en" data-i18n-lang="en">Stale tabs stop taking space.</span>
+            <span class="i18n-copy" lang="ko" data-i18n-lang="ko" hidden>묵은 탭이 화면 월세를 그만 냅니다.</span>
+          </span>
+        </p>
+        <p>
+          <strong>
+            <span class="i18n-copy" lang="en" data-i18n-lang="en">Easy undo</span>
+            <span class="i18n-copy" lang="ko" data-i18n-lang="ko" hidden>되돌리기 쉬움</span>
+          </strong>
+          <span>
+            <span class="i18n-copy" lang="en" data-i18n-lang="en">Recently closed tabs stay local.</span>
+            <span class="i18n-copy" lang="ko" data-i18n-lang="ko" hidden>최근 정리한 탭은 Mac 안에만 남습니다.</span>
+          </span>
+        </p>
+        <p>
+          <strong>
+            <span class="i18n-copy" lang="en" data-i18n-lang="en">No tab shame</span>
+            <span class="i18n-copy" lang="ko" data-i18n-lang="ko" hidden>탭 죄책감 금지</span>
+          </strong>
+          <span>
+            <span class="i18n-copy" lang="en" data-i18n-lang="en">No ranking, no guilt loop.</span>
+            <span class="i18n-copy" lang="ko" data-i18n-lang="ko" hidden>혼내지 않고, 조용히 치웁니다.</span>
+          </span>
+        </p>
       </section>
 
       <section class="why-section" id="why" aria-labelledby="why-title">
         <div class="section-heading">
-          <p class="eyebrow">Why Kkachi</p>
-          <h2 id="why-title">Why a magpie?</h2>
+          <p class="eyebrow">
+            <span class="i18n-copy" lang="en" data-i18n-lang="en">Why Kkachi</span>
+            <span class="i18n-copy" lang="ko" data-i18n-lang="ko" hidden>왜 Kkachi</span>
+          </p>
+          <h2 id="why-title">
+            <span class="i18n-copy" lang="en" data-i18n-lang="en">Why a magpie?</span>
+            <span class="i18n-copy" lang="ko" data-i18n-lang="ko" hidden>왜 까치일까요?</span>
+          </h2>
         </div>
         <div class="why-grid">
           <article class="identity-card">
             <img src="assets/kkachi-icon.png" alt="" width="96" height="96">
-            <h3>Kkachi means 까치.</h3>
+            <h3>
+              <span class="i18n-copy" lang="en" data-i18n-lang="en">Kkachi means 까치.</span>
+              <span class="i18n-copy" lang="ko" data-i18n-lang="ko" hidden>Kkachi는 까치입니다.</span>
+            </h3>
             <p>
-              In Korea, magpies are tied to good news, cleverness, and coming back. Kkachi borrows that
-              idea: clear what is idle, keep the return path.
+              <span class="i18n-copy" lang="en" data-i18n-lang="en">
+                In Korea, magpies are tied to good news, cleverness, and coming back. Kkachi borrows that
+                idea: clear what is idle, keep the return path.
+              </span>
+              <span class="i18n-copy" lang="ko" data-i18n-lang="ko" hidden>
+                한국에서 까치는 반가운 소식, 영리함, 다시 돌아오는 이미지와 연결됩니다. Kkachi도 그 마음을 빌렸습니다.
+                멈춰 선 탭은 치우고, 돌아올 길은 남겨둡니다.
+              </span>
             </p>
           </article>
           <article class="problem-card">
             <p class="quote-line">
-              Most tabs are not work. They are postponed decisions wearing browser chrome.
+              <span class="i18n-copy" lang="en" data-i18n-lang="en">
+                Most tabs are not work. They are postponed decisions wearing browser chrome.
+              </span>
+              <span class="i18n-copy" lang="ko" data-i18n-lang="ko" hidden>
+                대부분의 탭은 일이 아닙니다. 브라우저 모양을 한 미룬 결정입니다.
+              </span>
             </p>
             <p>
-              You might read it later. Sure. Kkachi handles the gap between "leave it" and "never mind"
-              without making you manage tabs again.
+              <span class="i18n-copy" lang="en" data-i18n-lang="en">
+                You might read it later. Sure. Kkachi handles the gap between "leave it" and "never mind"
+                without making you manage tabs again.
+              </span>
+              <span class="i18n-copy" lang="ko" data-i18n-lang="ko" hidden>
+                나중에 읽을 수도 있죠. 물론입니다. Kkachi는 "일단 놔두자"와 "아, 됐다" 사이의 그 애매한 시간을
+                대신 처리합니다.
+              </span>
             </p>
           </article>
         </div>
@@ -109,43 +252,139 @@
 
       <section class="workflow-section" aria-labelledby="workflow-title">
         <div class="section-heading">
-          <p class="eyebrow">What it does</p>
-          <h2 id="workflow-title">Watch. Close. Restore.</h2>
+          <p class="eyebrow">
+            <span class="i18n-copy" lang="en" data-i18n-lang="en">What it does</span>
+            <span class="i18n-copy" lang="ko" data-i18n-lang="ko" hidden>하는 일</span>
+          </p>
+          <h2 id="workflow-title">
+            <span class="i18n-copy" lang="en" data-i18n-lang="en">Watch. Close. Restore.</span>
+            <span class="i18n-copy" lang="ko" data-i18n-lang="ko" hidden>살피고. 닫고. 다시 열고.</span>
+          </h2>
         </div>
         <div class="workflow-grid">
           <article>
-            <span class="step-mark">Watch</span>
-            <h3>Reads the small stuff.</h3>
-            <p>Kkachi uses macOS Apple Events for tab title, URL, and whether audio or video is playing.</p>
+            <span class="step-mark">
+              <span class="i18n-copy" lang="en" data-i18n-lang="en">Watch</span>
+              <span class="i18n-copy" lang="ko" data-i18n-lang="ko" hidden>살핌</span>
+            </span>
+            <h3>
+              <span class="i18n-copy" lang="en" data-i18n-lang="en">Reads the small stuff.</span>
+              <span class="i18n-copy" lang="ko" data-i18n-lang="ko" hidden>필요한 것만 읽습니다.</span>
+            </h3>
+            <p>
+              <span class="i18n-copy" lang="en" data-i18n-lang="en">
+                Kkachi uses macOS Apple Events for tab title, URL, and whether audio or video is playing.
+              </span>
+              <span class="i18n-copy" lang="ko" data-i18n-lang="ko" hidden>
+                macOS Apple Events로 탭 제목, URL, 오디오/비디오 재생 여부만 확인합니다.
+              </span>
+            </p>
           </article>
           <article>
-            <span class="step-mark">Prune</span>
-            <h3>Closes stale tabs.</h3>
-            <p>Active, protected, media-playing, ambiguous, or unavailable tabs are skipped instead of guessed.</p>
+            <span class="step-mark">
+              <span class="i18n-copy" lang="en" data-i18n-lang="en">Prune</span>
+              <span class="i18n-copy" lang="ko" data-i18n-lang="ko" hidden>정리</span>
+            </span>
+            <h3>
+              <span class="i18n-copy" lang="en" data-i18n-lang="en">Closes stale tabs.</span>
+              <span class="i18n-copy" lang="ko" data-i18n-lang="ko" hidden>오래 쉰 탭만 닫습니다.</span>
+            </h3>
+            <p>
+              <span class="i18n-copy" lang="en" data-i18n-lang="en">
+                Active, protected, media-playing, ambiguous, or unavailable tabs are skipped instead of guessed.
+              </span>
+              <span class="i18n-copy" lang="ko" data-i18n-lang="ko" hidden>
+                활성 탭, 보호한 탭, 미디어 재생 중인 탭, 애매하거나 접근할 수 없는 탭은 추측해서 닫지 않습니다.
+              </span>
+            </p>
           </article>
           <article>
-            <span class="step-mark">Restore</span>
-            <h3>Keeps recent tabs local.</h3>
-            <p>The menu keeps a capped local history for recent pruned tabs and routes restore to the browser.</p>
+            <span class="step-mark">
+              <span class="i18n-copy" lang="en" data-i18n-lang="en">Restore</span>
+              <span class="i18n-copy" lang="ko" data-i18n-lang="ko" hidden>복원</span>
+            </span>
+            <h3>
+              <span class="i18n-copy" lang="en" data-i18n-lang="en">Keeps recent tabs local.</span>
+              <span class="i18n-copy" lang="ko" data-i18n-lang="ko" hidden>최근 탭은 로컬에 보관합니다.</span>
+            </h3>
+            <p>
+              <span class="i18n-copy" lang="en" data-i18n-lang="en">
+                The menu keeps a capped local history for recent pruned tabs and routes restore to the browser.
+              </span>
+              <span class="i18n-copy" lang="ko" data-i18n-lang="ko" hidden>
+                메뉴에는 최근 정리한 탭 기록이 제한된 개수로 남고, 복원은 원래 브라우저로 돌려보냅니다.
+              </span>
+            </p>
           </article>
         </div>
       </section>
 
       <section class="privacy-section" id="privacy" aria-labelledby="privacy-title">
         <div class="privacy-copy">
-          <p class="eyebrow">Privacy</p>
-          <h2 id="privacy-title">Only what restore needs.</h2>
-          <p>
-            Kkachi stores URL, title, browser, and time. It checks media playback only to avoid closing
-            a tab that is playing, and sends nothing about your tabs anywhere.
+          <p class="eyebrow">
+            <span class="i18n-copy" lang="en" data-i18n-lang="en">Privacy</span>
+            <span class="i18n-copy" lang="ko" data-i18n-lang="ko" hidden>개인정보</span>
           </p>
-          <a class="text-link" href="https://github.com/pepsizerosugar/Kkachi/blob/main/PRIVACY.md">Read the privacy details</a>
+          <h2 id="privacy-title">
+            <span class="i18n-copy" lang="en" data-i18n-lang="en">Only what restore needs.</span>
+            <span class="i18n-copy" lang="ko" data-i18n-lang="ko" hidden>복원에 필요한 만큼만.</span>
+          </h2>
+          <p>
+            <span class="i18n-copy" lang="en" data-i18n-lang="en">
+              Kkachi stores URL, title, browser, and time. It checks media playback only to avoid closing
+              a tab that is playing, and sends nothing about your tabs anywhere.
+            </span>
+            <span class="i18n-copy" lang="ko" data-i18n-lang="ko" hidden>
+              Kkachi가 저장하는 것은 URL, 제목, 브라우저, 정리된 시간입니다. 재생 중인 탭을 닫지 않으려고
+              미디어 상태만 확인하며, 탭 정보는 어디에도 보내지 않습니다.
+            </span>
+          </p>
+          <a class="text-link" href="https://github.com/pepsizerosugar/Kkachi/blob/main/PRIVACY.md">
+            <span class="i18n-copy" lang="en" data-i18n-lang="en">Read the privacy details</span>
+            <span class="i18n-copy" lang="ko" data-i18n-lang="ko" hidden>개인정보 처리 방식 자세히 보기</span>
+          </a>
         </div>
         <dl class="privacy-list">
-          <div><dt>Reads</dt><dd>Tab URL, title, and media playback state</dd></div>
-          <div><dt>Stores</dt><dd>Recent restore history on disk</dd></div>
-          <div><dt>Does not collect</dt><dd>Page content, cookies, forms, DOM text, scroll position</dd></div>
-          <div><dt>Does not send</dt><dd>Anything about your tabs off your Mac</dd></div>
+          <div>
+            <dt>
+              <span class="i18n-copy" lang="en" data-i18n-lang="en">Reads</span>
+              <span class="i18n-copy" lang="ko" data-i18n-lang="ko" hidden>읽는 것</span>
+            </dt>
+            <dd>
+              <span class="i18n-copy" lang="en" data-i18n-lang="en">Tab URL, title, and media playback state</span>
+              <span class="i18n-copy" lang="ko" data-i18n-lang="ko" hidden>탭 URL, 제목, 미디어 재생 상태</span>
+            </dd>
+          </div>
+          <div>
+            <dt>
+              <span class="i18n-copy" lang="en" data-i18n-lang="en">Stores</span>
+              <span class="i18n-copy" lang="ko" data-i18n-lang="ko" hidden>저장하는 것</span>
+            </dt>
+            <dd>
+              <span class="i18n-copy" lang="en" data-i18n-lang="en">Recent restore history on disk</span>
+              <span class="i18n-copy" lang="ko" data-i18n-lang="ko" hidden>최근 복원 기록을 Mac 안의 로컬 파일에</span>
+            </dd>
+          </div>
+          <div>
+            <dt>
+              <span class="i18n-copy" lang="en" data-i18n-lang="en">Does not collect</span>
+              <span class="i18n-copy" lang="ko" data-i18n-lang="ko" hidden>수집하지 않는 것</span>
+            </dt>
+            <dd>
+              <span class="i18n-copy" lang="en" data-i18n-lang="en">Page content, cookies, forms, DOM text, scroll position</span>
+              <span class="i18n-copy" lang="ko" data-i18n-lang="ko" hidden>페이지 내용, 쿠키, 입력한 양식, DOM 텍스트, 스크롤 위치</span>
+            </dd>
+          </div>
+          <div>
+            <dt>
+              <span class="i18n-copy" lang="en" data-i18n-lang="en">Does not send</span>
+              <span class="i18n-copy" lang="ko" data-i18n-lang="ko" hidden>보내지 않는 것</span>
+            </dt>
+            <dd>
+              <span class="i18n-copy" lang="en" data-i18n-lang="en">Anything about your tabs off your Mac</span>
+              <span class="i18n-copy" lang="ko" data-i18n-lang="ko" hidden>탭에 관한 어떤 정보도 Mac 밖으로 보내지 않습니다</span>
+            </dd>
+          </div>
         </dl>
       </section>
 
@@ -153,24 +392,49 @@
         <div class="release-panel">
           <img src="assets/kkachi-icon.png" alt="" width="96" height="96">
           <div>
-            <p class="eyebrow">Try it</p>
-            <h2 id="release-title">Install Kkachi and leave it in the menu bar.</h2>
+            <p class="eyebrow">
+              <span class="i18n-copy" lang="en" data-i18n-lang="en">Try it</span>
+              <span class="i18n-copy" lang="ko" data-i18n-lang="ko" hidden>사용해보기</span>
+            </p>
+            <h2 id="release-title">
+              <span class="i18n-copy" lang="en" data-i18n-lang="en">Follow the first Kkachi release.</span>
+              <span class="i18n-copy" lang="ko" data-i18n-lang="ko" hidden>첫 공개 릴리즈를 준비하고 있습니다.</span>
+            </h2>
             <p>
-              Use the DMG from Releases, or install the cask if you manage Mac apps with Homebrew.
+              <span class="i18n-copy" lang="en" data-i18n-lang="en">
+                Signed, notarized DMGs will ship through GitHub Releases, with a Homebrew cask pointing at
+                the same build. After the first release, the planned command is:
+              </span>
+              <span class="i18n-copy" lang="ko" data-i18n-lang="ko" hidden>
+                서명과 공증을 마친 DMG는 GitHub Releases로 배포하고, Homebrew cask도 같은 빌드를 가리키게 됩니다.
+                첫 릴리즈 이후 사용할 예정인 명령은 이것입니다:
+              </span>
             </p>
             <code class="install-command">brew install --cask pepsizerosugar/tap/kkachi</code>
           </div>
           <div class="release-actions">
-            <a class="button primary" href="https://github.com/pepsizerosugar/Kkachi/releases">GitHub Releases</a>
-            <a class="button secondary" href="https://github.com/pepsizerosugar/Kkachi/blob/main/RELEASE.md">Homebrew cask</a>
+            <a class="button primary" href="https://github.com/pepsizerosugar/Kkachi/releases">
+              <span class="i18n-copy" lang="en" data-i18n-lang="en">GitHub Releases</span>
+              <span class="i18n-copy" lang="ko" data-i18n-lang="ko" hidden>GitHub 릴리즈</span>
+            </a>
+            <a class="button secondary" href="https://github.com/pepsizerosugar/Kkachi/blob/main/RELEASE.md">
+              <span class="i18n-copy" lang="en" data-i18n-lang="en">Release plan</span>
+              <span class="i18n-copy" lang="ko" data-i18n-lang="ko" hidden>릴리즈 계획</span>
+            </a>
           </div>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <p>Kkachi is free and open source under the MIT License.</p>
-      <a href="https://github.com/sponsors/pepsizerosugar">Sponsor maintenance</a>
+      <p>
+        <span class="i18n-copy" lang="en" data-i18n-lang="en">Kkachi is free and open source under the MIT License.</span>
+        <span class="i18n-copy" lang="ko" data-i18n-lang="ko" hidden>Kkachi는 MIT 라이선스로 공개된 무료 오픈소스입니다.</span>
+      </p>
+      <a href="https://github.com/sponsors/pepsizerosugar">
+        <span class="i18n-copy" lang="en" data-i18n-lang="en">Sponsor maintenance</span>
+        <span class="i18n-copy" lang="ko" data-i18n-lang="ko" hidden>개발 후원하기</span>
+      </a>
     </footer>
     <script src="script.js"></script>
   </body>
