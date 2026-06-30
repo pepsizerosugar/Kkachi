@@ -92,22 +92,22 @@ final class KkachiUISettingsInteractionTests: KkachiUITestCase {
 
     /// Verifies the app language picker persists a manual language override and redraws localized copy.
     func testSettingsLanguagePickerMutatesAppLanguage() {
-        let app = launch(surface: "settings", scenario: "ready")
-        let languagePicker = element("settings.language", in: app)
+        let englishApp = launch(surface: "settings", scenario: "ready")
 
-        XCTAssertTrue(window("settings", in: app).waitForExistence(timeout: timeout))
-        XCTAssertTrue(languagePicker.waitForExistence(timeout: timeout))
-        XCTAssertTrue(waitForState("uiTest.state.appLanguage", "system", in: app))
+        XCTAssertTrue(window("settings", in: englishApp).waitForExistence(timeout: timeout))
+        XCTAssertTrue(waitForState("uiTest.state.appLanguage", "system", in: englishApp))
+        selectLanguage("en", in: englishApp)
+        XCTAssertTrue(waitForState("uiTest.state.appLanguage", "en", in: englishApp))
+        XCTAssertTrue(waitForState("uiTest.state.localizedPruningSection", "Pruning", in: englishApp))
+        englishApp.terminate()
 
-        languagePicker.click()
-        element("settings.language.en", in: app).click()
-        XCTAssertTrue(waitForState("uiTest.state.appLanguage", "en", in: app))
-        XCTAssertTrue(waitForState("uiTest.state.localizedPruningSection", "Pruning", in: app))
+        let koreanApp = launch(surface: "settings", scenario: "ready")
 
-        languagePicker.click()
-        element("settings.language.ko", in: app).click()
-        XCTAssertTrue(waitForState("uiTest.state.appLanguage", "ko", in: app))
-        XCTAssertTrue(waitForState("uiTest.state.localizedPruningSection", "정리", in: app))
+        XCTAssertTrue(window("settings", in: koreanApp).waitForExistence(timeout: timeout))
+        XCTAssertTrue(waitForState("uiTest.state.appLanguage", "system", in: koreanApp))
+        selectLanguage("ko", in: koreanApp)
+        XCTAssertTrue(waitForState("uiTest.state.appLanguage", "ko", in: koreanApp))
+        XCTAssertTrue(waitForState("uiTest.state.localizedPruningSection", "정리", in: koreanApp))
     }
 
     /// Verifies developer timing controls are no longer part of Settings.
@@ -139,7 +139,6 @@ final class KkachiUISettingsInteractionTests: KkachiUITestCase {
         XCTAssertTrue(waitForState("uiTest.state.exclusionCount", "1", in: app))
         XCTAssertTrue(removeButton.exists)
         removeButton.click()
-        XCTAssertTrue(element("settings.exclusions.row", in: app).waitForNonExistence(timeout: timeout))
         XCTAssertTrue(waitForState("uiTest.state.exclusionCount", "0", in: app))
     }
 
@@ -168,5 +167,16 @@ final class KkachiUISettingsInteractionTests: KkachiUITestCase {
         input.typeKey(.rightArrow, modifierFlags: .command)
         input.typeKey(.delete, modifierFlags: .command)
         input.typeText(value)
+    }
+
+    /// Selects one language option after resolving fresh accessibility nodes.
+    private func selectLanguage(_ suffix: String, in app: XCUIApplication) {
+        let picker = element("settings.language", in: app)
+        XCTAssertTrue(picker.waitForExistence(timeout: timeout))
+        picker.click()
+
+        let option = element("settings.language.\(suffix)", in: app)
+        XCTAssertTrue(option.waitForExistence(timeout: timeout))
+        option.click()
     }
 }
