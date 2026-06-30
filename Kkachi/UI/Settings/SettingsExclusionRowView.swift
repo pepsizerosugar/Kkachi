@@ -48,12 +48,13 @@ struct SettingsExclusionRowView: View {
         Button {
             store.removeExclusion(rule)
         } label: {
-            Image(systemName: "trash")
+            Label("settings.exclusions.remove", systemImage: "trash")
                 .foregroundStyle(isHovered ? Color.red : Color.secondary)
-                .frame(width: 28, height: 28)
-                .contentShape(Rectangle())
         }
-        .buttonStyle(.plain)
+        .buttonStyle(.borderless)
+        .labelStyle(.iconOnly)
+        .frame(width: 32, height: 32)
+        .contentShape(Rectangle())
         .help(removeHelp)
         .accessibilityLabel(removeHelp)
         .accessibilityIdentifier("settings.exclusions.remove")
