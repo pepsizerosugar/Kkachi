@@ -2112,19 +2112,19 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachi needs permission"
+            "value" : "Kkachi permission needed"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachiに権限が必要です"
+            "value" : "Kkachi 権限が必要"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachi에 권한이 필요함"
+            "value" : "Kkachi 권한 필요"
           }
         },
         "zh-Hans" : {
@@ -2188,7 +2188,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachiは一時停止中です"
+            "value" : "Kkachi 一時停止中"
           }
         },
         "ko" : {
@@ -2293,7 +2293,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachiはスリープ中"
+            "value" : "Kkachi スリープ中"
           }
         },
         "ko" : {
@@ -2707,7 +2707,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%lld need manual review"
+            "value" : "Manual review needed: %lld"
           }
         },
         "ja" : {
@@ -2991,7 +2991,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%lld個のタブをまもなく整理"
+            "value" : "%lld件まもなく整理"
           }
         },
         "ko" : {
@@ -3003,13 +3003,13 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%lld 个标签页即将整理"
+            "value" : "%lld 个即将整理"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%lld 個分頁即將整理"
+            "value" : "%lld 個即將整理"
           }
         }
       }
@@ -3026,7 +3026,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%lld個のタブをまもなく整理"
+            "value" : "%lld件まもなく整理"
           }
         },
         "ko" : {
@@ -3038,13 +3038,13 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%lld 个标签页即将整理"
+            "value" : "%lld 个即将整理"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%lld 個分頁即將整理"
+            "value" : "%lld 個即將整理"
           }
         }
       }
