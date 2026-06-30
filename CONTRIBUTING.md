@@ -1,59 +1,92 @@
-# Contributing to Kkachi
+# Contributing To Kkachi
 
 Thanks for your interest. Kkachi is a small, opinionated macOS menu-bar utility, and contributions are
-welcome as long as they keep it small, quiet, and trustworthy.
+welcome when they keep it small, quiet, and trustworthy.
 
-## Building
+## Start Here
 
-- macOS with a recent Xcode.
-- Open `Kkachi.xcodeproj` and build the `Kkachi` scheme, or:
+Good changes usually improve one of these:
+
+- pruning safety
+- restore reliability
+- browser compatibility
+- privacy and storage durability
+- accessibility
+- localization
+- native macOS behavior
+- release and testing quality
+
+Features that turn Kkachi into a full tab manager, session manager, bookmark replacement, productivity
+dashboard, browser extension, or tab search palette are out of scope. That boundary keeps the privacy
+surface small.
+
+## Build And Test
+
+Requirements:
+
+- macOS 13 or later
+- Xcode
+
+Open `Kkachi.xcodeproj` and build the `Kkachi` scheme, or run:
+
+```sh
+xcodebuild build -project Kkachi.xcodeproj -scheme Kkachi -destination 'platform=macOS'
+```
+
+Run the full deterministic suite before sending a PR:
+
+```sh
+xcodebuild test -project Kkachi.xcodeproj -scheme Kkachi -destination 'platform=macOS'
+```
+
+For a faster unit-only loop:
 
 ```sh
 xcodebuild test -project Kkachi.xcodeproj -scheme Kkachi -destination 'platform=macOS' \
   -only-testing:KkachiTests
 ```
 
-The `KkachiTests` unit suite runs without real browsers (browser automation is faked) and should stay
-green. `KkachiUITests` drives the app through a deterministic test harness. Real-browser tests are opt-in
-and need actual browsers installed.
+`KkachiTests` fakes browser automation. `KkachiUITests` drives the app through a deterministic harness.
+Real-browser checks are opt-in and require the actual browsers to be installed.
 
-## Conventions (please read before a PR)
+## Code Conventions
 
-These rules keep Kkachi small, auditable, and safe to change. Some are enforced by tests:
+These rules keep Kkachi auditable:
 
-- **Files stay ≤200 lines** (hard ceiling 250). Split before you grow past it.
-- **No user-facing string literals in code.** All copy lives in `Kkachi/Resources/Localizable.xcstrings`
-  and is referenced by key. New keys must ship in **all five locales** (`en`, `ja`, `ko`, `zh-Hans`,
-  `zh-Hant`) — a CI test fails otherwise.
-- **Surgical changes.** Touch only what your change requires; match the surrounding style.
-- **Every change should be tested** where it can be (the suite is fast and deterministic).
-- Document declarations with intent (why it exists, what must stay true), not narration.
+- **Files stay <=200 lines** where possible, with a hard ceiling of 250. Split before a file becomes hard
+  to review.
+- **No user-facing string literals in code.** Visible copy belongs in
+  `Kkachi/Resources/Localizable.xcstrings`.
+- **All localized keys ship in five locales:** `en`, `ja`, `ko`, `zh-Hans`, and `zh-Hant`.
+- **Surgical changes only.** Touch the smallest set of files needed for the behavior.
+- **Tests should match the risk.** Trust-sensitive changes need tests.
+- **Comments explain intent.** Prefer why something must stay true over narrating what a line does.
 
-## What to propose — and what not to
+## Trust-Sensitive Areas
 
-The fastest way to get a change merged is to respect the product boundaries in the README. Pruning-safety,
-durability, accessibility, localization, and browser-compatibility fixes are especially welcome. Features
-that turn Kkachi into a tab manager, dashboard, session manager, or command palette will be declined,
-however well built — that is a product decision, not a quality judgment.
+Changes to these areas get extra review and should include focused tests:
 
-## Trust-sensitive areas
+- `Kkachi/Infrastructure/Persistence/RestoreHistoryStore.swift` - local, private, durable restore history
+- `Kkachi/Domain/Tracking/TabTracker+Evaluation.swift` - what gets captured before a tab is closed
+- `Kkachi/Domain/Tracking/PruneEvaluator.swift` - which tabs are eligible to close
+- `Kkachi/Domain/Tracking/PrunedTab.swift` - exactly which fields are persisted
+- entitlements and `NSAppleEventsUsageDescription` copy
 
-Changes to any of these get extra review, and should come with tests:
+## Documentation Expectations
 
-- `Kkachi/Infrastructure/Persistence/RestoreHistoryStore.swift` (durable, private on-disk history)
-- `Kkachi/Domain/Tracking/TabTracker+Evaluation.swift` (what gets closed, and the data captured first)
-- `Kkachi/Domain/Tracking/PrunedTab.swift` (exactly which fields are persisted)
-- the entitlements and `NSAppleEventsUsageDescription` copy
+If a change affects what Kkachi reads, stores, sends, closes, restores, installs, or supports, update the
+public docs in the same PR:
 
-## Maintenance & succession
+- [README.md](README.md) for the first-reader summary
+- [PRIVACY.md](PRIVACY.md) for data and storage guarantees
+- [SECURITY.md](SECURITY.md) for reporting and threat boundaries
+- [RELEASE.md](RELEASE.md) for maintainer release flow
 
-Kkachi is currently maintained by a single person. To keep a trust utility trustworthy even if that
-changes:
+## Maintenance And Succession
 
-- The Apple **Developer ID** signing identity and the **Sparkle update (EdDSA) signing key** are the two
-  irreplaceable secrets. They are held by the maintainer and are **not** in this repository. If you are
-  taking over maintenance, you must rotate/re-issue these; releases cannot be signed without them.
-- If the project goes quiet, that is a **stated maintenance-mode state**, not abandonment — the security
-  guarantees in [SECURITY.md](SECURITY.md) still describe intent, and the code remains auditable.
-- Forks are welcome under the [MIT license](LICENSE); please change the bundle identifier, app name, and
-  update feed so users aren't confused about provenance.
+Kkachi is currently maintained by a single person. The Apple Developer ID signing identity and the future
+Sparkle update signing key are the two irreplaceable release secrets. They are not stored in this
+repository.
+
+If you take over maintenance, rotate or re-issue those secrets. If you fork Kkachi, change the bundle
+identifier, app name, and update feed so users are not confused about provenance.

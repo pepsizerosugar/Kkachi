@@ -1,88 +1,115 @@
 # Privacy
 
-Kkachi's whole reason to exist is trust, so its privacy promise is small and verifiable. This document
-states exactly what is stored, what is never read, and where you can confirm it in the source.
+Kkachi's whole reason to exist is trust. This document states what the app reads, what it writes, what it
+never touches, and where to verify those claims in the source.
 
-## The short version
+## Short Version
 
-**Your tabs and browsing data never leave your Mac.** Kkachi has no servers, no accounts, and no
-analytics. Everything it keeps stays in a local file you can read.
+**Your tabs and browsing data stay on your Mac.** Kkachi has no accounts, servers, analytics, or telemetry
+today. The only durable tab data it keeps is a capped local restore history.
 
-## What Kkachi reads
+## What Kkachi Reads
 
-To find tabs that have been left idle, Kkachi reads — through macOS Apple Events, only from browsers you
-connect — the tab metadata it needs:
+To find tabs that have been left idle, Kkachi uses macOS Apple Events for supported browsers you allow in
+System Settings. It reads only the tab metadata needed for pruning and restore:
 
-- the tab's **address (URL)**
-- the tab's **title**
-- whether an **audio or video element is audibly playing**
+- the tab's address (URL)
+- the tab's title
+- whether the tab is currently active
+- whether an audio or video element is audibly playing
+- browser/window/tab identifiers needed in memory to target the right tab safely
 
-It uses these to decide which inactive tabs are safe to close. The media check returns only `playing`,
-`not playing`, or `unavailable`.
+The media check returns only `playing`, `notPlaying`, or unavailable/error state. It exists so Kkachi does
+not close a tab that is making sound.
 
-## What Kkachi does not collect
+## What Kkachi Does Not Read
 
-- Page content, text, or the DOM
-- Form fields or anything you've typed
-- Cookies, local storage, or session storage
-- Scroll position or history beyond open tabs
-- Anything from browsers you have not connected
+Kkachi does not collect:
 
-For media safety, Kkachi runs a minimal browser JavaScript command that asks only whether `audio` or
-`video` elements are audibly playing. It does not return page text, element contents, cookies, forms, local
+- page content, DOM text, or document structure
+- form fields or anything you have typed
+- cookies, local storage, or session storage
+- scroll position
+- browser history beyond currently open tabs
+- data from browsers you have not connected
+
+For media safety, Kkachi runs a minimal browser JavaScript command that asks only whether audible
+`audio` or `video` elements exist. It does not return page text, element contents, cookies, forms, local
 storage, or arbitrary JavaScript state. If that check is unavailable, Kkachi keeps the tab open.
 
-## What Kkachi stores, and where
+## What Kkachi Stores
 
-When Kkachi closes (prunes) an idle tab, it saves a minimal restore record so you can bring it back:
+When Kkachi closes a tab, it saves enough metadata to show and reopen that page later:
 
+```json
+{
+  "schemaVersion": 1,
+  "savedAt": "ISO-8601 timestamp",
+  "tabs": [
+    {
+      "id": "restore row UUID",
+      "url": "https://example.com/",
+      "title": "Example",
+      "prunedAt": "ISO-8601 timestamp",
+      "batchID": "UUID shared by tabs closed in one pruning pass",
+      "browserID": "safari",
+      "browserNameKey": "browser.safari"
+    }
+  ]
+}
 ```
-{ url, title, browser, prunedAt }
-```
 
-These are written to a single local file:
+Kkachi does **not** persist the original browser window ID, browser tab ID, Safari tab index, or any
+diagnostic tab identity. Those are used in memory while pruning and are dropped before restore history is
+written to disk. Restore reopens the saved URL in the origin browser when possible.
 
-```
+Restore history is stored at:
+
+```text
 ~/Library/Application Support/Kkachi/restore-history.json
 ```
 
 Properties of that file:
 
-- **Local only** — it is never uploaded anywhere.
-- **Atomic writes** — it can't be left half-written.
-- **Owner-only permissions** (`0600`) — other user accounts can't read it.
-- **Excluded from Time Machine / iCloud backup.**
-- **Marked to be skipped by Spotlight indexing.**
-- **Capped at the newest 30 entries.**
-- **Corruption-safe** — a damaged file is quarantined and Kkachi starts from empty rather than crashing.
+- **Local only** - it is never uploaded anywhere.
+- **Capped** - only the newest 30 entries are kept.
+- **Atomic writes** - it is not left half-written.
+- **Owner-only permissions** - the directory is `0700` and the file is `0600`.
+- **Excluded from backup** - the file is marked out of Time Machine/iCloud backup.
+- **Skipped by Spotlight** - the directory gets a `.metadata_never_index` marker.
+- **Corruption-safe** - a damaged file is quarantined as `restore-history.corrupt.json` and Kkachi starts
+  from empty instead of crashing.
 
-The original window/tab identity is kept only in memory for the current session and is **never** written
-to disk. Settings (threshold, paused, protected sites, enabled browsers) are stored separately in
-`UserDefaults`.
+Settings such as threshold, paused state, protected sites, enabled browsers, and language are stored
+separately in `UserDefaults`.
 
-### Encryption at rest
+## Encryption At Rest
 
-The history file is **not encrypted at rest in v1**. This protects against casual disk or backup
-inspection, not a determined attacker with access to your unlocked user account. Clearing restore history
-(Settings → Privacy) removes the data.
+The restore history file is **not encrypted at rest in v1**. Its file permissions and backup/indexing
+flags protect against casual local or backup inspection, not a determined attacker with access to your
+unlocked user account.
 
-## Network access
+Clearing restore history from Settings removes the saved restore records.
 
-Today Kkachi makes **no network calls at all**.
+## Network Access
 
-When automatic updates ship, the app will check a published appcast for new versions — that single update
-check is the only network request it will ever make, it will be **disclosed and opt-out**, and it carries
-no information about your tabs or usage. Kkachi will never add telemetry or analytics.
+Today Kkachi itself makes **no network requests at all**. Restoring a tab asks the origin browser to open
+the saved URL; any page loading after that is browser behavior, not telemetry from Kkachi.
 
-## Verify it yourself
+When automatic updates ship, the app may check a published Sparkle appcast for new versions. That update
+check will be disclosed, opt-out, and unrelated to your tabs or usage. Kkachi will not add telemetry or
+analytics.
 
-Because the repository is open and every source file is kept under 200 lines, you can confirm all of the
-above by reading the code:
+## Verify It Yourself
+
+The relevant source files are intentionally small:
 
 - Storage and on-disk privacy: `Kkachi/Infrastructure/Persistence/RestoreHistoryStore.swift`
 - What is captured before closing a tab: `Kkachi/Domain/Tracking/TabTracker+Evaluation.swift`
-- Exactly which fields are persisted: `Kkachi/Domain/Tracking/PrunedTab.swift`
-- Permission scope and the consent copy: `Kkachi/Resources/InfoPlist.xcstrings`
+- Exactly which tab fields are persisted: `Kkachi/Domain/Tracking/PrunedTab.swift`
+- Browser metadata reads: `Kkachi/Infrastructure/Scripting/BrowserScriptingBridge.swift`
+- Media playback probe: `Kkachi/Infrastructure/Scripting/AppleScriptBridge+Media.swift`
+- Permission scope and consent copy: `Kkachi/Resources/InfoPlist.xcstrings`
 
-If you find anything that contradicts this document, please open an issue — that's a bug in the most
-important feature Kkachi has.
+If you find anything that contradicts this document, please open an issue. For private security or
+privacy reports, use the process in [SECURITY.md](SECURITY.md).

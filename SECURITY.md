@@ -1,44 +1,48 @@
 # Security Policy
 
-Kkachi is a trust utility, so security and privacy reports are treated as first-class bugs.
+Kkachi is a trust utility. Security and privacy issues are treated as product bugs, not paperwork.
 
-## Reporting a vulnerability
+## Reporting A Vulnerability
 
-Please report security issues **privately** first, rather than opening a public issue:
+Please report security or privacy issues **privately first**:
 
-- Use GitHub's **"Report a vulnerability"** (Security → Advisories) on this repository, or
-- email the maintainer (see the profile on the repository owner account).
+- Use GitHub's **Report a vulnerability** flow from this repository's Security tab, or
+- email the maintainer listed on the repository owner profile.
 
-Include what you found, how to reproduce it, and the impact. You'll get an acknowledgement, and a fix or
-mitigation plan will be shared before any public disclosure.
+Please include what you found, how to reproduce it, and the impact. You will get an acknowledgement, and
+a fix or mitigation plan will be shared before public disclosure.
 
-## Scope that matters most
+## Highest-Priority Issues
 
-Because of what Kkachi does, the highest-severity issues are:
+Because Kkachi closes browser tabs, the most serious issues are:
 
-- Anything that causes Kkachi to **lose a pruned tab** it claimed to keep.
-- Anything that closes a tab it should not have (active, protected, or ambiguous).
-- Anything that reads **more than the URL and title** of a tab, or sends any tab data off the device.
-- Anything that weakens the on-disk protections of `restore-history.json` (permissions, backup/Spotlight
-  exclusion).
+- **Restore loss** - Kkachi closes a tab but fails to keep the restore record it promised.
+- **Unsafe pruning** - Kkachi closes an active, protected, media-playing, ambiguous, or unavailable tab.
+- **Data over-read** - Kkachi reads page content, form fields, cookies, storage, DOM text, or anything
+  beyond the metadata described in [PRIVACY.md](PRIVACY.md).
+- **Data exfiltration** - Kkachi sends tab data off the Mac.
+- **History weakening** - Kkachi weakens `restore-history.json` protections, such as file permissions,
+  backup exclusion, Spotlight exclusion, capping, or corruption handling.
 
-See [PRIVACY.md](PRIVACY.md) for the exact data and storage model these guarantees rest on.
+## How Kkachi Limits Its Blast Radius
 
-## How Kkachi limits its own blast radius
+- Kkachi runs non-sandboxed under the hardened runtime and requests only the Apple Events automation
+  entitlement it needs for browser control.
+- Per-browser automation is granted by the user through the macOS Automation privacy prompt and can be
+  revoked in System Settings at any time.
+- Browser metadata reads are limited to URL, title, active state, media playback state, and in-memory
+  identifiers needed to target the correct tab.
+- The media probe runs minimal browser JavaScript that returns only whether audible audio/video is playing.
+- Failed or unavailable automation goes in the safe direction: Kkachi keeps the tab open.
 
-- It runs **non-sandboxed under the hardened runtime**, requesting only
-  `com.apple.security.automation.apple-events`. Per-browser automation is granted by you through the
-  macOS Automation privacy prompt and can be revoked in System Settings at any time.
-- It reads only tab address and title; it never injects scripts or reads page content.
-- A failed close leaves the tab open (the safe direction); a browser that fails to automate is degraded
-  on its own without disabling the rest.
+## Browser Automation Fragility
 
-## A note on browser automation fragility
+Kkachi drives browsers through Apple Events and ScriptingBridge. Browser updates can change or break that
+automation. When that happens, Kkachi should degrade quietly for the affected browser instead of acting
+unpredictably.
 
-Kkachi drives browsers through Apple Events. A browser update can change or break that automation. When
-that happens Kkachi goes quiet for the affected browser rather than acting unpredictably — but if you
-notice it silently stop working after a browser update, that is worth reporting.
+If you notice Kkachi silently stop working after a browser update, please report it.
 
-## Supported versions
+## Supported Versions
 
-Until a `1.0` release, only the latest released version receives security fixes.
+Until the first `1.0` release is published, only the latest released version receives security fixes.

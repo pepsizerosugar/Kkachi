@@ -1,70 +1,85 @@
 # Kkachi
 
-Kkachi is a native macOS menu-bar utility that closes browser tabs you have left idle and keeps a small
-local restore history so you can bring them back.
+<p align="center">
+  <img src="site/assets/kkachi-icon.png" alt="Kkachi app icon" width="112" height="112">
+</p>
 
-The promise is deliberately narrow: Kkachi reads tab title, URL, and whether audio/video is playing, then
-keeps your tab data on your Mac.
+<p align="center">
+  <strong>For tabs you were definitely going to close.</strong>
+</p>
+
+<p align="center">
+  Kkachi is a tiny native macOS menu-bar app that tucks away idle browser tabs and keeps a small local
+  restore history, just in case Future You was right.
+</p>
+
+<p align="center">
+  <a href="https://github.com/pepsizerosugar/Kkachi/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/pepsizerosugar/Kkachi/actions/workflows/ci.yml/badge.svg"></a>
+  <img alt="Platform: macOS 13+" src="https://img.shields.io/badge/platform-macOS%2013%2B-101216">
+  <img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-236b62">
+  <img alt="Telemetry: none" src="https://img.shields.io/badge/telemetry-none-b3312a">
+</p>
 
 ## Status
 
 Kkachi is preparing for its first public release. User-installable builds will ship as signed,
-notarized DMGs on GitHub Releases and through a Homebrew cask. The planned release path is documented in
-[RELEASE.md](RELEASE.md).
+notarized DMGs on [GitHub Releases](https://github.com/pepsizerosugar/Kkachi/releases) and through a
+Homebrew cask.
 
-After the first notarized release is published, Homebrew installation will be:
+After the first notarized release is published:
 
 ```sh
 brew install --cask pepsizerosugar/tap/kkachi
 ```
 
+Until then, you can build it locally with Xcode.
+
+## Why Kkachi
+
+Most tabs are not work. They are postponed decisions wearing browser chrome.
+
+Kkachi watches supported browsers, closes only tabs that have been idle long enough, and leaves a local
+way back. No tab shame. Just a smaller tab strip.
+
 ## What It Does
 
-- Watches supported browsers through macOS Apple Events.
-- Tracks when each visible tab was last active.
-- Closes only inactive tabs that pass the pruning policy.
-- Skips active, protected, ambiguous, or unavailable tabs.
-- Stores a capped restore history locally.
-- Restores pruned tabs in their original browser when possible.
+| Step | Behavior |
+| --- | --- |
+| Watch | Reads open tab metadata - URL, title, active state, and audible media state - through macOS Apple Events. |
+| Prune | Closes only inactive tabs that pass the pruning policy. Active, protected, media-playing, ambiguous, or unavailable tabs are skipped. |
+| Restore | Keeps a capped local history of recently pruned tabs and reopens them in their original browser when possible. |
 
-## Privacy
+Supported browsers are Safari, Google Chrome, Microsoft Edge, Naver Whale, Brave, Vivaldi, Opera, and
+Arc.
 
-Kkachi reads only:
+## Privacy Promise
 
-- tab URL
-- tab title
-- whether audio/video is audibly playing
+Kkachi's privacy promise is deliberately small and verifiable:
 
-Kkachi does not collect page content, form fields, cookies, local storage, session storage, scroll position,
-or DOM text. Its media check returns only playback state so it does not close a tab that is playing.
-It makes no network calls today.
+| Kkachi | Details |
+| --- | --- |
+| Reads | Tab URL, tab title, active tab state, and whether audio/video is audibly playing. |
+| Stores | Minimal restore metadata: URL, title, prune time, browser identifiers/display key, and row/batch IDs. |
+| Does not read | Page content, DOM text, form fields, cookies, local storage, session storage, scroll position, or browsing history beyond currently open tabs. |
+| Does not send | Anything about your tabs off your Mac. Kkachi itself makes no network requests today, and has no accounts, servers, analytics, or telemetry. |
 
-Restore history is stored at:
+Restore history is stored locally at:
 
 ```text
 ~/Library/Application Support/Kkachi/restore-history.json
 ```
 
-See [PRIVACY.md](PRIVACY.md) for the full storage model.
+See [PRIVACY.md](PRIVACY.md) for the full storage model, including what is written to disk and what is
+intentionally not encrypted in v1.
 
-## Verify The Claims
-
-| Claim | Source |
-| --- | --- |
-| Persisted fields are URL/title/browser/time only | [`PrunedTab.swift`](Kkachi/Domain/Tracking/PrunedTab.swift) |
-| History is local, capped, private, and atomic | [`RestoreHistoryStore.swift`](Kkachi/Infrastructure/Persistence/RestoreHistoryStore.swift) |
-| Pruning decisions avoid active/protected/ambiguous tabs | [`PruneEvaluator.swift`](Kkachi/Domain/Tracking/PruneEvaluator.swift) |
-| Browser automation reads tab title, URL, and media playback state | [`BrowserScriptingBridge.swift`](Kkachi/Infrastructure/Scripting/BrowserScriptingBridge.swift), [`AppleScriptBridge+Media.swift`](Kkachi/Infrastructure/Scripting/AppleScriptBridge+Media.swift) |
-| Apple Events permission copy | [`InfoPlist.xcstrings`](Kkachi/Resources/InfoPlist.xcstrings) |
-
-## Build
+## Build From Source
 
 Requirements:
 
-- macOS
+- macOS 13 or later
 - Xcode
 
-Open `Kkachi.xcodeproj` and run the `Kkachi` scheme, or use:
+Open `Kkachi.xcodeproj` and run the `Kkachi` scheme, or build from the command line:
 
 ```sh
 xcodebuild build -project Kkachi.xcodeproj -scheme Kkachi -destination 'platform=macOS'
@@ -76,25 +91,32 @@ Run the deterministic test suite:
 xcodebuild test -project Kkachi.xcodeproj -scheme Kkachi -destination 'platform=macOS'
 ```
 
+## Verify The Claims
+
+Kkachi is intentionally small so its trust claims can be checked in source.
+
+| Claim | Source |
+| --- | --- |
+| Supported browsers and automation families | [`SupportedBrowsers.swift`](Kkachi/Domain/Browser/SupportedBrowsers.swift) |
+| Pruning avoids active, protected, media-playing, ambiguous, or unavailable tabs | [`PruneEvaluator.swift`](Kkachi/Domain/Tracking/PruneEvaluator.swift) |
+| Persisted restore-history fields omit original tab/window identity | [`PrunedTab.swift`](Kkachi/Domain/Tracking/PrunedTab.swift) |
+| History is local, capped, private, atomic, and corruption-safe | [`RestoreHistoryStore.swift`](Kkachi/Infrastructure/Persistence/RestoreHistoryStore.swift) |
+| Browser automation reads title, URL, active state, and media playback state | [`BrowserScriptingBridge.swift`](Kkachi/Infrastructure/Scripting/BrowserScriptingBridge.swift), [`AppleScriptBridge+Media.swift`](Kkachi/Infrastructure/Scripting/AppleScriptBridge+Media.swift) |
+| Apple Events permission copy | [`InfoPlist.xcstrings`](Kkachi/Resources/InfoPlist.xcstrings) |
+
 ## Product Boundaries
 
-Kkachi is not intended to become:
+Kkachi is not trying to become a browser extension, full tab manager, session manager, bookmark
+replacement, productivity dashboard, or search palette for tabs.
 
-- a browser extension
-- a full tab manager
-- a session manager
-- a bookmark replacement
-- a productivity dashboard
-- a search or command palette for tabs
-- a collector of page content, cookies, form state, playback details, or scroll position
-
-Changes that improve safety, reliability, accessibility, localization, browser compatibility, and native
-macOS behavior are in scope. Features that widen the privacy surface or turn the app into a tab-management
-dashboard are out of scope.
+Changes that improve safety, reliability, accessibility, localization, browser compatibility, release
+quality, and native macOS behavior are in scope. Features that widen the privacy surface or turn the app
+into a tab-management dashboard are out of scope.
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md).
+Kkachi is small, opinionated, and trust-sensitive. Please read [CONTRIBUTING.md](CONTRIBUTING.md) before
+opening a pull request.
 
 ## Website
 
