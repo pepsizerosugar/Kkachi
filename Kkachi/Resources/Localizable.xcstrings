@@ -1412,6 +1412,7 @@
       }
     },
     "menu.history.batchClosed" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1548,6 +1549,7 @@
       }
     },
     "menu.history.reopenBatch" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1687,6 +1689,7 @@
       }
     },
     "menu.history.undoLast" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1900,31 +1903,31 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Reopen anytime — kept safe on this Mac."
+            "value" : "Recently closed tabs can be reopened."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "いつでも開き直せます。この Mac に安全に保管しています。"
+            "value" : "最近閉じたタブは再オープンできます。"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "언제든 다시 열 수 있어요. 이 Mac에 안전하게 보관했어요."
+            "value" : "최근 닫은 탭은 다시 열 수 있습니다."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "随时可重新打开 — 已安全保存在本机。"
+            "value" : "最近关闭的标签页可以重新打开。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "隨時可重新開啟 — 已安全保存在這台 Mac。"
+            "value" : "最近關閉的分頁可以重新開啟。"
           }
         }
       }
@@ -1935,31 +1938,31 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachi saved enough on this Mac — the address and title — to reopen it."
+            "value" : "Recently closed tabs can be reopened."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachiは再び開くための最小限の情報だけをこの Mac に保管しています。"
+            "value" : "最近閉じたタブは再オープンできます。"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachi가 다시 열 수 있을 만큼의 정보만 이 Mac에 보관했어요."
+            "value" : "최근 닫은 탭을 다시 열 수 있습니다."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachi 只在这台 Mac 上保留了足够重新打开它的信息。"
+            "value" : "最近关闭的标签页可以重新打开。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachi 只在這台 Mac 保留了足夠重新開啟它的資訊——網址與標題。"
+            "value" : "最近關閉的分頁可以重新開啟。"
           }
         }
       }
@@ -1970,31 +1973,31 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tucked away just now"
+            "value" : "Pruning complete"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "そっとしまいました"
+            "value" : "整理完了"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "방금 정리했어요"
+            "value" : "정리 완료"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "刚刚帮你收好了"
+            "value" : "整理完成"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "剛剛幫你收好了"
+            "value" : "整理完成"
           }
         }
       }
@@ -2005,31 +2008,31 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ready to reopen"
+            "value" : "Reopen available"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "再オープンできます"
+            "value" : "再オープン可能"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "다시 열 수 있어요"
+            "value" : "다시 열기 가능"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "可以重新打开"
+            "value" : "可重新打开"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "可以重新開啟"
+            "value" : "可重新開啟"
           }
         }
       }
@@ -2074,31 +2077,31 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachi is alert"
+            "value" : "Kkachi review needed"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachiが注意しています"
+            "value" : "Kkachi 確認が必要"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachi가 살피는 중"
+            "value" : "Kkachi 검토 필요"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachi 正在提醒"
+            "value" : "Kkachi 需要查看"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachi 正在提醒"
+            "value" : "Kkachi 需要檢視"
           }
         }
       }
@@ -2144,31 +2147,31 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachi is calm"
+            "value" : "Kkachi waiting"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachiは落ち着いています"
+            "value" : "Kkachi 待機中"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachi가 조용히 대기 중"
+            "value" : "Kkachi 대기 중"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachi 很平静"
+            "value" : "Kkachi 等待中"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachi 很平靜"
+            "value" : "Kkachi 等待中"
           }
         }
       }
@@ -2179,7 +2182,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachi is paused"
+            "value" : "Kkachi paused"
           }
         },
         "ja" : {
@@ -2191,7 +2194,7 @@
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachi가 쉬는 중"
+            "value" : "Kkachi 일시정지됨"
           }
         },
         "zh-Hans" : {
@@ -2214,31 +2217,31 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachi is pruning"
+            "value" : "Kkachi pruning tabs"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachiが整理中です"
+            "value" : "Kkachi タブ整理中"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachi가 정리 중"
+            "value" : "Kkachi 탭 정리 중"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachi 正在整理"
+            "value" : "Kkachi 正在整理标签页"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachi 正在整理"
+            "value" : "Kkachi 正在整理分頁"
           }
         }
       }
@@ -2249,19 +2252,19 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachi has tabs to reopen"
+            "value" : "Kkachi tabs can be reopened"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachiに再オープンできるタブがあります"
+            "value" : "Kkachi 再オープンできるタブあり"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachi가 다시 열 탭을 보관 중"
+            "value" : "Kkachi 다시 열 수 있는 탭 있음"
           }
         },
         "zh-Hans" : {
@@ -2279,11 +2282,12 @@
       }
     },
     "menu.mood.sleeping" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachi is sleeping"
+            "value" : "Kkachi sleeping"
           }
         },
         "ja" : {
@@ -2295,19 +2299,19 @@
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachi가 잠자는 중"
+            "value" : "Kkachi 잠자기 중"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachi 正在休眠"
+            "value" : "Kkachi 睡眠中"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachi 正在休眠"
+            "value" : "Kkachi 睡眠中"
           }
         }
       }
@@ -2318,36 +2322,37 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachi is watching tabs"
+            "value" : "Kkachi monitoring tabs"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachiがタブを見守っています"
+            "value" : "Kkachi タブ監視中"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachi가 탭을 지켜보는 중"
+            "value" : "Kkachi 탭 모니터링 중"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachi 正在看护标签页"
+            "value" : "Kkachi 正在监控标签页"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachi 正在看護分頁"
+            "value" : "Kkachi 正在監控分頁"
           }
         }
       }
     },
     "menu.more.count" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2387,31 +2392,31 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Review the next tabs before Kkachi closes them."
+            "value" : "Review tabs that will close soon."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachiが閉じる前に、次のタブをご確認ください。"
+            "value" : "まもなく閉じるタブを確認してください。"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachi가 닫기 전에 다음 탭을 검토하세요."
+            "value" : "곧 닫힐 탭을 확인하세요."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "在 Kkachi 关闭前查看接下来的标签页。"
+            "value" : "查看即将关闭的标签页。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "在 Kkachi 關閉前檢視接下來的分頁。"
+            "value" : "檢視即將關閉的分頁。"
           }
         }
       }
@@ -2422,31 +2427,31 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachi can’t safely close these. Close or protect them yourself."
+            "value" : "These tabs can’t be closed automatically. Close or protect them."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachi が安全に閉じられないタブです。手動で閉じるか、保護してください。"
+            "value" : "自動で閉じられないタブです。閉じるか保護してください。"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachi가 안전하게 닫을 수 없는 탭이에요. 직접 닫거나 보호해 주세요."
+            "value" : "자동으로 닫을 수 없는 탭입니다. 직접 닫거나 보호하세요."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachi 无法安全关闭这些标签页。请手动关闭，或将其保护。"
+            "value" : "这些标签页无法自动关闭。请关闭或保护它们。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kkachi 無法安全關閉這些分頁。請手動關閉，或將其保護。"
+            "value" : "這些分頁無法自動關閉。請關閉或保護它們。"
           }
         }
       }
@@ -2457,31 +2462,31 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Restore browser permission and automatic pruning can resume."
+            "value" : "Check permission to continue automatic pruning."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "自動整理を再開する前に権限を確認してください。"
+            "value" : "自動整理を続けるには権限を確認してください。"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "자동 정리를 다시 시작하려면 먼저 권한을 확인하세요."
+            "value" : "자동 정리를 계속하려면 권한을 확인하세요."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "恢复自动整理前请重新检查权限。"
+            "value" : "请检查权限以继续自动整理。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "恢復自動整理前請重新檢查權限。"
+            "value" : "請檢查權限以繼續自動整理。"
           }
         }
       }
@@ -2492,19 +2497,19 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Automatic pruning is off until you resume it."
+            "value" : "Automatic pruning stays off until you resume."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "再開するまで自動整理は停止中です。"
+            "value" : "再開するまで自動整理はオフです。"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "다시 시작할 때까지 자동 정리가 꺼져 있어요."
+            "value" : "다시 시작할 때까지 자동 정리가 꺼집니다."
           }
         },
         "zh-Hans" : {
@@ -2527,31 +2532,31 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Quietly keeping an eye on your idle tabs."
+            "value" : "Idle tabs are checked and closed when they match your settings."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "使われていないタブを静かに見守っています。"
+            "value" : "未使用のタブを確認し、設定に合う場合は閉じます。"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "유휴 탭을 조용히 지켜보고 있어요."
+            "value" : "유휴 탭을 확인하고 기준에 맞으면 닫습니다."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "正在安静地留意闲置标签页。"
+            "value" : "检查闲置标签页，并在符合设置时关闭。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "正在安靜地留意閒置分頁。"
+            "value" : "檢查閒置分頁，並在符合設定時關閉。"
           }
         }
       }
@@ -2562,31 +2567,31 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pruning is on. Nothing idle right now."
+            "value" : "Automatic pruning is on. No idle tabs right now."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "整理は有効です。今は使われていないタブはありません。"
+            "value" : "自動整理はオンです。現在、未使用のタブはありません。"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "정리가 켜져 있어요. 지금은 유휴 탭이 없어요."
+            "value" : "자동 정리가 켜져 있습니다. 현재 유휴 탭은 없습니다."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "整理已开启。当前没有闲置标签页。"
+            "value" : "自动整理已开启。当前没有闲置标签页。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "整理已開啟。目前沒有閒置分頁。"
+            "value" : "自動整理已開啟。目前沒有閒置分頁。"
           }
         }
       }
@@ -2597,31 +2602,31 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Connect a supported browser and grant automation when macOS asks."
+            "value" : "Connect a supported browser and allow automation."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "対応ブラウザを接続し、macOSの確認で自動化を許可してください。"
+            "value" : "対応ブラウザを接続し、自動化を許可してください。"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "지원 브라우저를 연결하고 macOS 요청 시 자동화 권한을 허용하세요."
+            "value" : "지원 브라우저를 연결하고 자동화 권한을 허용하세요."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "连接支持的浏览器，并在 macOS 提示时允许自动化。"
+            "value" : "连接支持的浏览器并允许自动化。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "連接支援的瀏覽器，並在 macOS 提示時允許自動化。"
+            "value" : "連接支援的瀏覽器並允許自動化。"
           }
         }
       }
@@ -2632,31 +2637,31 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pruning resumes when your Mac wakes."
+            "value" : "Automatic pruning resumes when your Mac wakes."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mac が復帰すると整理を再開します。"
+            "value" : "Mac が復帰すると自動整理を再開します。"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mac이 깨어나면 정리를 다시 시작해요."
+            "value" : "Mac이 깨어나면 자동 정리를 다시 시작합니다."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mac 唤醒后将继续整理。"
+            "value" : "Mac 唤醒后会恢复自动整理。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mac 喚醒後會繼續整理。"
+            "value" : "Mac 喚醒後會恢復自動整理。"
           }
         }
       }
@@ -2673,13 +2678,13 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "まもなく%lld件を整理"
+            "value" : "%lld件まもなく整理"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "곧 정리할 탭 %lld개"
+            "value" : "%lld개 곧 정리"
           }
         },
         "zh-Hans" : {
@@ -2702,31 +2707,31 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%lld can’t auto-close"
+            "value" : "%lld need manual review"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "手動で閉じるタブ %lld 個"
+            "value" : "%lld件は手動確認が必要"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "직접 닫을 탭 %lld개"
+            "value" : "%lld개 수동 확인 필요"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%lld 个需手动关闭"
+            "value" : "%lld 个需手动查看"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%lld 個需手動關閉"
+            "value" : "%lld 個需手動檢視"
           }
         }
       }
@@ -2737,31 +2742,31 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Needs attention"
+            "value" : "Check permission"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "対応が必要"
+            "value" : "権限を確認"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "확인 필요"
+            "value" : "권한 확인 필요"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "需要处理"
+            "value" : "检查权限"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "需要處理"
+            "value" : "檢查權限"
           }
         }
       }
@@ -2807,31 +2812,31 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pruning is on"
+            "value" : "Automatic pruning on"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "整理は有効"
+            "value" : "自動整理オン"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "정리 켜짐"
+            "value" : "자동 정리 켜짐"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "整理已开启"
+            "value" : "自动整理已开启"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "整理已開啟"
+            "value" : "自動整理已開啟"
           }
         }
       }
@@ -2842,31 +2847,31 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Finish setup"
+            "value" : "Setup needed"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "設定を完了"
+            "value" : "設定が必要"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "설정 마무리"
+            "value" : "설정 필요"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "完成设置"
+            "value" : "需要设置"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "完成設定"
+            "value" : "需要設定"
           }
         }
       }
@@ -2889,19 +2894,19 @@
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "잠자는 중"
+            "value" : "잠자기 중"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "休眠中"
+            "value" : "睡眠中"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "休眠中"
+            "value" : "睡眠中"
           }
         }
       }
@@ -2992,7 +2997,7 @@
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%lld개 탭 곧 정리"
+            "value" : "%lld개 곧 정리"
           }
         },
         "zh-Hans" : {
@@ -3027,7 +3032,7 @@
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%lld개 탭 곧 정리"
+            "value" : "%lld개 곧 정리"
           }
         },
         "zh-Hans" : {
@@ -3115,6 +3120,7 @@
       }
     },
     "notification.pruned.reopenAll" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3149,6 +3155,7 @@
       }
     },
     "notification.pruned.title" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3809,380 +3816,6 @@
         }
       }
     },
-    "settings.language.option.en" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "English"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "英語"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "영어"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "英语"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "英文"
-          }
-        }
-      }
-    },
-    "settings.language.option.ja" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Japanese"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "日本語"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "일본어"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "日语"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "日文"
-          }
-        }
-      }
-    },
-    "settings.language.option.ko" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Korean"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "韓国語"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "한국어"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "韩语"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "韓文"
-          }
-        }
-      }
-    },
-    "settings.language.option.system" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "System setting"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "システム設定"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "시스템 설정"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "跟随系统"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "系統設定"
-          }
-        }
-      }
-    },
-    "settings.language.option.zhHans" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Simplified Chinese"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "簡体字中国語"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "중국어(간체)"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "简体中文"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "簡體中文"
-          }
-        }
-      }
-    },
-    "settings.language.option.zhHant" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Traditional Chinese"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "繁体字中国語"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "중국어(번체)"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "繁体中文"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "繁體中文"
-          }
-        }
-      }
-    },
-    "settings.language.section" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Language"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "言語"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "언어"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "语言"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "語言"
-          }
-        }
-      }
-    },
-    "settings.language.title" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "App language"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "アプリの言語"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "앱 언어"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "应用语言"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "App 語言"
-          }
-        }
-      }
-    },
-    "settings.polling.caption" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Shorter intervals react faster but wake browsers more often."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "短いほど早く反応しますが、ブラウザをより頻繁に確認します。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "짧을수록 더 빨리 반응하지만 브라우저를 더 자주 확인해요."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "间隔越短响应越快，但会更频繁地检查浏览器。"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "間隔越短反應越快，但會更頻繁地檢查瀏覽器。"
-          }
-        }
-      }
-    },
-    "settings.polling.minutes" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "min"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "分"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "분"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "分钟"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "分鐘"
-          }
-        }
-      }
-    },
-    "settings.polling.title" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Check every"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "確認間隔"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "검사 주기"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "检查间隔"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "檢查間隔"
-          }
-        }
-      }
-    },
     "settings.exclusions.add" : {
       "localizations" : {
         "en" : {
@@ -4354,6 +3987,7 @@
       }
     },
     "settings.exclusions.count" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -4492,6 +4126,7 @@
       }
     },
     "settings.exclusions.feedback.summary" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -4628,6 +4263,7 @@
       }
     },
     "settings.exclusions.hint" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -4765,6 +4401,7 @@
       }
     },
     "settings.exclusions.remove.help" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -4828,6 +4465,284 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "受保護的網站"
+          }
+        }
+      }
+    },
+    "settings.language.option.en" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "English"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "英語"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "영어"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "英语"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "英文"
+          }
+        }
+      }
+    },
+    "settings.language.option.ja" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Japanese"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "日本語"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "일본어"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "日语"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "日文"
+          }
+        }
+      }
+    },
+    "settings.language.option.ko" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Korean"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "韓国語"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "한국어"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "韩语"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "韓文"
+          }
+        }
+      }
+    },
+    "settings.language.option.system" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "System setting"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "システム設定"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "시스템 설정"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "跟随系统"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "系統設定"
+          }
+        }
+      }
+    },
+    "settings.language.option.zhHans" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Simplified Chinese"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "簡体字中国語"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "중국어(간체)"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "简体中文"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "簡體中文"
+          }
+        }
+      }
+    },
+    "settings.language.option.zhHant" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Traditional Chinese"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "繁体字中国語"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "중국어(번체)"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "繁体中文"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "繁體中文"
+          }
+        }
+      }
+    },
+    "settings.language.section" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Language"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "言語"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "언어"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "语言"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "語言"
+          }
+        }
+      }
+    },
+    "settings.language.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App language"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アプリの言語"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "앱 언어"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "应用语言"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App 語言"
           }
         }
       }
@@ -4965,6 +4880,108 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "暫停整理"
+          }
+        }
+      }
+    },
+    "settings.polling.caption" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Shorter intervals react faster but wake browsers more often."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "短いほど早く反応しますが、ブラウザをより頻繁に確認します。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "짧을수록 더 빨리 반응하지만 브라우저를 더 자주 확인해요."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "间隔越短响应越快，但会更频繁地检查浏览器。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "間隔越短反應越快，但會更頻繁地檢查瀏覽器。"
+          }
+        }
+      }
+    },
+    "settings.polling.minutes" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "min"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "分"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "분"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "分钟"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "分鐘"
+          }
+        }
+      }
+    },
+    "settings.polling.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Check every"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "確認間隔"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "검사 주기"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "检查间隔"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "檢查間隔"
           }
         }
       }
@@ -5310,6 +5327,7 @@
       }
     },
     "settings.threshold.custom.summary" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
